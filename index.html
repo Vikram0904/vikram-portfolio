@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- Primary Meta Tags -->
+  <title>S Vikram — AI-Focused WordPress Developer &amp; Systems Architect | vikram.dev</title>
+  <meta name="title" content="S Vikram — AI-Focused WordPress Developer & Systems Architect | vikram.dev" />
+  <meta name="description" content="Award-winning freelance portfolio of S Vikram. Expert in bespoke WordPress theme & plugin development, PHP/MySQL, Stripe/Square payments, and LLM/MCP server automation." />
+  <meta name="keywords" content="WordPress Developer, AI Developer, MCP Server, Freelance WordPress Developer, Custom WordPress Plugins, PHP 8, React, Stripe API, Karur India, S Vikram" />
+  <meta name="author" content="S Vikram" />
+  <meta name="theme-color" content="#08090C" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://vikram.dev/" />
+  <meta property="og:title" content="S Vikram — AI-Focused WordPress Developer | vikram.dev" />
+  <meta property="og:description" content="Custom WordPress themes, plugins, high-throughput payment architectures, and AI/MCP automated workflows delivered with precision." />
+  <meta property="og:image" content="/assets/hero-portrait.jpg" />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:title" content="S Vikram — AI-Focused WordPress Developer | vikram.dev" />
+  <meta property="twitter:description" content="Custom WordPress themes, plugins, payment gateways, and LLM/MCP workflows." />
+  <meta property="twitter:image" content="/assets/hero-portrait.jpg" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- Google Fonts: Syne, Plus Jakarta Sans, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400..800;1,400..800&family=Plus+Jakarta+Sans:ital,wght@0,400..800;1,400..800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Structured Data JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "S Vikram",
+    "url": "https://vikram.dev",
+    "jobTitle": "AI-Focused WordPress Developer",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Vybog Pvt Ltd"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Karur",
+      "addressRegion": "Tamil Nadu",
+      "addressCountry": "India"
+    },
+    "email": "vikramnsk4@gmail.com",
+    "telephone": "+916369149082",
+    "sameAs": [
+      "https://linkedin.com/in/vikramsdev"
+    ],
+    "knowsAbout": [
+      "WordPress Development",
+      "PHP",
+      "Custom Plugin Development",
+      "Stripe API",
+      "Square API",
+      "Model Context Protocol (MCP)",
+      "LLM Integrations",
+      "MySQL",
+      "JavaScript",
+      "React.js"
+    ]
+  }
+  </script>
+
+  <!-- Master Stylesheet -->
+  <link rel="stylesheet" href="/src/styles/index.css" />
+</head>
+<body>
+
+  <!-- Ambient Film Grain -->
+  <div class="noise-overlay"></div>
+
+  <!-- Custom Magnetic Cursor (Desktop) -->
+  <div class="custom-cursor">
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring"></div>
+    <div class="cursor-label">EXPLORE</div>
+  </div>
+
+  <!-- Branded Preloader -->
+  <aside class="preloader" aria-label="Loading vikram.dev portfolio">
+    <div class="preloader-shutter-top"></div>
+    <div class="preloader-shutter-bottom"></div>
+    
+    <div class="preloader-content">
+      <svg class="preloader-logo-svg" viewBox="0 0 64 64" fill="none">
+        <circle cx="32" cy="32" r="26" stroke="#252D3D" stroke-width="2"/>
+        <circle cx="32" cy="32" r="26" stroke="#FF6B35" stroke-width="2.5" class="preloader-path" stroke-linecap="round"/>
+        <path d="M19 24 L27 40 L35 24" stroke="#FF6B35" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="preloader-path"/>
+        <path d="M33 24 L41 24 C46.5 24 49 27.5 49 32 C49 36.5 46.5 40 41 40 L33 40" stroke="#FF6B35" stroke-width="3" stroke-linecap="round" class="preloader-path"/>
+        <circle cx="43" cy="22" r="2.5" fill="#00F0FF"/>
+      </svg>
+
+      <div class="preloader-progress-wrap">
+        <span class="preloader-counter">00</span>
+        <span class="preloader-pct">%</span>
+      </div>
+
+      <div class="preloader-bar-track">
+        <div class="preloader-bar-fill"></div>
+      </div>
+
+      <span class="preloader-status">INITIALIZING SYSTEMS // VIKRAM.DEV</span>
+    </div>
+  </aside>
+
+  <!-- Site Navigation Header -->
+  <header class="site-header">
+    <div class="container nav-inner">
+      <a href="#hero" class="brand-logo interactive-el" aria-label="vikram.dev Home">
+        <img src="/assets/logo.svg" alt="vikram.dev - AI • WordPress • Web Dev" />
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="#about" class="nav-link"><span>01.</span>About</a></li>
+          <li><a href="#skills" class="nav-link"><span>02.</span>Skills</a></li>
+          <li><a href="#experience" class="nav-link"><span>03.</span>Experience</a></li>
+          <li><a href="#projects" class="nav-link"><span>04.</span>Work</a></li>
+          <li><a href="#process" class="nav-link"><span>05.</span>Process</a></li>
+          <li><a href="#education" class="nav-link"><span>06.</span>Credentials</a></li>
+          <li><a href="#contact" class="nav-link"><span>07.</span>Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Subtle Audio Synthesizer Toggle -->
+        <button class="audio-toggle-btn interactive-el" title="Toggle Interaction Sound FX" aria-label="Toggle Interaction Sound FX">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+        </button>
+
+        <a href="#contact" class="btn-nav-cta interactive-el btn-magnetic">
+          <span>LET'S TALK</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+
+        <button class="mobile-menu-btn" aria-label="Toggle Navigation Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-nav-drawer" aria-label="Mobile Navigation">
+    <a href="#about" class="nav-link"><span>01.</span> About Me</a>
+    <a href="#skills" class="nav-link"><span>02.</span> Skills &amp; Tech</a>
+    <a href="#experience" class="nav-link"><span>03.</span> Experience</a>
+    <a href="#projects" class="nav-link"><span>04.</span> Selected Work</a>
+    <a href="#process" class="nav-link"><span>05.</span> Process</a>
+    <a href="#education" class="nav-link"><span>06.</span> Credentials</a>
+    <a href="#contact" class="nav-link"><span>07.</span> Get in Touch</a>
+  </div>
+
+  <main>
+    <!-- SECTION 1: HERO -->
+    <section id="hero" class="hero-section">
+      <div id="hero-canvas-container" class="hero-webgl-canvas" aria-hidden="true"></div>
+
+      <div class="container hero-content-wrap">
+        <div class="hero-text-col">
+          <div class="hero-badge-wrap">
+            <span class="pulse-dot"></span>
+            <span class="hero-badge-text">Available for High-Impact Freelance &amp; Contract Roles</span>
+          </div>
+
+          <h1 class="hero-title">
+            <span class="title-line">Architecting <span class="highlight-copper">WordPress</span></span>
+            <span class="title-line">&amp; <span class="highlight-cyan">AI Workflows</span></span>
+          </h1>
+
+          <p class="hero-description">
+            I engineer high-concurrency custom WordPress themes, bespoke payment plugins, and LLM-powered MCP automation tools that turn complex digital operations into seamless client revenue.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#projects" class="btn-primary interactive-el btn-magnetic">
+              <span>EXPLORE SELECTED WORK</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#contact" class="btn-secondary interactive-el btn-magnetic">
+              <span>GET IN TOUCH</span>
+            </a>
+          </div>
+
+          <div class="hero-meta-strip">
+            <div class="meta-item">
+              <span class="meta-val">30<span>+</span></span>
+              <span class="meta-lbl">Platforms Delivered</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-val">&lt; 0.6<span>s</span></span>
+              <span class="meta-lbl">Avg Response Latency</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-val">100<span>%</span></span>
+              <span class="meta-lbl">Custom Code / Zero Bloat</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cyberpunk 3D HUD Portrait Column -->
+        <div class="hero-visual-wrap">
+          <div class="hero-cyber-card" id="hero-tilt-card">
+            
+            <!-- Cyber Outer Frame / Tech Borders -->
+            <div class="cyber-frame" aria-hidden="true">
+              <!-- Corner Brackets -->
+              <div class="cyber-corner corner-tl"></div>
+              <div class="cyber-corner corner-tr"></div>
+              <div class="cyber-corner corner-bl"></div>
+              <div class="cyber-corner corner-br"></div>
+              
+              <!-- Neon Dual Border Glow Overlay -->
+              <div class="cyber-neon-border"></div>
+            </div>
+
+            <!-- Transparent Holographic Card Body (Allows 3D wireframe mesh to pass through) -->
+            <div class="cyber-card-body">
+              <!-- Soft Atmospheric Rim Glows -->
+              <div class="cyber-glow-orange" aria-hidden="true"></div>
+              <div class="cyber-glow-cyan" aria-hidden="true"></div>
+              <div class="cyber-bg-pattern" aria-hidden="true"></div>
+
+              <!-- Vikram Enhanced High-Res Cutout Portrait -->
+              <img src="/assets/vikramdev-enhanced.png" alt="S Vikram - WordPress & AI Developer" class="cyber-portrait-img" />
+
+              <!-- Bottom Vignette Fade so arms integrate smoothly with base frame -->
+              <div class="cyber-portrait-fade" aria-hidden="true"></div>
+            </div>
+
+            <!-- Floating Orbital Glassmorphic HUD Badges (Positioned cleanly outside image silhouette) -->
+            <!-- Badge 1: Top Left - WordPress Specialist (Floating in upper-left negative space) -->
+            <div class="hud-badge badge-wp">
+              <div class="hud-badge-icon wp-bg">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12.158 12.786l-2.698 7.84c.806.236 1.657.364 2.54.364 2.44 0 4.64-.99 6.233-2.59l-4.14-11.36-.002.002-1.933 5.744zm-6.28-1.528c0 2.227.818 4.263 2.164 5.835L4.47 7.766A9.914 9.914 0 005.878 11.258zm12.333-5.263c.692.936 1.107 2.096 1.107 3.35 0 1.29-.44 2.476-1.18 3.42l-3.328-9.452a9.92 9.92 0 013.401 2.682zM12 2a10 10 0 100 20 10 10 0 000-20zm0 1.5a8.49 8.49 0 015.657 2.158L12.44 18.09 9.382 9.243l-.403-1.168A8.47 8.47 0 0112 3.5z"/>
+                </svg>
+              </div>
+              <div class="hud-badge-text">
+                <span class="hud-title">WordPress Developer</span>
+                <span class="hud-sub">Custom Themes & Plugins</span>
+              </div>
+            </div>
+
+            <!-- Badge 2: Top Right - AI Integration (Floating in upper-right negative space) -->
+            <div class="hud-badge badge-ai">
+              <div class="hud-badge-icon ai-bg">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00F0FF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="4" y="4" width="16" height="16" rx="3" />
+                  <rect x="9" y="9" width="6" height="6" rx="1" />
+                  <path d="M9 1v3M15 1v3M9 20v3M15 20v3M1 9h3M1 15h3M20 9h3M20 15h3" />
+                </svg>
+              </div>
+              <div class="hud-badge-text">
+                <span class="hud-title">AI Integration</span>
+                <span class="hud-sub">ChatGPT • API • MCP</span>
+              </div>
+            </div>
+
+            <!-- Badge 3: Bottom Dock - Full Stack Architecture (Docked underneath arms with 0% body overlap) -->
+            <div class="hud-badge badge-fullstack">
+              <div class="hud-status-indicator">
+                <span class="status-pulse-dot"></span>
+              </div>
+              <div class="hud-badge-text">
+                <span class="hud-title">Full Stack Developer</span>
+                <span class="hud-sub">React • PHP • JS • MySQL</span>
+              </div>
+            </div>
+
+            <!-- Ambient Card Backglow -->
+            <div class="hero-cyber-ambient-glow" aria-hidden="true"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll Cue Indicator -->
+      <div class="container hero-scroll-cue">
+        <div class="scroll-mouse">
+          <div class="mouse-icon">
+            <div class="mouse-wheel"></div>
+          </div>
+          <span>Scroll to Explore</span>
+        </div>
+        <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); letter-spacing: 0.1em;">
+          KARUR, TN, INDIA • VIKRAM.DEV
+        </div>
+      </div>
+
+      <!-- Ticker Marquee -->
+      <div class="hero-ticker-wrap">
+        <div class="ticker-track">
+          <div class="ticker-item">CUSTOM WORDPRESS PLUGINS <span class="dot">•</span></div>
+          <div class="ticker-item">STRIPE &amp; SQUARE GATEWAYS <span class="dot">•</span></div>
+          <div class="ticker-item">LLM &amp; MCP SERVER WORKFLOWS <span class="dot">•</span></div>
+          <div class="ticker-item">SUB-SECOND AJAX FILTERING <span class="dot">•</span></div>
+          <div class="ticker-item">FIGMA-TO-WP PIXEL PERFECTION <span class="dot">•</span></div>
+          <div class="ticker-item">PHP 8.x OBJECT ORIENTED ARCHITECTURE <span class="dot">•</span></div>
+          <div class="ticker-item">CORE WEB VITALS 95+ OPTIMIZATION <span class="dot">•</span></div>
+
+          <!-- Repeat for continuous marquee -->
+          <div class="ticker-item">CUSTOM WORDPRESS PLUGINS <span class="dot">•</span></div>
+          <div class="ticker-item">STRIPE &amp; SQUARE GATEWAYS <span class="dot">•</span></div>
+          <div class="ticker-item">LLM &amp; MCP SERVER WORKFLOWS <span class="dot">•</span></div>
+          <div class="ticker-item">SUB-SECOND AJAX FILTERING <span class="dot">•</span></div>
+          <div class="ticker-item">FIGMA-TO-WP PIXEL PERFECTION <span class="dot">•</span></div>
+          <div class="ticker-item">PHP 8.x OBJECT ORIENTED ARCHITECTURE <span class="dot">•</span></div>
+          <div class="ticker-item">CORE WEB VITALS 95+ OPTIMIZATION <span class="dot">•</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: ABOUT ME -->
+    <section id="about" class="about-section">
+      <div class="container">
+        <div class="section-header reveal-suspense">
+          <div class="section-eyebrow">Career &amp; Philosophy</div>
+          <h2 class="section-title">From Enterprise WordPress Craftsmanship <br />to Next-Gen AI Automation</h2>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-visual-box reveal-suspense">
+            <img src="/assets/about-workspace.jpg" alt="S Vikram at his engineering desk" class="about-img" />
+            <div class="about-image-hud">
+              <div class="hud-location">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--copper)" stroke-width="2"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span>Karur, Tamil Nadu, India</span>
+              </div>
+              <div class="hud-role">WP Developer @ Vybog Pvt Ltd</div>
+            </div>
+          </div>
+
+          <div class="about-narrative reveal-suspense">
+            <p>
+              I am <strong>S Vikram</strong>, an AI-focused WordPress developer with a track record of building and launching over <strong>30+ commercial web platforms</strong> across e-commerce, education, and SaaS domains.
+            </p>
+            <p>
+              By day, I work full-time as a WordPress Developer at <strong>Vybog Pvt Ltd</strong>, architecting robust theme systems, custom plugins, secure payment infrastructures (Stripe &amp; Square), and dynamic AJAX user interfaces.
+            </p>
+            <p>
+              On the side, I partner with forward-thinking agencies, founders, and enterprises as a freelance engineer. I bridge the gap between traditional WordPress mastery and cutting-edge artificial intelligence — orchestrating <strong>Model Context Protocol (MCP) servers</strong> and LLM-driven automation pipelines to give businesses an unfair speed advantage.
+            </p>
+
+            <div class="about-stats-grid">
+              <div class="stat-card">
+                <div class="stat-num">30+</div>
+                <div class="stat-label">Websites &amp; Platforms Delivered</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-num">100%</div>
+                <div class="stat-label">Secure Payment Gateway Success</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-num">&lt;20ms</div>
+                <div class="stat-label">AJAX &amp; Database Query Overhead</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-num">AI+WP</div>
+                <div class="stat-label">MCP &amp; Agentic Automation Focus</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: SKILLS MATRIX -->
+    <section id="skills" class="skills-section">
+      <div class="container">
+        <div class="section-header reveal-suspense">
+          <div class="section-eyebrow">Technical Capabilities</div>
+          <h2 class="section-title">Verified Skill Matrix &amp; Tech Radar</h2>
+          <p class="section-subtitle">
+            A comprehensive overview of my core competencies across backend architecture, frontend engineering, payment integrations, and AI tool development.
+          </p>
+        </div>
+
+        <div class="skills-controls reveal-suspense">
+          <div class="skills-filter-pills">
+            <button class="skill-pill-btn active interactive-el" data-filter="all">All Disciplines (20)</button>
+            <button class="skill-pill-btn interactive-el" data-filter="cms">CMS &amp; WP Core</button>
+            <button class="skill-pill-btn interactive-el" data-filter="languages">Languages &amp; DB</button>
+            <button class="skill-pill-btn interactive-el" data-filter="frontend">Frontend &amp; UX</button>
+            <button class="skill-pill-btn interactive-el" data-filter="payments">APIs &amp; Payments</button>
+            <button class="skill-pill-btn interactive-el" data-filter="ai">AI &amp; Automation</button>
+            <button class="skill-pill-btn interactive-el" data-filter="tools">DevOps &amp; Tools</button>
+          </div>
+
+          <div class="skills-search-box">
+            <svg class="skills-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            <input type="text" id="skills-search" class="skills-search-input" placeholder="Search skill, tool or language..." />
+          </div>
+        </div>
+
+        <div id="skills-matrix-container" class="skills-matrix-grid">
+          <!-- Dynamically populated via skills.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: EXPERIENCE TIMELINE -->
+    <section id="experience" class="experience-section">
+      <div class="container">
+        <div class="section-header reveal-suspense">
+          <div class="section-eyebrow">Professional History</div>
+          <h2 class="section-title">Work Experience</h2>
+        </div>
+
+        <div class="experience-timeline">
+          <div class="timeline-line"></div>
+
+          <!-- Role: Vybog Pvt Ltd -->
+          <div class="timeline-item reveal-suspense">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <div>
+                  <h3 class="role-title">WordPress Developer</h3>
+                  <div class="role-company" style="font-size: 1.1rem; font-weight: 700;">Vybog Pvt Ltd</div>
+                </div>
+                <div class="timeline-period">Oct 2023 – Present</div>
+              </div>
+
+              <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1rem;">
+                Leading full-lifecycle custom WordPress engineering across client e-commerce stores, custom portals, and high-traffic web applications.
+              </p>
+
+              <ul class="timeline-responsibilities">
+                <li>
+                  <strong>Custom Theme &amp; Plugin Architecture:</strong> Built modular, scalable WordPress themes and object-oriented plugins from scratch, eliminating dependence on bloated third-party page builders.
+                </li>
+                <li>
+                  <strong>Dynamic AJAX &amp; PHP Logic:</strong> Implemented real-time asynchronous filtering, infinite scroll pagination, and instant micro-cart updating without page reloads.
+                </li>
+                <li>
+                  <strong>Payment Gateway Integration:</strong> Securely integrated Stripe Elements API (with 3D Secure 2.0) and Square Payment API for recurring membership subscriptions and automated billing.
+                </li>
+                <li>
+                  <strong>Figma to WordPress Pixel Perfection:</strong> Translated high-fidelity Figma UI/UX designs into responsive, cross-browser compatible, and accessible WordPress templates with WCAG standards.
+                </li>
+                <li>
+                  <strong>Speed &amp; Core Web Vitals Optimization:</strong> Implemented Redis object caching, asset bundling, critical CSS rendering, and SQL query indexing, achieving 95+ PageSpeed scores.
+                </li>
+                <li>
+                  <strong>AI Automation &amp; MCP Integration:</strong> Pioneered automated LLM workflows and Model Context Protocol (MCP) tooling within WordPress for rapid content pipelines and automated maintenance.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: FEATURED PROJECTS (CASE STUDIES) -->
+    <section id="projects" class="projects-section">
+      <div class="container">
+        <div class="section-header reveal-suspense">
+          <div class="section-eyebrow">Selected Case Studies</div>
+          <h2 class="section-title">Engineering Solutions with Proven Impact</h2>
+          <p class="section-subtitle">
+            Real client projects demonstrating custom plugin development, secure payment integrations, and algorithmic calculations. Click any card to inspect code and architecture.
+          </p>
+        </div>
+
+        <div id="projects-grid-container" class="projects-grid">
+          <!-- Dynamically populated via case-studies.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: PROCESS & ENGINEERING WORKFLOW -->
+    <section id="process" class="process-section">
+      <div class="container">
+        <div class="section-header reveal-suspense">
+          <div class="section-eyebrow">Methodology</div>
+          <h2 class="section-title">How I Work: Architecture &amp; Delivery</h2>
+          <p class="section-subtitle">
+            A battle-tested 4-phase framework ensuring every build is secure, blazing fast, and easily maintainable.
+          </p>
+        </div>
+
+        <div class="process-grid">
+          <div class="process-card reveal-suspense">
+            <div class="process-step-num">01</div>
+            <h3 class="process-step-title">Figma Token &amp; Schema Mapping</h3>
+            <p class="process-step-desc">
+              We audit designs and establish a strict CSS custom properties design token system and relational database schema before writing a line of code.
+            </p>
+          </div>
+
+          <div class="process-card reveal-suspense">
+            <div class="process-step-num">02</div>
+            <h3 class="process-step-title">Custom Theme &amp; Plugin Dev</h3>
+            <p class="process-step-desc">
+              Clean, modular PHP 8.x OOP architecture. Zero page builder bloat, minimal dependencies, and semantic HTML5 for maximum speed and security.
+            </p>
+          </div>
+
+          <div class="process-card reveal-suspense">
+            <div class="process-step-num">03</div>
+            <h3 class="process-step-title">AI &amp; MCP Orchestration</h3>
+            <p class="process-step-desc">
+              Leverage custom Model Context Protocol (MCP) server endpoints and LLM function calling to automate content feeds, dynamic reports, and internal admin workflows.
+            </p>
+          </div>
+
+          <div class="process-card reveal-suspense">
+            <div class="process-step-num">04</div>
+            <h3 class="process-step-title">Security, Payments &amp; Speed</h3>
+            <p class="process-step-desc">
+              End-to-end 3D Secure 2.0 payment testing, SSL encryption, Redis caching, CDN asset distribution, and PageSpeed 95+ performance tuning.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7: EDUCATION & CERTIFICATIONS -->
+    <section id="education" class="education-section">
+      <div class="container">
+        <div class="section-header reveal-suspense">
+          <div class="section-eyebrow">Academic &amp; Training</div>
+          <h2 class="section-title">Education &amp; Certifications</h2>
+        </div>
+
+        <div class="edu-grid">
+          <div class="edu-card reveal-suspense">
+            <div class="edu-icon-wrap">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            </div>
+            <div>
+              <h3 class="edu-title">B.Sc Computer Science</h3>
+              <div class="edu-institution">Government Arts &amp; Science College</div>
+              <div class="edu-period">Bharathidasan University • 2017 – 2020</div>
+              <p style="font-size: 0.88rem; color: var(--text-secondary); margin-top: 0.5rem;">
+                Core foundations in computer algorithms, data structures, relational database management systems (RDBMS), and software engineering principles.
+              </p>
+            </div>
+          </div>
+
+          <div class="edu-card reveal-suspense">
+            <div class="edu-icon-wrap">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <div>
+              <h3 class="edu-title">Java Full Stack Training</h3>
+              <div class="edu-institution">Besant Technologies</div>
+              <div class="edu-period">Professional Certification • 2023 – 2024</div>
+              <p style="font-size: 0.88rem; color: var(--text-secondary); margin-top: 0.5rem;">
+                Rigorous full-stack software development training spanning object-oriented Java, Spring foundations, RESTful microservices, and modern frontend frameworks.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 8: TESTIMONIALS & TRUST HUB -->
+    <section id="testimonials" class="testimonials-section">
+      <div class="container">
+        <div class="section-header reveal-suspense">
+          <div class="section-eyebrow">Client Endorsements</div>
+          <h2 class="section-title">Client Trust &amp; Testimonials</h2>
+        </div>
+
+        <div class="testimonials-grid">
+          <div class="testimonial-card reveal-suspense">
+            <div>
+              <div class="testimonial-stars">★★★★★</div>
+              <p class="testimonial-quote">
+                "Vikram delivered a custom Square payment plugin that completely streamlined our annual guild membership renewals. His code was clean, well-documented, and executed in record time."
+              </p>
+            </div>
+            <div class="testimonial-author">
+              <div class="author-avatar-placeholder">MK</div>
+              <div>
+                <div class="author-name">Eleanor Vance</div>
+                <div class="author-role">Director, Machine Knitters Guild</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card reveal-suspense">
+            <div>
+              <div class="testimonial-stars">★★★★★</div>
+              <p class="testimonial-quote">
+                "Our agency portfolio went from a sluggish 4-second loading mess to an instant 18ms AJAX filtering engine. Vikram's understanding of WordPress internals and Transients caching is top-tier."
+              </p>
+            </div>
+            <div class="testimonial-author">
+              <div class="author-avatar-placeholder">36</div>
+              <div>
+                <div class="author-name">Marcus Chen</div>
+                <div class="author-role">Creative Director, 360 Web Designs</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card reveal-suspense">
+            <div>
+              <div class="testimonial-stars">★★★★★</div>
+              <p class="testimonial-quote">
+                "The customized Vedic LMS calculator Vikram built generates thousands of natal PDF reports flawlessly every month. He understands both complex algorithmic logic and intuitive UX."
+              </p>
+            </div>
+            <div class="testimonial-author">
+              <div class="author-avatar-placeholder">AI</div>
+              <div>
+                <div class="author-name">Ananya Sharma</div>
+                <div class="author-role">Founder, Aastral Insights</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 9: CONTACT & PROJECT ESTIMATOR -->
+    <section id="contact" class="contact-section">
+      <div class="container">
+        <div class="section-header reveal-suspense">
+          <div class="section-eyebrow">Start a Conversation</div>
+          <h2 class="section-title">Let's Build Something Exceptional</h2>
+          <p class="section-subtitle">
+            Have a project in mind, need a custom WordPress plugin, or looking to integrate AI into your web application? Reach out below and let's get started.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-info-col reveal-suspense">
+            <div>
+              <h3 style="font-family: var(--font-display); font-size: 1.5rem; color: var(--text-primary); margin-bottom: 0.75rem;">Direct Communication Channels</h3>
+              <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6;">
+                I am currently open for freelance projects, technical consulting, and contract engineering roles. Expect a response within 24 hours.
+              </p>
+
+              <div class="contact-direct-links">
+                <a href="mailto:vikramnsk4@gmail.com" class="contact-channel-card interactive-el">
+                  <div class="channel-icon-wrap">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                  </div>
+                  <div>
+                    <div class="channel-title">Email Directly</div>
+                    <div class="channel-value">vikramnsk4@gmail.com</div>
+                  </div>
+                </a>
+
+                <a href="tel:+916369149082" class="contact-channel-card interactive-el">
+                  <div class="channel-icon-wrap">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                  </div>
+                  <div>
+                    <div class="channel-title">Phone / WhatsApp</div>
+                    <div class="channel-value">+91 6369149082</div>
+                  </div>
+                </a>
+
+                <a href="https://linkedin.com/in/vikramsdev" target="_blank" rel="noopener noreferrer" class="contact-channel-card interactive-el">
+                  <div class="channel-icon-wrap">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                  </div>
+                  <div>
+                    <div class="channel-title">LinkedIn Profile</div>
+                    <div class="channel-value">linkedin.com/in/vikramsdev</div>
+                  </div>
+                </a>
+
+                <div class="contact-channel-card">
+                  <div class="channel-icon-wrap" style="background: rgba(0, 240, 255, 0.15); color: var(--ai-cyan);">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  </div>
+                  <div>
+                    <div class="channel-title">Current Location</div>
+                    <div class="channel-value">Karur, Tamil Nadu, India</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Front-End Interactive Contact Form -->
+          <div class="contact-form-card reveal-suspense">
+            <form id="contact-form">
+              <div class="form-group">
+                <label class="form-label">Select Project Scope</label>
+                <div class="project-type-pills">
+                  <span class="type-pill active" data-value="Custom WordPress Theme/Plugin">Custom WP Theme/Plugin</span>
+                  <span class="type-pill" data-value="Payment Gateway (Stripe/Square)">Payment Gateway</span>
+                  <span class="type-pill" data-value="AI / MCP Server Automation">AI / MCP Automation</span>
+                  <span class="type-pill" data-value="Speed &amp; Core Web Vitals">Speed Optimization</span>
+                  <span class="type-pill" data-value="Full-Stack Web App">Full-Stack App</span>
+                </div>
+                <input type="hidden" id="project_type_input" name="project_type" value="Custom WordPress Theme/Plugin" />
+              </div>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                <div class="form-group">
+                  <label for="contact_name" class="form-label">Your Name *</label>
+                  <input type="text" id="contact_name" name="name" class="form-input" placeholder="e.g. Alex Morgan" required />
+                </div>
+
+                <div class="form-group">
+                  <label for="contact_email" class="form-label">Your Email *</label>
+                  <input type="email" id="contact_email" name="email" class="form-input" placeholder="e.g. alex@company.com" required />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="contact_budget" class="form-label">Estimated Budget (USD)</label>
+                <select id="contact_budget" name="budget" class="form-select">
+                  <option value="$1,000 - $3,000">$1,000 – $3,000 (Sprint / Plugin)</option>
+                  <option value="$3,000 - $7,500" selected>$3,000 – $7,500 (Complete Platform)</option>
+                  <option value="$7,500 - $15,000+">$7,500 – $15,000+ (Enterprise / AI Systems)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="contact_message" class="form-label">Project Brief &amp; Goals *</label>
+                <textarea id="contact_message" name="message" rows="4" class="form-textarea" placeholder="Describe your project, timeline, and core requirements..." required></textarea>
+              </div>
+
+              <button type="submit" id="contact-submit-btn" class="btn-primary interactive-el btn-magnetic" style="width: 100%;">
+                <span>TRANSMIT PROJECT BRIEF</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              </button>
+
+              <div id="contact-toast" style="display: none;"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Case Study Deep-Dive Modal Drawer -->
+  <aside id="case-modal-overlay" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Case Study Deep Dive">
+    <div class="modal-card">
+      <button id="case-modal-close" class="modal-close-btn interactive-el" aria-label="Close Case Study Modal">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <div id="case-modal-content"></div>
+    </div>
+  </aside>
+
+  <!-- Editorial Footer -->
+  <footer class="site-footer">
+    <div class="footer-watermark">VIKRAM.DEV</div>
+
+    <div class="container" style="position: relative; z-index: 2;">
+      <div class="footer-top-grid">
+        <div class="footer-brand">
+          <img src="/assets/logo.svg" alt="vikram.dev logo" style="height: 48px; width: auto;" />
+          <p>
+            AI-Focused WordPress Developer crafting bespoke themes, object-oriented plugins, high-concurrency payment systems, and intelligent automated workflows.
+          </p>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Navigation</div>
+          <ul class="footer-links-list">
+            <li><a href="#about" class="interactive-el">About Story</a></li>
+            <li><a href="#skills" class="interactive-el">Skills &amp; Tech Radar</a></li>
+            <li><a href="#experience" class="interactive-el">Experience @ Vybog</a></li>
+            <li><a href="#projects" class="interactive-el">Featured Case Studies</a></li>
+            <li><a href="#process" class="interactive-el">Engineering Workflow</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Connect &amp; Social</div>
+          <ul class="footer-links-list">
+            <li><a href="mailto:vikramnsk4@gmail.com" class="interactive-el">Email: vikramnsk4@gmail.com</a></li>
+            <li><a href="tel:+916369149082" class="interactive-el">Call: +91 6369149082</a></li>
+            <li><a href="https://linkedin.com/in/vikramsdev" target="_blank" rel="noopener noreferrer" class="interactive-el">LinkedIn: /in/vikramsdev</a></li>
+            <li><a href="#contact" class="interactive-el">Project Estimator</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <div class="footer-copyright">
+          © 2026 S Vikram (vikram.dev). All rights reserved. Designed &amp; Engineered with Precision.
+        </div>
+
+        <div class="footer-live-clock">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span id="karur-clock">Loading local time...</span>
+        </div>
+
+        <a href="#hero" class="btn-back-to-top interactive-el">
+          <span>BACK TO TOP</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Main JavaScript Entry -->
+  <script type="module" src="/src/scripts/main.js"></script>
+</body>
+</html>

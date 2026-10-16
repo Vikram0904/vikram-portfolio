@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 70" width="340" height="70">
+  <defs>
+    <linearGradient id="logoCopper" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF8A48"/>
+      <stop offset="50%" stop-color="#FF5A1F"/>
+      <stop offset="100%" stop-color="#DE4405"/>
+    </linearGradient>
+    <linearGradient id="logoBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#181C26"/>
+      <stop offset="100%" stop-color="#0C0E14"/>
+    </linearGradient>
+    <filter id="logoGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="1.5" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Circular Monogram Container -->
+  <g transform="translate(8, 7)">
+    <circle cx="28" cy="28" r="27" fill="url(#logoBg)" stroke="#272D3B" stroke-width="1.5"/>
+    <circle cx="28" cy="28" r="23" fill="none" stroke="url(#logoCopper)" stroke-width="1.8" stroke-dasharray="110 35" stroke-linecap="round"/>
+    
+    <!-- Monogram Letters V and D -->
+    <g fill="none" stroke="url(#logoCopper)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" filter="url(#logoGlow)">
+      <!-- V -->
+      <path d="M16 20 L24 36 L32 20"/>
+      <!-- D -->
+      <path d="M29 20 L37 20 C42 20 44.5 23 44.5 28 C44.5 33 42 36 37 36 L29 36"/>
+    </g>
+    <!-- AI accent node -->
+    <circle cx="39" cy="18" r="2.2" fill="#00F0FF"/>
+  </g>
+
+  <!-- Wordmark Text -->
+  <g transform="translate(74, 0)">
+    <!-- "vikram.dev" -->
+    <text x="0" y="34" font-family="'Syne', 'Plus Jakarta Sans', system-ui, sans-serif" font-weight="800" font-size="24" fill="#F8FAFC" letter-spacing="0.5">
+      vikram<tspan fill="url(#logoCopper)">.dev</tspan>
+    </text>
+    
+    <!-- Tagline "AI • WORDPRESS • WEB DEVELOPMENT" -->
+    <text x="1" y="49" font-family="'JetBrains Mono', monospace" font-weight="600" font-size="7.5" fill="#94A3B8" letter-spacing="2.2">
+      <tspan fill="#00F0FF">AI</tspan> • WORDPRESS • WEB DEV
+    </text>
+  </g>
+</svg>

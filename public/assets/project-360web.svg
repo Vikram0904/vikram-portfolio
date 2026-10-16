@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675">
+  <defs>
+    <linearGradient id="bg360" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0E1219"/>
+      <stop offset="100%" stop-color="#07090C"/>
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1A202C"/>
+      <stop offset="100%" stop-color="#121620"/>
+    </linearGradient>
+    <linearGradient id="amberGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF6B35"/>
+      <stop offset="100%" stop-color="#F59E0B"/>
+    </linearGradient>
+    <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00F0FF"/>
+      <stop offset="100%" stop-color="#3B82F6"/>
+    </linearGradient>
+    <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="16" stdDeviation="24" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="1200" height="675" fill="url(#bg360)"/>
+  
+  <!-- Subtle Grid lines -->
+  <g stroke="#1F2633" stroke-width="1" opacity="0.4">
+    <line x1="100" y1="0" x2="100" y2="675"/>
+    <line x1="350" y1="0" x2="350" y2="675"/>
+    <line x1="600" y1="0" x2="600" y2="675"/>
+    <line x1="850" y1="0" x2="850" y2="675"/>
+    <line x1="1100" y1="0" x2="1100" y2="675"/>
+    <line x1="0" y1="120" x2="1200" y2="120"/>
+    <line x1="0" y1="360" x2="1200" y2="360"/>
+  </g>
+
+  <!-- Browser Frame -->
+  <g transform="translate(60, 45)" filter="url(#cardShadow)">
+    <rect width="1080" height="585" rx="14" fill="#11151F" stroke="#252D3D" stroke-width="1.5"/>
+    
+    <!-- Window Bar -->
+    <rect width="1080" height="42" rx="14" fill="#181E2B"/>
+    <circle cx="28" cy="21" r="5" fill="#EF4444"/>
+    <circle cx="46" cy="21" r="5" fill="#F59E0B"/>
+    <circle cx="64" cy="21" r="5" fill="#10B981"/>
+    
+    <!-- Address Bar -->
+    <rect x="240" y="9" width="600" height="24" rx="6" fill="#0D1117" stroke="#1E2533" stroke-width="1"/>
+    <text x="540" y="25" fill="#64748B" font-family="'JetBrains Mono', monospace" font-size="11" text-anchor="middle">
+      https://360webdesigns.com/portfolio-explorer?category=ecommerce&amp;sort=recent
+    </text>
+
+    <!-- Top Navigation / Header -->
+    <g transform="translate(40, 65)">
+      <text x="0" y="24" fill="#F8FAFC" font-family="'Syne', sans-serif" font-weight="800" font-size="20">
+        360 WEB DESIGNS <tspan fill="#FF6B35">•</tspan> PORTFOLIO ENGINE
+      </text>
+      
+      <!-- AJAX Category Filter Pills -->
+      <g transform="translate(0, 42)">
+        <!-- Active Pill -->
+        <rect x="0" y="0" width="70" height="28" rx="14" fill="url(#amberGrad)"/>
+        <text x="35" y="18" fill="#FFFFFF" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="12" text-anchor="middle">All (48)</text>
+        
+        <rect x="80" y="0" width="100" height="28" rx="14" fill="#1E2535" stroke="#2D3748" stroke-width="1"/>
+        <text x="130" y="18" fill="#94A3B8" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600" font-size="12" text-anchor="middle">E-Commerce</text>
+
+        <rect x="190" y="0" width="85" height="28" rx="14" fill="#1E2535" stroke="#2D3748" stroke-width="1"/>
+        <text x="232" y="18" fill="#94A3B8" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600" font-size="12" text-anchor="middle">Corporate</text>
+
+        <rect x="285" y="0" width="95" height="28" rx="14" fill="#1E2535" stroke="#2D3748" stroke-width="1"/>
+        <text x="332" y="18" fill="#94A3B8" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600" font-size="12" text-anchor="middle">SaaS &amp; Tech</text>
+        
+        <!-- Live AJAX Query Indicator -->
+        <g transform="translate(740, 4)">
+          <rect width="250" height="22" rx="11" fill="#0A2229" stroke="#0E4A56" stroke-width="1"/>
+          <circle cx="12" cy="11" r="3.5" fill="#00F0FF"/>
+          <text x="24" y="15" fill="#00F0FF" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="600">
+            AJAX Query: 18ms (Cache Hit)
+          </text>
+        </g>
+      </g>
+    </g>
+
+    <!-- Grid Items (3 Cards) -->
+    <g transform="translate(40, 160)">
+      <!-- Card 1 -->
+      <g transform="translate(0, 0)">
+        <rect width="315" height="250" rx="10" fill="url(#cardGrad)" stroke="#262E3E" stroke-width="1.2"/>
+        <rect x="15" y="15" width="285" height="135" rx="6" fill="#0C0F15"/>
+        <circle cx="157" cy="82" r="28" fill="#FF6B35" opacity="0.2"/>
+        <text x="157" y="87" fill="#FF8A48" font-family="'Syne', sans-serif" font-weight="700" font-size="14" text-anchor="middle">Apex Living</text>
+        <text x="15" y="175" fill="#F8FAFC" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="15">Luxury Real Estate Platform</text>
+        <text x="15" y="196" fill="#64748B" font-family="'Plus Jakarta Sans', sans-serif" font-size="12">Custom WP Theme + ACF Pro</text>
+        <rect x="15" y="210" width="70" height="18" rx="4" fill="#FF6B35" opacity="0.15"/>
+        <text x="50" y="223" fill="#FF8A48" font-family="'JetBrains Mono', monospace" font-size="10" text-anchor="middle">WooCommerce</text>
+      </g>
+
+      <!-- Card 2 -->
+      <g transform="translate(342, 0)">
+        <rect width="315" height="250" rx="10" fill="url(#cardGrad)" stroke="#262E3E" stroke-width="1.2"/>
+        <rect x="15" y="15" width="285" height="135" rx="6" fill="#0C0F15"/>
+        <circle cx="157" cy="82" r="28" fill="#3B82F6" opacity="0.2"/>
+        <text x="157" y="87" fill="#60A5FA" font-family="'Syne', sans-serif" font-weight="700" font-size="14" text-anchor="middle">Nexus AI Cloud</text>
+        <text x="15" y="175" fill="#F8FAFC" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="15">SaaS Landing &amp; Interactive Docs</text>
+        <text x="15" y="196" fill="#64748B" font-family="'Plus Jakarta Sans', sans-serif" font-size="12">Headless REST API + React</text>
+        <rect x="15" y="210" width="60" height="18" rx="4" fill="#3B82F6" opacity="0.15"/>
+        <text x="45" y="223" fill="#60A5FA" font-family="'JetBrains Mono', monospace" font-size="10" text-anchor="middle">REST API</text>
+      </g>
+
+      <!-- Card 3 -->
+      <g transform="translate(684, 0)">
+        <rect width="315" height="250" rx="10" fill="url(#cardGrad)" stroke="#262E3E" stroke-width="1.2"/>
+        <rect x="15" y="15" width="285" height="135" rx="6" fill="#0C0F15"/>
+        <circle cx="157" cy="82" r="28" fill="#10B981" opacity="0.2"/>
+        <text x="157" y="87" fill="#34D399" font-family="'Syne', sans-serif" font-weight="700" font-size="14" text-anchor="middle">Aura Organics</text>
+        <text x="15" y="175" fill="#F8FAFC" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="15">Direct-to-Consumer Store</text>
+        <text x="15" y="196" fill="#64748B" font-family="'Plus Jakarta Sans', sans-serif" font-size="12">Dynamic Stock &amp; Micro-cart</text>
+        <rect x="15" y="210" width="55" height="18" rx="4" fill="#10B981" opacity="0.15"/>
+        <text x="42" y="223" fill="#34D399" font-family="'JetBrains Mono', monospace" font-size="10" text-anchor="middle">PHP 8.2</text>
+      </g>
+    </g>
+
+    <!-- Dynamic "Load More" Interactive Trigger Bar -->
+    <g transform="translate(430, 440)">
+      <rect width="220" height="42" rx="21" fill="#19202E" stroke="#FF6B35" stroke-width="1.5"/>
+      <text x="110" y="26" fill="#FF8A48" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="13" text-anchor="middle">
+        LOAD MORE (36 REMAINING)
+      </text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,152 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675">
+  <defs>
+    <linearGradient id="bgAastral" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0E0F17"/>
+      <stop offset="100%" stop-color="#06070B"/>
+    </linearGradient>
+    <linearGradient id="goldCopper" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F59E0B"/>
+      <stop offset="50%" stop-color="#FF6B35"/>
+      <stop offset="100%" stop-color="#D97706"/>
+    </linearGradient>
+    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8B5CF6"/>
+      <stop offset="100%" stop-color="#EC4899"/>
+    </linearGradient>
+    <filter id="vedicGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="675" fill="url(#bgAastral)"/>
+
+  <!-- Vedic Constellation geometry in background -->
+  <g stroke="#28223D" stroke-width="1" fill="none" opacity="0.4">
+    <circle cx="950" cy="200" r="140"/>
+    <circle cx="950" cy="200" r="90"/>
+    <polygon points="950,60 1071,270 828,270"/>
+    <polygon points="950,340 1071,130 828,130"/>
+  </g>
+
+  <!-- Browser Frame -->
+  <g transform="translate(60, 45)">
+    <rect width="1080" height="585" rx="14" fill="#12131F" stroke="#25243E" stroke-width="1.5"/>
+
+    <!-- Top Window Bar -->
+    <rect width="1080" height="42" rx="14" fill="#181829"/>
+    <circle cx="28" cy="21" r="5" fill="#EF4444"/>
+    <circle cx="46" cy="21" r="5" fill="#F59E0B"/>
+    <circle cx="64" cy="21" r="5" fill="#10B981"/>
+    <rect x="240" y="9" width="600" height="24" rx="6" fill="#0D0E18" stroke="#212038" stroke-width="1"/>
+    <text x="540" y="25" fill="#7C7BA0" font-family="'JetBrains Mono', monospace" font-size="11" text-anchor="middle">
+      https://aastralinsights.com/vedic-calculator?engine=json-planetary-ephemeris
+    </text>
+
+    <!-- Top Brand & LMS Status -->
+    <g transform="translate(40, 65)">
+      <text x="0" y="24" fill="#F8FAFC" font-family="'Syne', sans-serif" font-weight="800" font-size="20">
+        AASTRAL INSIGHTS <tspan fill="#F59E0B">•</tspan> LMS &amp; VEDIC ENGINE
+      </text>
+
+      <rect x="760" y="4" width="240" height="26" rx="13" fill="#241E3A" stroke="#7C3AED" stroke-width="1"/>
+      <circle cx="776" cy="17" r="4" fill="#A78BFA"/>
+      <text x="788" y="21" fill="#DDD6FE" font-family="'JetBrains Mono', monospace" font-size="11">
+        JSON Calculator v2.4 (Active)
+      </text>
+    </g>
+
+    <!-- Left: Vedic Chart & JSON Matrix -->
+    <g transform="translate(40, 120)">
+      <rect width="490" height="430" rx="10" fill="#151528" stroke="#2D2947" stroke-width="1.2"/>
+      <text x="24" y="32" fill="#F8FAFC" font-family="'Syne', sans-serif" font-weight="700" font-size="15">
+        Planetary Ephemeris JSON Stream
+      </text>
+
+      <!-- Code Window / JSON Stream -->
+      <g transform="translate(20, 50)">
+        <rect width="450" height="350" rx="6" fill="#0C0D15" stroke="#1F1E33" stroke-width="1"/>
+        <text x="16" y="28" fill="#F59E0B" font-family="'JetBrains Mono', monospace" font-size="12">
+          {
+        </text>
+        <text x="32" y="52" fill="#A78BFA" font-family="'JetBrains Mono', monospace" font-size="11">
+          "ascendant": <tspan fill="#34D399">"Scorpio (Anuradha)"</tspan>,
+        </text>
+        <text x="32" y="74" fill="#A78BFA" font-family="'JetBrains Mono', monospace" font-size="11">
+          "moon_nakshatra": <tspan fill="#34D399">"Rohini 4th Pada"</tspan>,
+        </text>
+        <text x="32" y="96" fill="#A78BFA" font-family="'JetBrains Mono', monospace" font-size="11">
+          "planetary_positions": {
+        </text>
+        <text x="48" y="118" fill="#94A3B8" font-family="'JetBrains Mono', monospace" font-size="11">
+          "sun": { <tspan fill="#FF6B35">"deg": 142.3</tspan>, <tspan fill="#00F0FF">"house": 10</tspan> },
+        </text>
+        <text x="48" y="140" fill="#94A3B8" font-family="'JetBrains Mono', monospace" font-size="11">
+          "jupiter": { <tspan fill="#FF6B35">"deg": 28.6</tspan>, <tspan fill="#00F0FF">"house": 1</tspan>, <tspan fill="#34D399">"dignity": "Exalted"</tspan> },
+        </text>
+        <text x="48" y="162" fill="#94A3B8" font-family="'JetBrains Mono', monospace" font-size="11">
+          "saturn": { <tspan fill="#FF6B35">"deg": 314.1</tspan>, <tspan fill="#00F0FF">"house": 4</tspan> }
+        </text>
+        <text x="32" y="184" fill="#A78BFA" font-family="'JetBrains Mono', monospace" font-size="11">
+          },
+        </text>
+        <text x="32" y="206" fill="#A78BFA" font-family="'JetBrains Mono', monospace" font-size="11">
+          "dasha_period": { <tspan fill="#FF6B35">"maha": "Jupiter"</tspan>, <tspan fill="#38BDF8">"years_left": 8.4</tspan> },
+        </text>
+        <text x="32" y="228" fill="#A78BFA" font-family="'JetBrains Mono', monospace" font-size="11">
+          "report_pdf_generated": <tspan fill="#10B981">true</tspan>
+        </text>
+        <text x="16" y="250" fill="#F59E0B" font-family="'JetBrains Mono', monospace" font-size="12">
+          }
+        </text>
+
+        <rect x="16" y="280" width="418" height="48" rx="6" fill="#1C182F" stroke="#7C3AED" stroke-width="1"/>
+        <text x="32" y="310" fill="#DDD6FE" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="12">
+          ⚡ 0.04s Execution: Report Generated &amp; Synced to LMS Student Portal
+        </text>
+      </g>
+    </g>
+
+    <!-- Right: LMS Student Portal & Custom Report Generator UI -->
+    <g transform="translate(550, 120)">
+      <rect width="490" height="430" rx="10" fill="#151528" stroke="#2D2947" stroke-width="1.2"/>
+      <text x="24" y="32" fill="#F8FAFC" font-family="'Syne', sans-serif" font-weight="700" font-size="15">
+        Custom Course LMS &amp; Student Dashboard
+      </text>
+
+      <!-- Student Card -->
+      <g transform="translate(20, 50)">
+        <!-- Course Progress -->
+        <rect width="450" height="90" rx="8" fill="#1A1930" stroke="#312B52" stroke-width="1"/>
+        <text x="16" y="28" fill="#F8FAFC" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="14">
+          Mastering Vedic Planetary Architecture (LMS Course)
+        </text>
+        <rect x="16" y="44" width="418" height="8" rx="4" fill="#0C0D15"/>
+        <rect x="16" y="44" width="310" height="8" rx="4" fill="url(#goldCopper)"/>
+        <text x="16" y="72" fill="#94A3B8" font-family="'JetBrains Mono', monospace" font-size="11">Module 7 of 10 Complete (74%)</text>
+        <text x="380" y="72" fill="#F59E0B" font-family="'JetBrains Mono', monospace" font-size="11">Active</text>
+
+        <!-- Report Downloader Box -->
+        <g transform="translate(0, 105)">
+          <rect width="450" height="150" rx="8" fill="#1A1930" stroke="#312B52" stroke-width="1"/>
+          <text x="16" y="30" fill="#F8FAFC" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="14">
+            Personalized Vedic Kundli Report (PDF)
+          </text>
+          <text x="16" y="52" fill="#94A3B8" font-family="'Plus Jakarta Sans', sans-serif" font-size="12">
+            Generated using Vikram's custom PHP + JS calculations engine.
+          </text>
+
+          <rect x="16" y="75" width="200" height="42" rx="6" fill="url(#goldCopper)"/>
+          <text x="116" y="101" fill="#FFFFFF" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="12" text-anchor="middle">
+            DOWNLOAD REPORT (.PDF)
+          </text>
+
+          <rect x="230" y="75" width="204" height="42" rx="6" fill="#241E3A" stroke="#7C3AED" stroke-width="1"/>
+          <text x="332" y="101" fill="#DDD6FE" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="12" text-anchor="middle">
+            RE-RUN CALCULATOR
+          </text>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
