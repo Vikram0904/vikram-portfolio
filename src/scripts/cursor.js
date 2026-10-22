@@ -9,17 +9,32 @@ export function initCursor() {
   const ring = cursor.querySelector('.cursor-ring');
   const label = cursor.querySelector('.cursor-label');
 
-  let mouseX = window.innerWidth / 2;
-  let mouseY = window.innerHeight / 2;
+  let mouseX = -1000;
+  let mouseY = -1000;
   let ringX = mouseX;
   let ringY = mouseY;
   let dotX = mouseX;
   let dotY = mouseY;
+  let hasMoved = false;
 
   // Track Mouse
   window.addEventListener('mousemove', (e) => {
+    if (!hasMoved) {
+      hasMoved = true;
+      document.body.classList.add('cursor-active');
+    }
     mouseX = e.clientX;
     mouseY = e.clientY;
+  }, { passive: true });
+
+  document.addEventListener('mouseleave', () => {
+    document.body.classList.remove('cursor-active');
+  });
+
+  document.addEventListener('mouseenter', () => {
+    if (hasMoved) {
+      document.body.classList.add('cursor-active');
+    }
   });
 
   // Physics animation loop

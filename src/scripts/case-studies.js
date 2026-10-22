@@ -13,7 +13,7 @@ export function initCaseStudies() {
 
   // Render Project Cards
   container.innerHTML = caseStudiesData.map((project) => `
-    <article class="project-card reveal-suspense" data-project-id="${project.id}">
+    <article class="project-card" data-project-id="${project.id}">
       <div class="project-preview-wrap" data-cursor="view">
         <img src="${project.image}" alt="${project.title} - ${project.tagline}" class="project-preview-img" loading="lazy" />
         <div class="project-preview-overlay"></div>

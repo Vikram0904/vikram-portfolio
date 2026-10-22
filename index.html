@@ -120,24 +120,26 @@
         <img src="/assets/logo.svg" alt="vikram.dev - AI • WordPress • Web Dev" />
       </a>
 
-      <nav aria-label="Main Navigation">
+      <!-- Floating Glassmorphic Pill Navbar -->
+      <nav class="floating-pill-nav" aria-label="Main Navigation">
         <ul class="nav-links">
-          <li><a href="#about" class="nav-link"><span>01.</span>About</a></li>
-          <li><a href="#skills" class="nav-link"><span>02.</span>Skills</a></li>
-          <li><a href="#experience" class="nav-link"><span>03.</span>Experience</a></li>
-          <li><a href="#projects" class="nav-link"><span>04.</span>Work</a></li>
-          <li><a href="#process" class="nav-link"><span>05.</span>Process</a></li>
-          <li><a href="#education" class="nav-link"><span>06.</span>Credentials</a></li>
-          <li><a href="#contact" class="nav-link"><span>07.</span>Contact</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#experience" class="nav-link">Experience</a></li>
+          <li><a href="#projects" class="nav-link">Work</a></li>
+          <li><a href="#process" class="nav-link">Process</a></li>
+          <li><a href="#education" class="nav-link">Credentials</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+          <li class="nav-divider" aria-hidden="true"></li>
+          <li>
+            <button class="audio-toggle-btn interactive-el" title="Toggle Interaction Sound FX" aria-label="Toggle Interaction Sound FX">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+            </button>
+          </li>
         </ul>
       </nav>
 
       <div class="nav-actions">
-        <!-- Subtle Audio Synthesizer Toggle -->
-        <button class="audio-toggle-btn interactive-el" title="Toggle Interaction Sound FX" aria-label="Toggle Interaction Sound FX">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
-        </button>
-
         <a href="#contact" class="btn-nav-cta interactive-el btn-magnetic">
           <span>LET'S TALK</span>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -154,13 +156,13 @@
 
   <!-- Mobile Drawer -->
   <div class="mobile-nav-drawer" aria-label="Mobile Navigation">
-    <a href="#about" class="nav-link"><span>01.</span> About Me</a>
-    <a href="#skills" class="nav-link"><span>02.</span> Skills &amp; Tech</a>
-    <a href="#experience" class="nav-link"><span>03.</span> Experience</a>
-    <a href="#projects" class="nav-link"><span>04.</span> Selected Work</a>
-    <a href="#process" class="nav-link"><span>05.</span> Process</a>
-    <a href="#education" class="nav-link"><span>06.</span> Credentials</a>
-    <a href="#contact" class="nav-link"><span>07.</span> Get in Touch</a>
+    <a href="#about" class="nav-link">About</a>
+    <a href="#skills" class="nav-link">Skills</a>
+    <a href="#experience" class="nav-link">Experience</a>
+    <a href="#projects" class="nav-link">Work</a>
+    <a href="#process" class="nav-link">Process</a>
+    <a href="#education" class="nav-link">Credentials</a>
+    <a href="#contact" class="nav-link">Contact</a>
   </div>
 
   <main>
@@ -210,39 +212,18 @@
           </div>
         </div>
 
-        <!-- Cyberpunk 3D HUD Portrait Column -->
+        <!-- Transparent 3D Portrait Frame with Zero Background Blocking -->
         <div class="hero-visual-wrap">
-          <div class="hero-cyber-card" id="hero-tilt-card">
+          <div class="hero-glass-card" id="hero-tilt-card">
             
-            <!-- Cyber Outer Frame / Tech Borders -->
-            <div class="cyber-frame" aria-hidden="true">
-              <!-- Corner Brackets -->
-              <div class="cyber-corner corner-tl"></div>
-              <div class="cyber-corner corner-tr"></div>
-              <div class="cyber-corner corner-bl"></div>
-              <div class="cyber-corner corner-br"></div>
-              
-              <!-- Neon Dual Border Glow Overlay -->
-              <div class="cyber-neon-border"></div>
+            <!-- Vikram Portrait with Smooth Vertical Gradient Alpha Mask on Bottom -->
+            <div class="portrait-masked-container">
+              <img src="/assets/vikramdev-enhanced.png" alt="S Vikram - WordPress & AI Developer" class="hero-portrait-img" />
             </div>
 
-            <!-- Transparent Holographic Card Body (Allows 3D wireframe mesh to pass through) -->
-            <div class="cyber-card-body">
-              <!-- Soft Atmospheric Rim Glows -->
-              <div class="cyber-glow-orange" aria-hidden="true"></div>
-              <div class="cyber-glow-cyan" aria-hidden="true"></div>
-              <div class="cyber-bg-pattern" aria-hidden="true"></div>
-
-              <!-- Vikram Enhanced High-Res Cutout Portrait -->
-              <img src="/assets/vikramdev-enhanced.png" alt="S Vikram - WordPress & AI Developer" class="cyber-portrait-img" />
-
-              <!-- Bottom Vignette Fade so arms integrate smoothly with base frame -->
-              <div class="cyber-portrait-fade" aria-hidden="true"></div>
-            </div>
-
-            <!-- Floating Orbital Glassmorphic HUD Badges (Positioned cleanly outside image silhouette) -->
-            <!-- Badge 1: Top Left - WordPress Specialist (Floating in upper-left negative space) -->
-            <div class="hud-badge badge-wp">
+            <!-- Floating Orbital Glassmorphic Badges (2 Clean Floating Cards) -->
+            <!-- Badge 1: Top Left - WordPress Developer -->
+            <div class="hud-badge badge-wp interactive-el">
               <div class="hud-badge-icon wp-bg">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M12.158 12.786l-2.698 7.84c.806.236 1.657.364 2.54.364 2.44 0 4.64-.99 6.233-2.59l-4.14-11.36-.002.002-1.933 5.744zm-6.28-1.528c0 2.227.818 4.263 2.164 5.835L4.47 7.766A9.914 9.914 0 005.878 11.258zm12.333-5.263c.692.936 1.107 2.096 1.107 3.35 0 1.29-.44 2.476-1.18 3.42l-3.328-9.452a9.92 9.92 0 013.401 2.682zM12 2a10 10 0 100 20 10 10 0 000-20zm0 1.5a8.49 8.49 0 015.657 2.158L12.44 18.09 9.382 9.243l-.403-1.168A8.47 8.47 0 0112 3.5z"/>
@@ -250,12 +231,12 @@
               </div>
               <div class="hud-badge-text">
                 <span class="hud-title">WordPress Developer</span>
-                <span class="hud-sub">Custom Themes & Plugins</span>
+                <span class="hud-sub">Custom Themes &amp; Plugins</span>
               </div>
             </div>
 
-            <!-- Badge 2: Top Right - AI Integration (Floating in upper-right negative space) -->
-            <div class="hud-badge badge-ai">
+            <!-- Badge 2: Top Right - AI Integration -->
+            <div class="hud-badge badge-ai interactive-el">
               <div class="hud-badge-icon ai-bg">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00F0FF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                   <rect x="4" y="4" width="16" height="16" rx="3" />
@@ -269,19 +250,16 @@
               </div>
             </div>
 
-            <!-- Badge 3: Bottom Dock - Full Stack Architecture (Docked underneath arms with 0% body overlap) -->
-            <div class="hud-badge badge-fullstack">
-              <div class="hud-status-indicator">
-                <span class="status-pulse-dot"></span>
+            <!-- Badge 3: Bottom Left - Speed & Optimization -->
+            <div class="hud-badge badge-speed interactive-el">
+              <div class="hud-badge-icon speed-bg">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FF9E00" stroke-width="2.2" stroke-linecap="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
               </div>
               <div class="hud-badge-text">
-                <span class="hud-title">Full Stack Developer</span>
-                <span class="hud-sub">React • PHP • JS • MySQL</span>
+                <span class="hud-title">98+ PageSpeed</span>
+                <span class="hud-sub">0ms Bloat • Fast TTFB</span>
               </div>
             </div>
-
-            <!-- Ambient Card Backglow -->
-            <div class="hero-cyber-ambient-glow" aria-hidden="true"></div>
           </div>
         </div>
       </div>
@@ -332,13 +310,18 @@
 
         <div class="about-grid">
           <div class="about-visual-box reveal-suspense">
+            <div class="cyber-scanline"></div>
+            <div class="hud-corner top-left"></div>
+            <div class="hud-corner top-right"></div>
+            <div class="hud-corner bottom-left"></div>
+            <div class="hud-corner bottom-right"></div>
             <img src="/assets/about-workspace.jpg" alt="S Vikram at his engineering desk" class="about-img" />
             <div class="about-image-hud">
               <div class="hud-location">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--copper)" stroke-width="2"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"/><circle cx="12" cy="10" r="3"/></svg>
                 <span>Karur, Tamil Nadu, India</span>
               </div>
-              <div class="hud-role">WP Developer @ Vybog Pvt Ltd</div>
+              <div class="hud-role"><span class="pulsar-dot-green"></span> WP Developer @ Vybog Pvt Ltd</div>
             </div>
           </div>
 
@@ -482,47 +465,215 @@
 
     <!-- SECTION 6: PROCESS & ENGINEERING WORKFLOW -->
     <section id="process" class="process-section">
-      <div class="container">
-        <div class="section-header reveal-suspense">
-          <div class="section-eyebrow">Methodology</div>
-          <h2 class="section-title">How I Work: Architecture &amp; Delivery</h2>
-          <p class="section-subtitle">
-            A battle-tested 4-phase framework ensuring every build is secure, blazing fast, and easily maintainable.
-          </p>
-        </div>
+      <div class="process-pinned-stage">
+        <!-- Giant 3D Watermark Numeral -->
+        <div class="process-watermark-num" aria-hidden="true">01</div>
 
-        <div class="process-grid">
-          <div class="process-card reveal-suspense">
-            <div class="process-step-num">01</div>
-            <h3 class="process-step-title">Figma Token &amp; Schema Mapping</h3>
-            <p class="process-step-desc">
-              We audit designs and establish a strict CSS custom properties design token system and relational database schema before writing a line of code.
-            </p>
+        <div class="container process-stage-inner">
+          <!-- Stage Top Bar: Eyebrow, Title & Interactive Phase Tabs -->
+          <div class="process-stage-header">
+            <div class="process-header-left">
+              <div class="section-eyebrow">
+                <span class="eyebrow-pulsar"></span>
+                <span>ENGINEERING METHODOLOGY</span>
+              </div>
+              <h2 class="section-title">Architecture &amp; Delivery Framework</h2>
+            </div>
+            
+            <div class="process-step-tabs" role="tablist">
+              <button class="step-tab-btn active" data-step="0">
+                <span class="tab-index">01</span>
+                <span class="tab-label">Audit &amp; Token Mapping</span>
+              </button>
+              <button class="step-tab-btn" data-step="1">
+                <span class="tab-index">02</span>
+                <span class="tab-label">Clean OOP Core</span>
+              </button>
+              <button class="step-tab-btn" data-step="2">
+                <span class="tab-index">03</span>
+                <span class="tab-label">AI &amp; MCP Integration</span>
+              </button>
+              <button class="step-tab-btn" data-step="3">
+                <span class="tab-index">04</span>
+                <span class="tab-label">Security &amp; 95+ Speed</span>
+              </button>
+            </div>
           </div>
 
-          <div class="process-card reveal-suspense">
-            <div class="process-step-num">02</div>
-            <h3 class="process-step-title">Custom Theme &amp; Plugin Dev</h3>
-            <p class="process-step-desc">
-              Clean, modular PHP 8.x OOP architecture. Zero page builder bloat, minimal dependencies, and semantic HTML5 for maximum speed and security.
-            </p>
+          <!-- Laser Hairline Divider with Travelling Light Beam -->
+          <div class="laser-hairline-track">
+            <div class="laser-hairline-beam"></div>
           </div>
 
-          <div class="process-card reveal-suspense">
-            <div class="process-step-num">03</div>
-            <h3 class="process-step-title">AI &amp; MCP Orchestration</h3>
-            <p class="process-step-desc">
-              Leverage custom Model Context Protocol (MCP) server endpoints and LLM function calling to automate content feeds, dynamic reports, and internal admin workflows.
-            </p>
+          <!-- Slides Viewport Container -->
+          <div class="process-slides-viewport">
+            
+            <!-- Slide 01 -->
+            <div class="process-slide active" data-slide="0">
+              <div class="process-slide-grid">
+                <div class="slide-content-col">
+                  <div class="slide-phase-badge">PHASE 01 • SPECIFICATION</div>
+                  <h3 class="slide-heading">Figma Token &amp; Schema Mapping</h3>
+                  <p class="slide-lead">
+                    Before writing a single line of PHP, we conduct an exhaustive design audit, translating Figma variables into a zero-runtime CSS custom properties token system and strict relational database schemas.
+                  </p>
+                  <ul class="slide-checkpoints">
+                    <li><span class="chk-icon">⚡</span> Strict 4px/8px spatial rhythm &amp; typographic token mapping</li>
+                    <li><span class="chk-icon">⚡</span> Normalized MySQL custom table schema &amp; foreign key constraints</li>
+                    <li><span class="chk-icon">⚡</span> Component contract definitions preventing CSS regression</li>
+                  </ul>
+                </div>
+                <div class="slide-visual-col">
+                  <div class="slide-cyber-box">
+                    <div class="box-header">
+                      <span class="terminal-dots"><span></span><span></span><span></span></span>
+                      <span class="terminal-title">tokens.config.json</span>
+                    </div>
+                    <pre class="box-code"><code>{
+  "theme": "vikram-enterprise",
+  "tokens": {
+    "primary": "#FF6B35",
+    "surface": "#0C0F17",
+    "radius": "16px",
+    "strict_mode": true
+  },
+  "db_schema": "InnoDB utf8mb4"
+}</code></pre>
+                    <div class="box-stat-row">
+                      <div class="stat-pill"><strong>0ms</strong> Runtime Parse</div>
+                      <div class="stat-pill"><strong>100%</strong> Token Fidelity</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 02 -->
+            <div class="process-slide" data-slide="1">
+              <div class="process-slide-grid">
+                <div class="slide-content-col">
+                  <div class="slide-phase-badge">PHASE 02 • CORE DEVELOPMENT</div>
+                  <h3 class="slide-heading">Custom Theme &amp; Plugin Dev</h3>
+                  <p class="slide-lead">
+                    Engineered with clean, modular PHP 8.2+ object-oriented architecture. Zero bloated page builders, strict PSR-12 formatting, and semantic HTML5 for unmatched speed and security.
+                  </p>
+                  <ul class="slide-checkpoints">
+                    <li><span class="chk-icon">⚡</span> Bespoke Gutenberg blocks with native React edit interfaces</li>
+                    <li><span class="chk-icon">⚡</span> Custom post types, taxonomies &amp; granular role-based capabilities</li>
+                    <li><span class="chk-icon">⚡</span> Transient caching &amp; optimized WP_Query query plans</li>
+                  </ul>
+                </div>
+                <div class="slide-visual-col">
+                  <div class="slide-cyber-box">
+                    <div class="box-header">
+                      <span class="terminal-dots"><span></span><span></span><span></span></span>
+                      <span class="terminal-title">PluginEngine.php</span>
+                    </div>
+                    <pre class="box-code"><code>namespace Vikram\Core;
+
+final class PluginBootstrap {
+  public static function init(): void {
+    add_action('rest_api_init', [API::class, 'register']);
+    add_filter('query_vars', [Query::class, 'optimize']);
+  }
+}</code></pre>
+                    <div class="box-stat-row">
+                      <div class="stat-pill"><strong>PHP 8.2+</strong> Strict Types</div>
+                      <div class="stat-pill"><strong>0</strong> Bloat Plugins</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 03 -->
+            <div class="process-slide" data-slide="2">
+              <div class="process-slide-grid">
+                <div class="slide-content-col">
+                  <div class="slide-phase-badge">PHASE 03 • AI INTELLIGENCE</div>
+                  <h3 class="slide-heading">AI &amp; MCP Tool Orchestration</h3>
+                  <p class="slide-lead">
+                    Integrate Model Context Protocol (MCP) server endpoints and LLM function calling to turn standard WordPress installs into autonomous content engines, dynamic aggregators, and intelligent internal tools.
+                  </p>
+                  <ul class="slide-checkpoints">
+                    <li><span class="chk-icon">⚡</span> Model Context Protocol (MCP) server for secure database querying</li>
+                    <li><span class="chk-icon">⚡</span> OpenAI &amp; Claude tool-calling pipelines for live content synthesis</li>
+                    <li><span class="chk-icon">⚡</span> Vector embedding semantic search for knowledge base queries</li>
+                  </ul>
+                </div>
+                <div class="slide-visual-col">
+                  <div class="slide-cyber-box">
+                    <div class="box-header">
+                      <span class="terminal-dots"><span></span><span></span><span></span></span>
+                      <span class="terminal-title">mcp_server.py &amp; WP Hooks</span>
+                    </div>
+                    <pre class="box-code"><code>@mcp.tool()
+async def query_knowledge(topic: str) -> dict:
+  """Secure MCP endpoint for LLM context"""
+  embedding = await generate_vector(topic)
+  return await search_wp_store(embedding)</code></pre>
+                    <div class="box-stat-row">
+                      <div class="stat-pill"><strong>MCP v1.0</strong> Protocol</div>
+                      <div class="stat-pill"><strong>&lt;50ms</strong> LLM Routing</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 04 -->
+            <div class="process-slide" data-slide="3">
+              <div class="process-slide-grid">
+                <div class="slide-content-col">
+                  <div class="slide-phase-badge">PHASE 04 • HARDENING &amp; SCALE</div>
+                  <h3 class="slide-heading">Security, Payments &amp; 95+ Speed</h3>
+                  <p class="slide-lead">
+                    Production hardening with 3D Secure 2.0 payment pipelines (Stripe/Square), cryptographic webhook signatures, Redis caching, and asset bundling guaranteeing 95+ PageSpeed scores.
+                  </p>
+                  <ul class="slide-checkpoints">
+                    <li><span class="chk-icon">⚡</span> End-to-end webhook verification &amp; idempotent order fulfillment</li>
+                    <li><span class="chk-icon">⚡</span> Redis object cache, Brotli compression &amp; Cloudflare edge CDN</li>
+                    <li><span class="chk-icon">⚡</span> Automated Lighthouse CI audits &amp; zero vulnerability scans</li>
+                  </ul>
+                </div>
+                <div class="slide-visual-col">
+                  <div class="slide-cyber-box">
+                    <div class="box-header">
+                      <span class="terminal-dots"><span></span><span></span><span></span></span>
+                      <span class="terminal-title">Telemetry &amp; Benchmarks</span>
+                    </div>
+                    <pre class="box-code"><code>[AUDIT REPORT: PRODUCTION DEPLOY]
+⚡ Lighthouse Mobile: 98 / 100
+🔒 PCI-DSS Compliant: Passed
+🚀 TTFB: 82ms (Edge Redis Cache)
+📦 Bundle Size: 34kb Gzipped</code></pre>
+                    <div class="box-stat-row">
+                      <div class="stat-pill"><strong>98/100</strong> PageSpeed</div>
+                      <div class="stat-pill"><strong>100%</strong> PCI Compliant</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
 
-          <div class="process-card reveal-suspense">
-            <div class="process-step-num">04</div>
-            <h3 class="process-step-title">Security, Payments &amp; Speed</h3>
-            <p class="process-step-desc">
-              End-to-end 3D Secure 2.0 payment testing, SSL encryption, Redis caching, CDN asset distribution, and PageSpeed 95+ performance tuning.
-            </p>
+          <!-- Bottom Telemetry Bar -->
+          <div class="process-bottom-nav">
+            <div class="process-step-counter">
+              <span class="curr-step">01</span>
+              <span class="sep">/</span>
+              <span class="total-step">04</span>
+            </div>
+            <div class="process-progress-track">
+              <div class="process-progress-fill"></div>
+            </div>
+            <div class="process-scroll-hint">
+              <span>SCROLL TO CYCLE PHASES</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+            </div>
           </div>
+
         </div>
       </div>
     </section>
@@ -538,9 +689,11 @@
         <div class="edu-grid">
           <div class="edu-card reveal-suspense">
             <div class="edu-icon-wrap">
+              <div class="edu-halo-ring"></div>
               <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
             </div>
             <div>
+              <div class="edu-stamp"><span class="stamp-dot"></span> DEGREE ACCREDITED</div>
               <h3 class="edu-title">B.Sc Computer Science</h3>
               <div class="edu-institution">Government Arts &amp; Science College</div>
               <div class="edu-period">Bharathidasan University • 2017 – 2020</div>
@@ -552,9 +705,11 @@
 
           <div class="edu-card reveal-suspense">
             <div class="edu-icon-wrap">
+              <div class="edu-halo-ring"></div>
               <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             </div>
             <div>
+              <div class="edu-stamp"><span class="stamp-dot"></span> CERTIFIED ENTERPRISE DEVELOPER</div>
               <h3 class="edu-title">Java Full Stack Training</h3>
               <div class="edu-institution">Besant Technologies</div>
               <div class="edu-period">Professional Certification • 2023 – 2024</div>
@@ -577,12 +732,13 @@
 
         <div class="testimonials-grid">
           <div class="testimonial-card reveal-suspense">
-            <div>
-              <div class="testimonial-stars">★★★★★</div>
-              <p class="testimonial-quote">
-                "Vikram delivered a custom Square payment plugin that completely streamlined our annual guild membership renewals. His code was clean, well-documented, and executed in record time."
-              </p>
+            <div class="testimonial-top-row">
+              <div class="testimonial-stars" aria-label="5 stars rating">★★★★★</div>
+              <span class="verified-client-badge"><span class="pulsar-dot-green"></span> VERIFIED CLIENT</span>
             </div>
+            <p class="testimonial-quote">
+              "Vikram delivered a custom Square payment plugin that completely streamlined our annual guild membership renewals. His code was clean, well-documented, and executed in record time."
+            </p>
             <div class="testimonial-author">
               <div class="author-avatar-placeholder">MK</div>
               <div>
@@ -593,12 +749,13 @@
           </div>
 
           <div class="testimonial-card reveal-suspense">
-            <div>
-              <div class="testimonial-stars">★★★★★</div>
-              <p class="testimonial-quote">
-                "Our agency portfolio went from a sluggish 4-second loading mess to an instant 18ms AJAX filtering engine. Vikram's understanding of WordPress internals and Transients caching is top-tier."
-              </p>
+            <div class="testimonial-top-row">
+              <div class="testimonial-stars" aria-label="5 stars rating">★★★★★</div>
+              <span class="verified-client-badge"><span class="pulsar-dot-green"></span> VERIFIED CLIENT</span>
             </div>
+            <p class="testimonial-quote">
+              "Our agency portfolio went from a sluggish 4-second loading mess to an instant 18ms AJAX filtering engine. Vikram's understanding of WordPress internals and Transients caching is top-tier."
+            </p>
             <div class="testimonial-author">
               <div class="author-avatar-placeholder">36</div>
               <div>
@@ -609,12 +766,13 @@
           </div>
 
           <div class="testimonial-card reveal-suspense">
-            <div>
-              <div class="testimonial-stars">★★★★★</div>
-              <p class="testimonial-quote">
-                "The customized Vedic LMS calculator Vikram built generates thousands of natal PDF reports flawlessly every month. He understands both complex algorithmic logic and intuitive UX."
-              </p>
+            <div class="testimonial-top-row">
+              <div class="testimonial-stars" aria-label="5 stars rating">★★★★★</div>
+              <span class="verified-client-badge"><span class="pulsar-dot-green"></span> VERIFIED CLIENT</span>
             </div>
+            <p class="testimonial-quote">
+              "The customized Vedic LMS calculator Vikram built generates thousands of natal PDF reports flawlessly every month. He understands both complex algorithmic logic and intuitive UX."
+            </p>
             <div class="testimonial-author">
               <div class="author-avatar-placeholder">AI</div>
               <div>
@@ -703,6 +861,22 @@
                   <span class="type-pill" data-value="Full-Stack Web App">Full-Stack App</span>
                 </div>
                 <input type="hidden" id="project_type_input" name="project_type" value="Custom WordPress Theme/Plugin" />
+
+                <!-- Interactive Live Scope Telemetry HUD -->
+                <div class="scope-telemetry-hud" id="scope-telemetry-hud">
+                  <div class="hud-stat-item">
+                    <span class="hud-stat-lbl">EST. TURNAROUND</span>
+                    <span class="hud-stat-val" id="hud-timeline">2 – 3 Weeks</span>
+                  </div>
+                  <div class="hud-stat-item">
+                    <span class="hud-stat-lbl">CORE ARCHITECTURE</span>
+                    <span class="hud-stat-val" id="hud-stack">PHP 8.2 OOP + Custom React Blocks</span>
+                  </div>
+                  <div class="hud-stat-item">
+                    <span class="hud-stat-lbl">DELIVERY BENCHMARK</span>
+                    <span class="hud-stat-val" id="hud-guarantee">95+ PageSpeed • Zero Bloat</span>
+                  </div>
+                </div>
               </div>
 
               <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">

@@ -13,13 +13,57 @@ export function initContactForm() {
 
   if (!form) return;
 
+  const scopeMetadata = {
+    'Custom WordPress Theme/Plugin': {
+      timeline: '2 – 3 Weeks',
+      stack: 'PHP 8.2 OOP + Custom React Blocks',
+      guarantee: '95+ PageSpeed • Zero Bloat'
+    },
+    'Payment Gateway (Stripe/Square)': {
+      timeline: '1 – 2 Weeks',
+      stack: 'Stripe 3DS2 / Square SDK + Webhook Vault',
+      guarantee: 'PCI-DSS Compliant • Idempotent Orders'
+    },
+    'AI / MCP Server Automation': {
+      timeline: '2 – 3 Weeks',
+      stack: 'Python MCP Server + Claude/OpenAI Tools',
+      guarantee: '< 50ms LLM Context Routing'
+    },
+    'Speed & Core Web Vitals': {
+      timeline: '3 – 5 Days',
+      stack: 'Redis Cache + Query Indexing + Brotli',
+      guarantee: 'PageSpeed 95+ Mobile & Desktop'
+    },
+    'Full-Stack Web App': {
+      timeline: '3 – 4 Weeks',
+      stack: 'React + Node/PHP REST + MySQL InnoDB',
+      guarantee: 'Scalable Architecture • End-to-End Tests'
+    }
+  };
+
+  const hudTimeline = document.getElementById('hud-timeline');
+  const hudStack = document.getElementById('hud-stack');
+  const hudGuarantee = document.getElementById('hud-guarantee');
+  const hudContainer = document.getElementById('scope-telemetry-hud');
+
   // Project Type Pill Selection
   typePills.forEach((pill) => {
     pill.addEventListener('click', () => {
       typePills.forEach(p => p.classList.remove('active'));
       pill.classList.add('active');
+      const val = pill.getAttribute('data-value') || pill.textContent;
       if (projectTypeInput) {
-        projectTypeInput.value = pill.getAttribute('data-value') || pill.textContent;
+        projectTypeInput.value = val;
+      }
+
+      // Update telemetry HUD with micro-flash animation
+      if (scopeMetadata[val] && hudContainer) {
+        hudContainer.classList.add('pulse-telemetry');
+        setTimeout(() => hudContainer.classList.remove('pulse-telemetry'), 400);
+
+        if (hudTimeline) hudTimeline.textContent = scopeMetadata[val].timeline;
+        if (hudStack) hudStack.textContent = scopeMetadata[val].stack;
+        if (hudGuarantee) hudGuarantee.textContent = scopeMetadata[val].guarantee;
       }
     });
   });

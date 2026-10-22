@@ -96,7 +96,7 @@ export function initHeroWebGL() {
     color: 0xFF6B35,
     wireframe: true,
     transparent: true,
-    opacity: 0.26
+    opacity: 0.36
   });
   const icoMesh = new THREE.Mesh(icoGeom, icoMat);
   scene.add(icoMesh);
@@ -107,7 +107,7 @@ export function initHeroWebGL() {
     color: 0x00F0FF,
     wireframe: true,
     transparent: true,
-    opacity: 0.16
+    opacity: 0.24
   });
   const outerMesh = new THREE.Mesh(outerGeom, outerMat);
   scene.add(outerMesh);

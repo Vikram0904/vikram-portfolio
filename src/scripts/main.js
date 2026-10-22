@@ -13,6 +13,9 @@ import { initAudioControls } from './audio-feedback.js';
 import { initSkillsMatrix } from './skills.js';
 import { initCaseStudies } from './case-studies.js';
 import { initContactForm } from './contact.js';
+import { init3DInteractions } from './3d-interactions.js';
+import { initPinnedProcess } from './pinned-process.js';
+import { initStackedProjects } from './stacked-projects.js';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -178,7 +181,11 @@ document.addEventListener('DOMContentLoaded', () => {
     initHeroWebGL();
     const lenis = initSmoothScroll();
     initScrollAnimations();
+    init3DInteractions();
+    initPinnedProcess();
+    initStackedProjects();
     initBackToTop(lenis);
+    setTimeout(() => ScrollTrigger.refresh(), 200);
 
     // Initial Hero reveal animation
     gsap.from('.hero-badge-wrap, .hero-title, .hero-description, .hero-cta-group, .hero-meta-strip', {
