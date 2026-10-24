@@ -359,36 +359,559 @@
       </div>
     </section>
 
-    <!-- SECTION 3: SKILLS MATRIX -->
-    <section id="skills" class="skills-section">
-      <div class="container">
+    <!-- SECTION 3: THE STACK (SYSTEM PIPELINE & REQUEST FLOW) -->
+    <section id="skills" class="skills-section" aria-label="Technical Capabilities and Architecture Pipeline">
+      <!-- 1. INTRO BLOCK (Unpinned: scrolls away naturally before pin starts) -->
+      <div class="container stack-intro-block">
         <div class="section-header reveal-suspense">
-          <div class="section-eyebrow">Technical Capabilities</div>
-          <h2 class="section-title">Verified Skill Matrix &amp; Tech Radar</h2>
+          <div class="section-eyebrow">how I build</div>
+          <h2 class="section-title">The stack behind every project</h2>
           <p class="section-subtitle">
-            A comprehensive overview of my core competencies across backend architecture, frontend engineering, payment integrations, and AI tool development.
+            From Figma file to live, paid, AI-assisted WordPress site — here's the path every project takes.
           </p>
         </div>
+      </div>
 
-        <div class="skills-controls reveal-suspense">
-          <div class="skills-filter-pills">
-            <button class="skill-pill-btn active interactive-el" data-filter="all">All Disciplines (20)</button>
-            <button class="skill-pill-btn interactive-el" data-filter="cms">CMS &amp; WP Core</button>
-            <button class="skill-pill-btn interactive-el" data-filter="languages">Languages &amp; DB</button>
-            <button class="skill-pill-btn interactive-el" data-filter="frontend">Frontend &amp; UX</button>
-            <button class="skill-pill-btn interactive-el" data-filter="payments">APIs &amp; Payments</button>
-            <button class="skill-pill-btn interactive-el" data-filter="ai">AI &amp; Automation</button>
-            <button class="skill-pill-btn interactive-el" data-filter="tools">DevOps &amp; Tools</button>
+      <!-- 2. PINNED STAGE (Flex column: Stage Bar + Stage Content Area + Footer Strip) -->
+      <div class="stack-pinned-stage" id="stack-pinned-stage">
+        <div class="container stage-pinned-container">
+          
+          <!-- 2a. STAGE BAR (Compact sticky row ~56px directly under navbar, with integrated progress track) -->
+          <div class="stage-nav-bar-wrap">
+            <div class="stage-nav-bar" role="tablist" aria-label="Project architecture pipeline stages">
+              <button class="stage-pill active interactive-el" role="tab" aria-selected="true" data-stage="0" id="pill-stage-0">
+                <span class="pill-status-dot"></span>
+                <span class="pill-num">01</span>
+                <span class="pill-label">Figma Specs</span>
+              </button>
+              <button class="stage-pill interactive-el" role="tab" aria-selected="false" data-stage="1" id="pill-stage-1">
+                <span class="pill-status-dot"></span>
+                <span class="pill-num">02</span>
+                <span class="pill-label">Theme &amp; Plugin</span>
+              </button>
+              <button class="stage-pill interactive-el" role="tab" aria-selected="false" data-stage="2" id="pill-stage-2">
+                <span class="pill-status-dot"></span>
+                <span class="pill-num">03</span>
+                <span class="pill-label">AJAX &amp; MySQL</span>
+              </button>
+              <button class="stage-pill interactive-el" role="tab" aria-selected="false" data-stage="3" id="pill-stage-3">
+                <span class="pill-status-dot"></span>
+                <span class="pill-num">04</span>
+                <span class="pill-label">Payments</span>
+              </button>
+              <button class="stage-pill interactive-el" role="tab" aria-selected="false" data-stage="4" id="pill-stage-4">
+                <span class="pill-status-dot"></span>
+                <span class="pill-num">05</span>
+                <span class="pill-label">AI &amp; MCP</span>
+              </button>
+              <button class="stage-pill interactive-el" role="tab" aria-selected="false" data-stage="5" id="pill-stage-5">
+                <span class="pill-status-dot"></span>
+                <span class="pill-num">06</span>
+                <span class="pill-label">Performance</span>
+              </button>
+            </div>
+
+            <!-- Integrated 2px traveling line & glowing dot inside the stage bar -->
+            <div class="stage-bar-progress-track" aria-hidden="true">
+              <div class="stage-bar-progress-fill" id="stage-bar-progress-fill"></div>
+              <div class="stage-bar-progress-dot" id="stage-bar-progress-dot"></div>
+            </div>
           </div>
 
-          <div class="skills-search-box">
-            <svg class="skills-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-            <input type="text" id="skills-search" class="skills-search-input" placeholder="Search skill, tool or language..." />
+          <!-- 2b. STAGE CONTENT AREA (flex: 1, min-height: 0, overflow: hidden, zero clipping) -->
+          <div class="stage-content-viewport" id="stage-content-viewport">
+
+            <!-- STAGE 1: FIGMA SPECS -->
+            <div class="stage-slide active" data-stage-index="0" role="tabpanel" aria-label="Stage 1: Figma Design to Tokenized Specs" tabindex="0">
+              <div class="stage-slide-grid">
+                <!-- Left: Info Column -->
+                <div class="stage-info-col">
+                  <div class="stage-meta-row">
+                    <span class="stage-step-tag">STAGE 01 // FRONT-END FOUNDATIONS</span>
+                    <span class="stage-status-indicator active"><span class="pulse-ring"></span> ACTIVE PIPELINE</span>
+                  </div>
+                  <h3 class="stage-heading">Figma Design to Tokenized Specs</h3>
+                  <p class="stage-story">
+                    Deconstructing Figma design tokens, fluid clamp typography, and component states into clean, semantic markup before writing a single line of backend logic.
+                  </p>
+                  <div class="stage-tools-footer">
+                    <span class="tools-footer-lbl">TOOLS EMPLOYED:</span>
+                    <div class="stage-tools-chips">
+                      <span class="stack-tool-chip"><span class="tier-dot tier-daily" title="Daily driver"></span> Figma</span>
+                      <span class="stack-tool-chip"><span class="tier-dot tier-daily" title="Daily driver"></span> HTML5 Semantic</span>
+                      <span class="stack-tool-chip"><span class="tier-dot tier-daily" title="Daily driver"></span> CSS3 Custom Properties</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Right: Visual Column -->
+                <div class="stage-visual-col">
+                  <div class="stage-visual-container visual-figma">
+                    <div class="figma-frame-chrome">
+                      <div class="figma-toolbar">
+                        <div class="figma-tool-icons">
+                          <span class="f-icon active">✦</span>
+                          <span class="f-icon">#</span>
+                          <span class="f-icon">T</span>
+                          <span class="f-icon">✎</span>
+                        </div>
+                        <div class="figma-selection-title">Hero_Component_v3.fig</div>
+                        <div class="figma-coords">X: 120 &nbsp; Y: 84 &nbsp; W: 1440 &nbsp; H: 900</div>
+                      </div>
+                      <div class="figma-canvas-view">
+                        <div class="figma-selection-box">
+                          <div class="selection-handle handle-tl"></div>
+                          <div class="selection-handle handle-tr"></div>
+                          <div class="selection-handle handle-bl"></div>
+                          <div class="selection-handle handle-br"></div>
+                          <div class="figma-badge-chip">Auto Layout: Vertical (Gap: 24px)</div>
+                          
+                          <div class="figma-mock-ui">
+                            <div class="mock-nav-bar">
+                              <span class="mock-logo"></span>
+                              <span class="mock-links"></span>
+                              <span class="mock-btn"></span>
+                            </div>
+                            <div class="mock-hero-content">
+                              <div class="mock-line headline"></div>
+                              <div class="mock-line subtitle"></div>
+                              <div class="mock-badges-row">
+                                <span class="mock-badge"></span>
+                                <span class="mock-badge"></span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="figma-tokens-pill">
+                          <span class="token-key">CSS Tokens:</span>
+                          <code>--copper: #FF6B35; font: Syne 800;</code>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- STAGE 2: THEME & PLUGIN ENGINE -->
+            <div class="stage-slide" data-stage-index="1" role="tabpanel" aria-label="Stage 2: Custom Theme and Plugin Core" tabindex="0">
+              <div class="stage-slide-grid">
+                <!-- Left: Info Column -->
+                <div class="stage-info-col">
+                  <div class="stage-meta-row">
+                    <span class="stage-step-tag">STAGE 02 // WORDPRESS BACKEND</span>
+                    <span class="stage-status-indicator"><span class="pulse-ring"></span> COMPILED</span>
+                  </div>
+                  <h3 class="stage-heading">Custom Theme &amp; Plugin Core</h3>
+                  <p class="stage-story">
+                    Engineered with PHP 8 OOP architecture. Registering custom post types, granular taxonomies, and targeted action/filter hooks for zero runtime bloat.
+                  </p>
+                  <div class="stage-tools-footer">
+                    <span class="tools-footer-lbl">TOOLS EMPLOYED:</span>
+                    <div class="stage-tools-chips">
+                      <span class="stack-tool-chip"><span class="tier-dot tier-daily" title="Daily driver"></span> PHP 8.x</span>
+                      <span class="stack-tool-chip"><span class="tier-dot tier-daily" title="Daily driver"></span> WordPress Themes &amp; Plugins</span>
+                      <span class="stack-tool-chip"><span class="tier-dot tier-daily" title="Daily driver"></span> Child Themes</span>
+                      <span class="stack-tool-chip"><span class="tier-dot tier-daily" title="Daily driver"></span> Hooks &amp; Filters</span>
+                      <span class="stack-tool-chip"><span class="tier-dot tier-daily" title="Daily driver"></span> Custom Post Types</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Right: Visual Column -->
+                <div class="stage-visual-col">
+                  <div class="stage-visual-container visual-code">
+                    <div class="code-editor-chrome">
+                      <div class="editor-header">
+                        <div class="window-dots">
+                          <span></span><span></span><span></span>
+                        </div>
+                        <div class="editor-tabs">
+                          <span class="editor-tab active">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                            class-cpt-engine.php
+                          </span>
+                        </div>
+                        <span class="editor-lang">PHP 8.2 OOP</span>
+                      </div>
+                      <pre class="editor-code"><code><span class="code-keyword">&lt;?php</span>
+<span class="code-comment">// Hooking cleanly into WordPress bootstrap lifecycle</span>
+<span class="code-fn">add_action</span>(<span class="code-str">'init'</span>, <span class="code-keyword">function</span>() {
+  <span class="code-fn">register_post_type</span>(<span class="code-str">'case_study'</span>, [
+    <span class="code-str">'public'</span>       =&gt; <span class="code-bool">true</span>,
+    <span class="code-str">'has_archive'</span>  =&gt; <span class="code-bool">true</span>,
+    <span class="code-str">'show_in_rest'</span> =&gt; <span class="code-bool">true</span>,
+    <span class="code-str">'supports'</span>     =&gt; [<span class="code-str">'title'</span>, <span class="code-str">'editor'</span>, <span class="code-str">'thumbnail'</span>],
+    <span class="code-str">'rewrite'</span>      =&gt; [<span class="code-str">'slug'</span> =&gt; <span class="code-str">'work'</span>, <span class="code-str">'with_front'</span> =&gt; <span class="code-bool">false</span>]
+  ]);
+  <span class="code-fn">add_filter</span>(<span class="code-str">'the_content'</span>, [PluginSecurity::class, <span class="code-str">'sanitize_output'</span>]);
+});<span class="code-cursor"></span></code></pre>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- STAGE 3: AJAX & MYSQL -->
+            <div class="stage-slide" data-stage-index="2" role="tabpanel" aria-label="Stage 3: AJAX, REST API and MySQL Data Layer" tabindex="0">
+              <div class="stage-slide-grid">
+                <!-- Left: Info Column -->
+                <div class="stage-info-col">
+                  <div class="stage-meta-row">
+                    <span class="stage-step-tag">STAGE 03 // DYNAMIC DATA LAYER</span>
+                    <span class="stage-status-indicator"><span class="pulse-ring"></span> RESPONSE 200 OK</span>
+                  </div>
+                  <h3 class="stage-heading">AJAX, REST &amp; Indexed MySQL</h3>
+                  <p class="stage-story">
+                    Replacing clunky full-page reloads with sub-20ms AJAX filtering and custom REST endpoints backed by indexed MySQL queries and transient caching.
+                  </p>
+                  <div class="stage-tools-footer">
+                    <span class="tools-footer-lbl">TOOLS EMPLOYED:</span>
+                    <div class="stage-tools-chips">
+                      <span class="stack-tool-chip"><span class="tier-dot tier-daily" title="Daily driver"></span> JavaScript (ES6+)</span>
+                      <span class="stack-tool-chip"><span class="tier-dot tier-daily" title="Daily driver"></span> AJAX Asynchronous</span>
+                      <span class="stack-tool-chip"><span class="tier-dot tier-daily" title="Daily driver"></span> SQL / MySQL</span>
+                      <span class="stack-tool-chip"><span class="tier-dot tier-comfortable" title="Comfortable"></span> REST API</span>
+                      <span class="stack-tool-chip"><span class="tier-dot tier-comfortable" title="Comfortable"></span> jQuery</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Right: Visual Column -->
+                <div class="stage-visual-col">
+                  <div class="stage-visual-container visual-network">
+                    <div class="network-panel-chrome">
+                      <div class="network-header">
+                        <span class="network-tab active">Network</span>
+                        <span class="network-filter">Filter: fetch/XHR</span>
+                        <span class="network-live-pulse"><span class="rec-dot"></span> RECORDING</span>
+                      </div>
+                      <div class="network-request-row">
+                        <span class="req-method">GET</span>
+                        <span class="req-url">/wp-json/vikram/v1/projects?type=fintech</span>
+                        <span class="req-status status-200">200 OK</span>
+                        <span class="req-time">14.2ms</span>
+                        <span class="req-size">3.8 KB</span>
+                      </div>
+                      <div class="query-trace-box">
+                        <div class="trace-header">
+                          <span class="trace-tag">MYSQL QUERY PROFILE</span>
+                          <span class="trace-badge">INDEX USED: PRIMARY_CAT</span>
+                        </div>
+                        <code class="trace-sql">SELECT p.ID, p.post_title, m.meta_value AS specs FROM wp_posts p INNER JOIN wp_postmeta m ON p.ID = m.post_id WHERE p.post_status = 'publish' LIMIT 12;</code>
+                        <div class="trace-footer">
+                          <span>Execution: <strong>0.0018s</strong></span>
+                          <span>Transients: <strong>HIT (Redis)</strong></span>
+                          <span>Data Rows: <strong>12 records</strong></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- STAGE 4: PAYMENTS & CHECKOUT -->
+            <div class="stage-slide" data-stage-index="3" role="tabpanel" aria-label="Stage 4: Transactional Checkout Vault" tabindex="0">
+              <div class="stage-slide-grid">
+                <!-- Left: Info Column -->
+                <div class="stage-info-col">
+                  <div class="stage-meta-row">
+                    <span class="stage-step-tag">STAGE 04 // MONETIZATION &amp; PAYMENTS</span>
+                    <span class="stage-status-indicator"><span class="pulse-ring"></span> WEBHOOK VERIFIED</span>
+                  </div>
+                  <h3 class="stage-heading">Transactional Checkout Vault</h3>
+                  <p class="stage-story">
+                    Integrating resilient payment gateways with server-side webhook reconciliation, cryptographic signature checks, and idempotent order processing.
+                  </p>
+                  <div class="stage-tools-footer">
+                    <span class="tools-footer-lbl">TOOLS EMPLOYED:</span>
+                    <div class="stage-tools-chips">
+                      <span class="stack-tool-chip"><span class="tier-dot tier-comfortable" title="Comfortable"></span> Stripe API</span>
+                      <span class="stack-tool-chip"><span class="tier-dot tier-comfortable" title="Comfortable"></span> Square API</span>
+                      <span class="stack-tool-chip"><span class="tier-dot tier-comfortable" title="Comfortable"></span> Webhooks &amp; REST</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Right: Visual Column -->
+                <div class="stage-visual-col">
+                  <div class="stage-visual-container visual-payment">
+                    <div class="payment-vault-chrome">
+                      <div class="vault-brand-row">
+                        <div class="gateways-text-badges">
+                          <span class="gateway-logo stripe-text">STRIPE</span>
+                          <span class="gateway-divider">/</span>
+                          <span class="gateway-logo square-text">SQUARE</span>
+                        </div>
+                        <span class="vault-security-tag"><span class="shield-icon">🛡</span> IDEMPOTENCY KEY VAULT</span>
+                      </div>
+
+                      <div class="vault-transaction-card">
+                        <div class="tx-row">
+                          <span class="tx-label">SESSION ID</span>
+                          <code class="tx-val">cs_live_94f8b22a019x74b</code>
+                        </div>
+                        <div class="tx-row">
+                          <span class="tx-label">PAYMENT INTENT</span>
+                          <code class="tx-val">pi_3Mtz...90a ($4,250.00 USD)</code>
+                        </div>
+                        <div class="tx-row">
+                          <span class="tx-label">WEBHOOK STATUS</span>
+                          <span class="tx-badge verified">payment_intent.succeeded</span>
+                        </div>
+                      </div>
+
+                      <div class="vault-state-footer">
+                        <div class="state-dot-pulse"></div>
+                        <span>ORDER #8491 CAPTURED &bull; 0 DOUBLE CHARGE RISK &bull; 100% AUDITABLE</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- STAGE 5: AI LAYER & MCP WORKFLOWS -->
+            <div class="stage-slide" data-stage-index="4" role="tabpanel" aria-label="Stage 5: Intelligent AI Layer and MCP Automation" tabindex="0">
+              <div class="stage-slide-grid">
+                <!-- Left: Info Column -->
+                <div class="stage-info-col">
+                  <div class="stage-meta-row">
+                    <span class="stage-step-tag">STAGE 05 // AI AGENTIC LAYER</span>
+                    <span class="stage-status-indicator active"><span class="pulse-ring"></span> MCP ROUTING</span>
+                  </div>
+                  <h3 class="stage-heading">AI Agent &amp; MCP Server Tooling</h3>
+                  <p class="stage-story">
+                    Bridging LLMs directly with WordPress via Model Context Protocol servers — enabling autonomous agents to query, draft, and synchronize operational data.
+                  </p>
+                  <div class="stage-tools-footer">
+                    <span class="tools-footer-lbl">TOOLS EMPLOYED:</span>
+                    <div class="stage-tools-chips">
+                      <span class="stack-tool-chip"><span class="tier-dot tier-learning" title="Learning"></span> LLM Integrations</span>
+                      <span class="stack-tool-chip"><span class="tier-dot tier-learning" title="Learning"></span> MCP Server Workflows</span>
+                      <span class="stack-tool-chip"><span class="tier-dot tier-comfortable" title="Comfortable"></span> React.js</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Right: Visual Column -->
+                <div class="stage-visual-col">
+                  <div class="stage-visual-container visual-ai">
+                    <div class="mcp-terminal-chrome">
+                      <div class="mcp-terminal-header">
+                        <span class="mcp-term-title">Model Context Protocol (MCP) Tool Bridge</span>
+                        <span class="mcp-conn-status">CONNECTED: wp-mcp-server:8080</span>
+                      </div>
+                      <div class="mcp-chat-stream">
+                        <div class="mcp-chat-bubble prompt">
+                          <span class="bubble-sender">CLIENT AGENT:</span>
+                          <p>Generate summary of all published case studies with revenue metrics above $20k.</p>
+                        </div>
+                        <div class="mcp-tool-call">
+                          <div class="tool-call-header">
+                            <span class="gear-icon">⚙</span>
+                            <span>mcp_server.call_tool(&quot;wp_query_metrics&quot;, { min_rev: 20000 })</span>
+                          </div>
+                          <code class="tool-call-output">Return: 6 posts matching criteria. Data structured into JSON payloads.</code>
+                        </div>
+                        <div class="mcp-chat-bubble response">
+                          <span class="bubble-sender">AI RESPONSE:</span>
+                          <p>Synthesized 6 enterprise platforms. Total verified throughput: $184,500. Output injected to dashboard.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- STAGE 6: PERFORMANCE & CDN EDGE -->
+            <div class="stage-slide" data-stage-index="5" role="tabpanel" aria-label="Stage 6: Caching, CDN and Core Web Vitals" tabindex="0">
+              <div class="stage-slide-grid">
+                <!-- Left: Info Column -->
+                <div class="stage-info-col">
+                  <div class="stage-meta-row">
+                    <span class="stage-step-tag">STAGE 06 // PRODUCTION EDGE</span>
+                    <span class="stage-status-indicator active"><span class="pulse-ring"></span> 99+ AUDITED</span>
+                  </div>
+                  <h3 class="stage-heading">Caching, CDN &amp; Core Web Vitals</h3>
+                  <p class="stage-story">
+                    Optimizing the entire delivery chain: Redis object caching, Brotli compression, eliminating render-blocking assets, and scoring 98+ PageSpeed.
+                  </p>
+                  <div class="stage-tools-footer">
+                    <span class="tools-footer-lbl">TOOLS EMPLOYED:</span>
+                    <div class="stage-tools-chips">
+                      <span class="stack-tool-chip"><span class="tier-dot tier-comfortable" title="Comfortable"></span> Caching &amp; CDN</span>
+                      <span class="stack-tool-chip"><span class="tier-dot tier-daily" title="Daily driver"></span> LocalWP</span>
+                      <span class="stack-tool-chip"><span class="tier-dot tier-comfortable" title="Comfortable"></span> cPanel</span>
+                      <span class="stack-tool-chip"><span class="tier-dot tier-daily" title="Daily driver"></span> Git &amp; GitHub</span>
+                      <span class="stack-tool-chip"><span class="tier-dot tier-comfortable" title="Comfortable"></span> LearnPress</span>
+                      <span class="stack-tool-chip"><span class="tier-dot tier-learning" title="Learning"></span> Java</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Right: Visual Column -->
+                <div class="stage-visual-col">
+                  <div class="stage-visual-container visual-perf">
+                    <div class="lighthouse-card-chrome">
+                      <div class="lighthouse-metric-box">
+                        <div class="lighthouse-gauge-wrap">
+                          <svg class="gauge-svg" viewBox="0 0 100 100" aria-label="Lighthouse Score 99">
+                            <circle class="gauge-bg" cx="50" cy="50" r="42" />
+                            <circle class="gauge-fill" id="lighthouse-gauge-fill" cx="50" cy="50" r="42" stroke-dasharray="264" stroke-dashoffset="2.6" />
+                          </svg>
+                          <div class="gauge-center">
+                            <span class="gauge-number" id="lighthouse-score-val">99</span>
+                            <span class="gauge-label">PERFORMANCE</span>
+                          </div>
+                        </div>
+
+                        <div class="vitals-telemetry-grid">
+                          <div class="vital-item">
+                            <span class="v-name">FCP</span>
+                            <span class="v-val green">0.4s</span>
+                          </div>
+                          <div class="vital-item">
+                            <span class="v-name">LCP</span>
+                            <span class="v-val green">0.7s</span>
+                          </div>
+                          <div class="vital-item">
+                            <span class="v-name">CLS</span>
+                            <span class="v-val green">0.00</span>
+                          </div>
+                          <div class="vital-item">
+                            <span class="v-name">TTFB</span>
+                            <span class="v-val green">48ms</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="lighthouse-badges-strip">
+                        <span class="audit-badge"><span class="audit-dot"></span> REDIS CACHE HIT (0.3ms)</span>
+                        <span class="audit-badge"><span class="audit-dot"></span> CLOUDFLARE CDN EDGE</span>
+                        <span class="audit-badge"><span class="audit-dot"></span> ZERO RENDER BLOAT</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- 2c. FOOTER STRIP (~32px high, counter and scroll cue) -->
+          <div class="stage-pinned-footer">
+            <div class="stage-counter">
+              <span class="counter-curr" id="stage-counter-curr">01</span>
+              <span class="counter-sep">/</span>
+              <span class="counter-total">06</span>
+            </div>
+            <div class="stage-scroll-hint">
+              <span class="scroll-hint-text">SCROLL TO ADVANCE SYSTEM</span>
+              <svg class="scroll-hint-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 13l5 5 5-5M7 6l5 5 5-5"/></svg>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Compact Toolbelt & 3-Tier Experience -->
+      <div class="container toolbelt-container">
+        <!-- Tier Legend Strip -->
+        <div class="tier-legend-row">
+          <span class="legend-title">HONEST PROFICIENCY TIERS:</span>
+          <div class="legend-items">
+            <span class="legend-item"><span class="tier-dot tier-daily"></span> <strong>Daily driver</strong> — Muscle memory &amp; core production tool</span>
+            <span class="legend-item"><span class="tier-dot tier-comfortable"></span> <strong>Comfortable</strong> — Deep practical API &amp; integration experience</span>
+            <span class="legend-item"><span class="tier-dot tier-learning"></span> <strong>Learning</strong> — Actively building &amp; pushing limits</span>
           </div>
         </div>
 
-        <div id="skills-matrix-container" class="skills-matrix-grid">
-          <!-- Dynamically populated via skills.js -->
+        <!-- Infinite Toolbelt Marquee (Two rows moving in opposite directions, pausing on hover) -->
+        <div class="toolbelt-marquee-wrap" aria-label="Complete Technical Toolbelt">
+          <!-- Marquee Track Row 1 (Left to Right) -->
+          <div class="toolbelt-track row-left" id="toolbelt-track-1">
+            <div class="toolbelt-group">
+              <span class="tb-chip interactive-el"><span class="tier-dot tier-daily"></span> PHP 8.x <span class="chip-tier">Daily</span></span>
+              <span class="tb-chip interactive-el"><span class="tier-dot tier-daily"></span> WordPress Core <span class="chip-tier">Daily</span></span>
+              <span class="tb-chip interactive-el"><span class="tier-dot tier-daily"></span> Custom Themes &amp; Plugins <span class="chip-tier">Daily</span></span>
+              <span class="tb-chip interactive-el"><span class="tier-dot tier-daily"></span> Hooks &amp; Filters <span class="chip-tier">Daily</span></span>
+              <span class="tb-chip interactive-el"><span class="tier-dot tier-daily"></span> Custom Post Types <span class="chip-tier">Daily</span></span>
+              <span class="tb-chip interactive-el"><span class="tier-dot tier-daily"></span> JavaScript (ES6+) <span class="chip-tier">Daily</span></span>
+              <span class="tb-chip interactive-el"><span class="tier-dot tier-daily"></span> HTML5 Semantic <span class="chip-tier">Daily</span></span>
+              <span class="tb-chip interactive-el"><span class="tier-dot tier-daily"></span> CSS3 Custom Properties <span class="chip-tier">Daily</span></span>
+              <span class="tb-chip interactive-el"><span class="tier-dot tier-daily"></span> SQL / MySQL <span class="chip-tier">Daily</span></span>
+              <span class="tb-chip interactive-el"><span class="tier-dot tier-daily"></span> AJAX <span class="chip-tier">Daily</span></span>
+              <span class="tb-chip interactive-el"><span class="tier-dot tier-daily"></span> Git &amp; GitHub <span class="chip-tier">Daily</span></span>
+              <span class="tb-chip interactive-el"><span class="tier-dot tier-daily"></span> Figma <span class="chip-tier">Daily</span></span>
+              <span class="tb-chip interactive-el"><span class="tier-dot tier-daily"></span> LocalWP <span class="chip-tier">Daily</span></span>
+            </div>
+            <!-- Duplicate for infinite loop -->
+            <div class="toolbelt-group" aria-hidden="true">
+              <span class="tb-chip interactive-el"><span class="tier-dot tier-daily"></span> PHP 8.x <span class="chip-tier">Daily</span></span>
+              <span class="tb-chip interactive-el"><span class="tier-dot tier-daily"></span> WordPress Core <span class="chip-tier">Daily</span></span>
+              <span class="tb-chip interactive-el"><span class="tier-dot tier-daily"></span> Custom Themes &amp; Plugins <span class="chip-tier">Daily</span></span>
+              <span class="tb-chip interactive-el"><span class="tier-dot tier-daily"></span> Hooks &amp; Filters <span class="chip-tier">Daily</span></span>
+              <span class="tb-chip interactive-el"><span class="tier-dot tier-daily"></span> Custom Post Types <span class="chip-tier">Daily</span></span>
+              <span class="tb-chip interactive-el"><span class="tier-dot tier-daily"></span> JavaScript (ES6+) <span class="chip-tier">Daily</span></span>
+              <span class="tb-chip interactive-el"><span class="tier-dot tier-daily"></span> HTML5 Semantic <span class="chip-tier">Daily</span></span>
+              <span class="tb-chip interactive-el"><span class="tier-dot tier-daily"></span> CSS3 Custom Properties <span class="chip-tier">Daily</span></span>
+              <span class="tb-chip interactive-el"><span class="tier-dot tier-daily"></span> SQL / MySQL <span class="chip-tier">Daily</span></span>
+              <span class="tb-chip interactive-el"><span class="tier-dot tier-daily"></span> AJAX <span class="chip-tier">Daily</span></span>
+              <span class="tb-chip interactive-el"><span class="tier-dot tier-daily"></span> Git &amp; GitHub <span class="chip-tier">Daily</span></span>
+              <span class="tb-chip interactive-el"><span class="tier-dot tier-daily"></span> Figma <span class="chip-tier">Daily</span></span>
+              <span class="tb-chip interactive-el"><span class="tier-dot tier-daily"></span> LocalWP <span class="chip-tier">Daily</span></span>
+            </div>
+          </div>
+
+          <!-- Marquee Track Row 2 (Right to Left) -->
+          <div class="toolbelt-track row-right" id="toolbelt-track-2">
+            <div class="toolbelt-group">
+              <span class="tb-chip interactive-el"><span class="tier-dot tier-comfortable"></span> Stripe API <span class="chip-tier">Comfortable</span></span>
+              <span class="tb-chip interactive-el"><span class="tier-dot tier-comfortable"></span> Square API <span class="chip-tier">Comfortable</span></span>
+              <span class="tb-chip interactive-el"><span class="tier-dot tier-comfortable"></span> REST API <span class="chip-tier">Comfortable</span></span>
+              <span class="tb-chip interactive-el"><span class="tier-dot tier-comfortable"></span> React.js <span class="chip-tier">Comfortable</span></span>
+              <span class="tb-chip interactive-el"><span class="tier-dot tier-comfortable"></span> jQuery <span class="chip-tier">Comfortable</span></span>
+              <span class="tb-chip interactive-el"><span class="tier-dot tier-comfortable"></span> Caching &amp; CDN <span class="chip-tier">Comfortable</span></span>
+              <span class="tb-chip interactive-el"><span class="tier-dot tier-comfortable"></span> Child Themes <span class="chip-tier">Comfortable</span></span>
+              <span class="tb-chip interactive-el"><span class="tier-dot tier-comfortable"></span> cPanel <span class="chip-tier">Comfortable</span></span>
+              <span class="tb-chip interactive-el"><span class="tier-dot tier-comfortable"></span> LearnPress LMS <span class="chip-tier">Comfortable</span></span>
+              <span class="tb-chip interactive-el"><span class="tier-dot tier-learning"></span> MCP Server Workflows <span class="chip-tier">Learning</span></span>
+              <span class="tb-chip interactive-el"><span class="tier-dot tier-learning"></span> LLM Integrations <span class="chip-tier">Learning</span></span>
+              <span class="tb-chip interactive-el"><span class="tier-dot tier-learning"></span> Java Full Stack <span class="chip-tier">Learning</span></span>
+            </div>
+            <!-- Duplicate for infinite loop -->
+            <div class="toolbelt-group" aria-hidden="true">
+              <span class="tb-chip interactive-el"><span class="tier-dot tier-comfortable"></span> Stripe API <span class="chip-tier">Comfortable</span></span>
+              <span class="tb-chip interactive-el"><span class="tier-dot tier-comfortable"></span> Square API <span class="chip-tier">Comfortable</span></span>
+              <span class="tb-chip interactive-el"><span class="tier-dot tier-comfortable"></span> REST API <span class="chip-tier">Comfortable</span></span>
+              <span class="tb-chip interactive-el"><span class="tier-dot tier-comfortable"></span> React.js <span class="chip-tier">Comfortable</span></span>
+              <span class="tb-chip interactive-el"><span class="tier-dot tier-comfortable"></span> jQuery <span class="chip-tier">Comfortable</span></span>
+              <span class="tb-chip interactive-el"><span class="tier-dot tier-comfortable"></span> Caching &amp; CDN <span class="chip-tier">Comfortable</span></span>
+              <span class="tb-chip interactive-el"><span class="tier-dot tier-comfortable"></span> Child Themes <span class="chip-tier">Comfortable</span></span>
+              <span class="tb-chip interactive-el"><span class="tier-dot tier-comfortable"></span> cPanel <span class="chip-tier">Comfortable</span></span>
+              <span class="tb-chip interactive-el"><span class="tier-dot tier-comfortable"></span> LearnPress LMS <span class="chip-tier">Comfortable</span></span>
+              <span class="tb-chip interactive-el"><span class="tier-dot tier-learning"></span> MCP Server Workflows <span class="chip-tier">Learning</span></span>
+              <span class="tb-chip interactive-el"><span class="tier-dot tier-learning"></span> LLM Integrations <span class="chip-tier">Learning</span></span>
+              <span class="tb-chip interactive-el"><span class="tier-dot tier-learning"></span> Java Full Stack <span class="chip-tier">Learning</span></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Currently Exploring Mini Row -->
+        <div class="currently-exploring-strip">
+          <div class="exploring-lead">
+            <span class="exploring-pulse-dot"></span>
+            <span class="exploring-title">CURRENTLY EXPLORING:</span>
+          </div>
+          <div class="exploring-chips">
+            <span class="exploring-pill">Model Context Protocol (MCP) Servers</span>
+            <span class="exploring-pill">Autonomous LLM Tool Workflows</span>
+            <span class="exploring-pill">Custom Gutenberg React Blocks</span>
+            <span class="exploring-pill">Decoupled Headless WP Microservices</span>
+          </div>
         </div>
       </div>
     </section>
