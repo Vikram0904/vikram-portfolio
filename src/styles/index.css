@@ -37,7 +37,7 @@
   --border-copper-active: rgba(255, 107, 53, 0.8);
 
   /* Typography */
-  --font-display: 'Syne', system-ui, -apple-system, sans-serif;
+  --font-display: 'Jost', system-ui, -apple-system, sans-serif;
   --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
@@ -120,6 +120,11 @@ button, input, textarea, select {
 img, svg {
   display: block;
   max-width: 100%;
+}
+
+/* Headings Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
 }
 
 .container {
@@ -638,9 +643,9 @@ img, svg {
 
 .hero-title {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 3.5vw, 3.6rem);
-  font-weight: 800;
-  line-height: 1.1;
+  font-size: clamp(2.6rem, 7.5vw, 5rem);
+  font-weight: 500;
+  line-height: 1;
   letter-spacing: -0.025em;
   margin-bottom: 1.5rem;
   color: var(--text-primary);
