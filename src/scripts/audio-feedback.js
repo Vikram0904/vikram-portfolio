@@ -97,23 +97,8 @@ class SoundEngine {
 export const soundEngine = new SoundEngine();
 
 export function initAudioControls() {
-  const btn = document.querySelector('.audio-toggle-btn');
-  if (!btn) return;
-
-  btn.addEventListener('click', () => {
-    const isNowActive = soundEngine.toggle();
-    btn.classList.toggle('active', isNowActive);
-    const label = btn.querySelector('.audio-label');
-    if (label) {
-      label.textContent = isNowActive ? 'FX ON' : 'FX OFF';
-    }
-    if (isNowActive) {
-      soundEngine.playSuccess();
-    }
-  });
-
   // Attach hover sounds to interactive elements
-  const interactiveEls = document.querySelectorAll('a, button, .interactive-el');
+  const interactiveEls = document.querySelectorAll('a, button:not(.audio-toggle-btn), .interactive-el:not(.audio-toggle-btn)');
   interactiveEls.forEach((el) => {
     el.addEventListener('mouseenter', () => soundEngine.playHover());
     el.addEventListener('click', () => soundEngine.playClick());

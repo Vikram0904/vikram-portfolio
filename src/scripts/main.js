@@ -16,6 +16,7 @@ import { initContactForm } from './contact.js';
 import { init3DInteractions } from './3d-interactions.js';
 import { initPinnedProcess } from './pinned-process.js';
 import { initStackedProjects } from './stacked-projects.js';
+import { initHeroVideo } from './hero-video.js';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -173,6 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCaseStudies();
   initContactForm();
   initAudioControls();
+  initHeroVideo();
   initMobileMenu();
 
   // Run Preloader sequence

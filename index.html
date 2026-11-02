@@ -131,8 +131,8 @@
           <li><a href="#education" class="nav-link">Credentials</a></li>
           <li><a href="#contact" class="nav-link">Contact</a></li>
           <li class="nav-divider" aria-hidden="true"></li>
-          <li>
-            <button class="audio-toggle-btn interactive-el" title="Toggle Interaction Sound FX" aria-label="Toggle Interaction Sound FX">
+          <li class="audio-toggle-item">
+            <button class="audio-toggle-btn interactive-el" title="Meet My Digital Twin (Interactive Briefing)" aria-label="Meet My Digital Twin (Interactive Briefing)" aria-pressed="false">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
             </button>
           </li>
@@ -309,19 +309,71 @@
         </div>
 
         <div class="about-grid">
-          <div class="about-visual-box reveal-suspense">
-            <div class="cyber-scanline"></div>
-            <div class="hud-corner top-left"></div>
-            <div class="hud-corner top-right"></div>
-            <div class="hud-corner bottom-left"></div>
-            <div class="hud-corner bottom-right"></div>
-            <img src="/assets/vikram-workspace.png" alt="S Vikram at his engineering desk" class="about-img" />
-            <div class="about-image-hud">
-              <div class="hud-location">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--copper)" stroke-width="2"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"/><circle cx="12" cy="10" r="3"/></svg>
-                <span>Karur, Tamil Nadu, India</span>
+          <!-- Left Visual Column with Top Action Button, Unobstructed Workspace Photo & Specs -->
+          <div class="about-visual-col reveal-suspense">
+            <!-- Dedicated Interactive Video Trigger placed separately ON TOP of the image -->
+            <div class="about-video-trigger-bar">
+              <button class="about-video-trigger interactive-el" id="about-video-play-btn" type="button" aria-label="Meet My Digital Twin - Interactive Video Briefing" title="Meet My Digital Twin - Interactive Video Briefing">
+                <div class="trigger-lead">
+                  <span class="play-btn-circle">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                      <polygon points="6 3 20 12 6 21 6 3" />
+                    </svg>
+                  </span>
+                  <span class="play-btn-text">
+                    <span class="play-btn-title">MEET MY DIGITAL TWIN</span>
+                    <span class="play-btn-meta">Interactive Video Briefing</span>
+                  </span>
+                </div>
+                <span class="play-btn-badge">
+                  <span class="pulsar-dot-live"></span>
+                  <span>WATCH INTRO</span>
+                </span>
+              </button>
+            </div>
+
+            <!-- The Visual Box with 100% Unobstructed Photo & 16:9 Video Player -->
+            <div class="about-visual-box" id="about-visual-box">
+              <div class="cyber-scanline"></div>
+              <div class="hud-corner top-left"></div>
+              <div class="hud-corner top-right"></div>
+              <div class="hud-corner bottom-left"></div>
+              <div class="hud-corner bottom-right"></div>
+              <img src="/assets/vikram-workspace.png" alt="S Vikram at his engineering desk" class="about-img" />
+
+              <!-- Location & Role HUD -->
+              <div class="about-image-hud">
+                <div class="hud-location">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--copper)" stroke-width="2"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"/><circle cx="12" cy="10" r="3"/></svg>
+                  <span>Karur, Tamil Nadu, India</span>
+                </div>
+                <div class="hud-role"><span class="pulsar-dot-green"></span> WP Developer @ Vybog Pvt Ltd</div>
               </div>
-              <div class="hud-role"><span class="pulsar-dot-green"></span> WP Developer @ Vybog Pvt Ltd</div>
+
+              <!-- HeyGen AI Video Container (Fades in when activated) -->
+              <div class="about-video-container" id="about-video-container" aria-hidden="true">
+                <div class="about-video-frame-wrap" id="about-video-frame-wrap"></div>
+                <button class="about-video-close-btn" id="about-video-close-btn" type="button" title="Return to Photo" aria-label="Return to Photo">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                  <span>Photo</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Telemetry Spec Bar under the image to balance the column -->
+            <div class="about-visual-specs">
+              <div class="spec-tag">
+                <span class="spec-label">STATUS</span>
+                <span class="spec-val"><span class="pulsar-dot-green"></span> Available</span>
+              </div>
+              <div class="spec-tag">
+                <span class="spec-label">CORE STACK</span>
+                <span class="spec-val">PHP 8 • React • MCP</span>
+              </div>
+              <div class="spec-tag">
+                <span class="spec-label">EXPERIENCE</span>
+                <span class="spec-val">4+ Yrs Enterprise</span>
+              </div>
             </div>
           </div>
 
