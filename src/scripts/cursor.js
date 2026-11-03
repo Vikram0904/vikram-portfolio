@@ -16,6 +16,13 @@ export function initCursor() {
   let dotX = mouseX;
   let dotY = mouseY;
   let hasMoved = false;
+  const heroSection = document.getElementById('hero');
+
+  function checkHeroBounds(x, y) {
+    if (!heroSection) return false;
+    const rect = heroSection.getBoundingClientRect();
+    return y >= rect.top && y <= rect.bottom && x >= rect.left && x <= rect.right;
+  }
 
   // Track Mouse
   window.addEventListener('mousemove', (e) => {
@@ -25,6 +32,22 @@ export function initCursor() {
     }
     mouseX = e.clientX;
     mouseY = e.clientY;
+
+    if (checkHeroBounds(mouseX, mouseY)) {
+      document.body.classList.add('cursor-on-hero');
+    } else {
+      document.body.classList.remove('cursor-on-hero');
+    }
+  }, { passive: true });
+
+  window.addEventListener('scroll', () => {
+    if (hasMoved) {
+      if (checkHeroBounds(mouseX, mouseY)) {
+        document.body.classList.add('cursor-on-hero');
+      } else {
+        document.body.classList.remove('cursor-on-hero');
+      }
+    }
   }, { passive: true });
 
   document.addEventListener('mouseleave', () => {

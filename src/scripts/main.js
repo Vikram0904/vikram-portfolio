@@ -97,13 +97,14 @@ function initScrollAnimations() {
     });
   });
 
-  // Header scroll appearance
+  // Header sticky state transition
   const header = document.querySelector('.site-header');
+
   if (header) {
     ScrollTrigger.create({
-      start: 'top -50',
+      start: 'top -25',
       onUpdate: (self) => {
-        if (self.scroll() > 50) {
+        if (self.scroll() > 25) {
           header.classList.add('scrolled');
         } else {
           header.classList.remove('scrolled');

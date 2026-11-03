@@ -45,7 +45,7 @@ export function initSkillsMatrix() {
 
     // Helper: update all UI elements based on normalized progress (0 to 1)
     const updateStageUI = (progress) => {
-      // Progress conduit fill & glowing dot
+      // Progress conduit fill & glowing particle head dot (Signature traveling line)
       if (progressFill) progressFill.style.width = `${progress * 100}%`;
       if (progressDot) progressDot.style.left = `${progress * 100}%`;
 
@@ -193,9 +193,12 @@ export function initSkillsMatrix() {
         pill.setAttribute('aria-selected', isActive ? 'true' : 'false');
       });
 
-      // Update progress fill
+      // Update progress line on mobile
       if (progressFill) {
         progressFill.style.width = `${(activeIndex / (slides.length - 1)) * 100}%`;
+      }
+      if (progressDot) {
+        progressDot.style.left = `${(activeIndex / (slides.length - 1)) * 100}%`;
       }
 
       // Auto-center pill in horizontal bar

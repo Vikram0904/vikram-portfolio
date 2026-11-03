@@ -17,29 +17,29 @@
 
   <!-- Circular Monogram Container -->
   <g transform="translate(8, 7)">
-    <circle cx="28" cy="28" r="27" fill="url(#logoBg)" stroke="#272D3B" stroke-width="1.5"/>
-    <circle cx="28" cy="28" r="23" fill="none" stroke="url(#logoCopper)" stroke-width="1.8" stroke-dasharray="110 35" stroke-linecap="round"/>
+    <circle cx="28" cy="28" r="27" fill="url(#logoBg)" stroke="#272D3B" stroke-width="1.6"/>
+    <circle cx="28" cy="28" r="23" fill="none" stroke="url(#logoCopper)" stroke-width="2" stroke-dasharray="110 35" stroke-linecap="round"/>
     
     <!-- Monogram Letters V and D -->
-    <g fill="none" stroke="url(#logoCopper)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" filter="url(#logoGlow)">
+    <g fill="none" stroke="url(#logoCopper)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#logoGlow)">
       <!-- V -->
-      <path d="M16 20 L24 36 L32 20"/>
+      <path d="M16 19 L24 36 L32 19"/>
       <!-- D -->
-      <path d="M29 20 L37 20 C42 20 44.5 23 44.5 28 C44.5 33 42 36 37 36 L29 36"/>
+      <path d="M29 19 L37 19 C42.5 19 45 22.5 45 27.5 C45 32.5 42.5 36 37 36 L29 36"/>
     </g>
     <!-- AI accent node -->
-    <circle cx="39" cy="18" r="2.2" fill="#00F0FF"/>
+    <circle cx="40" cy="17" r="2.4" fill="#00F0FF"/>
   </g>
 
   <!-- Wordmark Text -->
   <g transform="translate(74, 0)">
     <!-- "vikram.dev" -->
-    <text x="0" y="34" font-family="'Syne', 'Plus Jakarta Sans', system-ui, sans-serif" font-weight="800" font-size="24" fill="#F8FAFC" letter-spacing="0.5">
+    <text x="0" y="35" font-family="'Syne', 'Plus Jakarta Sans', system-ui, sans-serif" font-weight="800" font-size="26" fill="#F8FAFC" letter-spacing="0.5">
       vikram<tspan fill="url(#logoCopper)">.dev</tspan>
     </text>
     
     <!-- Tagline "AI • WORDPRESS • WEB DEVELOPMENT" -->
-    <text x="1" y="49" font-family="'JetBrains Mono', monospace" font-weight="600" font-size="7.5" fill="#94A3B8" letter-spacing="2.2">
+    <text x="1" y="52" font-family="'JetBrains Mono', monospace" font-weight="700" font-size="9" fill="#94A3B8" letter-spacing="2.4">
       <tspan fill="#00F0FF">AI</tspan> • WORDPRESS • WEB DEV
     </text>
   </g>

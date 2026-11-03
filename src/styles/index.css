@@ -43,7 +43,7 @@
 
   /* Layout & Spacing */
   --container-max: 1360px;
-  --nav-height: 80px;
+  --nav-height: 84px;
   --radius-sm: 8px;
   --radius-md: 14px;
   --radius-lg: 22px;
@@ -71,7 +71,9 @@ html {
   scroll-behavior: auto; /* Handled via Lenis */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
+  overflow-x: clip;
+  max-width: 100vw;
+  width: 100%;
 }
 
 body {
@@ -79,8 +81,16 @@ body {
   color: var(--text-primary);
   min-height: 100vh;
   position: relative;
-  overflow-x: hidden;
+  overflow-x: clip;
+  max-width: 100vw;
+  width: 100%;
   line-height: 1.6;
+}
+
+main {
+  overflow-x: clip;
+  max-width: 100%;
+  width: 100%;
 }
 
 /* Custom Scrollbar */
@@ -184,23 +194,38 @@ h1, h2, h3, h4, h5, h6 {
 
   .cursor-dot {
     position: absolute;
-    width: 6px;
-    height: 6px;
-    background: var(--copper);
+    width: 8px;
+    height: 8px;
+    background: #FFFFFF;
+    border: 2px solid var(--copper);
     border-radius: 50%;
     transform: translate(-50%, -50%);
-    transition: transform 0.15s ease, opacity 0.2s ease, background-color 0.25s ease;
-    box-shadow: 0 0 10px var(--copper);
+    transition: transform 0.15s ease, opacity 0.2s ease, background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.65), 0 0 10px #FFFFFF, 0 0 16px var(--copper);
   }
 
   .cursor-ring {
     position: absolute;
     width: 38px;
     height: 38px;
-    border: 1.5px solid rgba(255, 107, 53, 0.45);
+    border: 1.5px solid rgba(255, 107, 53, 0.6);
     border-radius: 50%;
     transform: translate(-50%, -50%);
-    transition: width 0.3s var(--ease-out-expo), height 0.3s var(--ease-out-expo), border-color 0.3s ease, background-color 0.3s ease;
+    transition: width 0.3s var(--ease-out-expo), height 0.3s var(--ease-out-expo), border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 12px rgba(255, 107, 53, 0.2);
+  }
+
+  /* High-Contrast Hero Banner Mode: Electric Cyan & Bright Core against warm copper WebGL particles */
+  body.cursor-on-hero .cursor-dot {
+    background: #00F0FF;
+    border-color: #FFFFFF;
+    box-shadow: 0 0 0 1.5px rgba(6, 7, 9, 0.8), 0 0 12px #00F0FF, 0 0 24px rgba(0, 240, 255, 0.95);
+  }
+
+  body.cursor-on-hero .cursor-ring {
+    border-color: rgba(0, 240, 255, 0.75);
+    background: rgba(0, 240, 255, 0.08);
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.35), inset 0 0 10px rgba(0, 240, 255, 0.15);
   }
 
   .cursor-label {
@@ -227,12 +252,27 @@ h1, h2, h3, h4, h5, h6 {
     width: 60px;
     height: 60px;
     border-color: var(--copper);
-    background: rgba(255, 107, 53, 0.1);
+    background: rgba(255, 107, 53, 0.12);
+    box-shadow: 0 0 20px rgba(255, 107, 53, 0.3);
+  }
+
+  body.cursor-on-hero.cursor-hover .cursor-ring {
+    border-color: #00F0FF;
+    background: rgba(0, 240, 255, 0.16);
+    box-shadow: 0 0 24px rgba(0, 240, 255, 0.45);
   }
 
   body.cursor-hover .cursor-dot {
-    transform: translate(-50%, -50%) scale(1.5);
+    transform: translate(-50%, -50%) scale(1.4);
     background: #FFFFFF;
+    border-color: #FFFFFF;
+    box-shadow: 0 0 14px #FFFFFF, 0 0 24px var(--copper);
+  }
+
+  body.cursor-on-hero.cursor-hover .cursor-dot {
+    background: #FFFFFF;
+    border-color: #00F0FF;
+    box-shadow: 0 0 14px #FFFFFF, 0 0 24px #00F0FF;
   }
 
   body.cursor-view .cursor-ring {
@@ -350,7 +390,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* --------------------------------------------------------------------------
-   HEADER & NAVIGATION
+   HEADER & NAVIGATION — High-Tech Cyber Command Deck
    -------------------------------------------------------------------------- */
 .site-header {
   position: fixed;
@@ -360,11 +400,39 @@ h1, h2, h3, h4, h5, h6 {
   height: var(--nav-height);
   z-index: 900;
   pointer-events: none;
-  transition: all 0.35s ease;
+  transition: height 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  border-bottom: 1px solid transparent;
 }
 
+/* Unique Sticky Header Transformation on Scroll */
 .site-header.scrolled {
-  background: transparent;
+  height: 68px;
+  background: rgba(6, 8, 12, 0.85);
+  backdrop-filter: blur(24px) saturate(190%);
+  -webkit-backdrop-filter: blur(24px) saturate(190%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 12px 35px -5px rgba(0, 0, 0, 0.75),
+              0 0 25px rgba(255, 107, 53, 0.08);
+  pointer-events: auto;
+}
+
+/* Cyber Accent Laser Rim under sticky header */
+.site-header.scrolled::before {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(255, 107, 53, 0.45) 20%, 
+    rgba(0, 240, 255, 0.4) 80%, 
+    transparent 100%);
+  pointer-events: none;
 }
 
 .nav-inner {
@@ -375,13 +443,15 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
 }
 
+/* Brand Logo (Noticeably larger, high-res & illuminated) */
 .brand-logo {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.85rem;
   pointer-events: auto;
   z-index: 960;
   transition: transform 0.25s ease;
+  text-decoration: none;
 }
 
 .brand-logo:hover {
@@ -389,18 +459,29 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .brand-logo img {
-  height: 42px;
+  height: clamp(50px, 4.5vw, 58px);
   width: auto;
+  transition: height 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.25s ease, filter 0.3s ease;
+  filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.5));
+}
+
+.brand-logo:hover img {
+  filter: drop-shadow(0 0 16px rgba(255, 107, 53, 0.45));
+}
+
+.site-header.scrolled .brand-logo img {
+  height: clamp(42px, 3.8vw, 48px);
 }
 
 /* 1. Modern Floating Glassmorphic Header Navigation */
 .floating-pill-nav {
-  position: fixed;
-  top: 1rem;
+  position: absolute;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
   z-index: 950;
   pointer-events: auto;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .nav-links {
@@ -415,7 +496,14 @@ h1, h2, h3, h4, h5, h6 {
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-full);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.08);
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.site-header.scrolled .nav-links {
+  background: rgba(14, 18, 28, 0.72);
+  border-color: rgba(255, 255, 255, 0.14);
+  box-shadow: 0 4px 22px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.08);
+  padding: 0.28rem 0.45rem;
 }
 
 .floating-pill-nav:hover .nav-links {
@@ -542,6 +630,12 @@ h1, h2, h3, h4, h5, h6 {
   color: #FFFFFF;
   box-shadow: 0 0 25px var(--amber-glow);
   transform: translateY(-1px);
+}
+
+.site-header.scrolled .btn-nav-cta {
+  padding: 0.5rem 1.25rem;
+  font-size: 0.78rem;
+  box-shadow: 0 0 16px rgba(255, 107, 53, 0.3);
 }
 
 .mobile-menu-btn {
@@ -1105,7 +1199,7 @@ h1, h2, h3, h4, h5, h6 {
   100% { transform: translate(-50%, 12px); opacity: 0; }
 }
 
-/* Marquee Ticker */
+/* Marquee Ticker — Cyber Ecosystem Feed */
 .hero-ticker-wrap {
   position: relative;
   width: 100vw;
@@ -1113,18 +1207,21 @@ h1, h2, h3, h4, h5, h6 {
   right: 50%;
   margin-left: -50vw;
   margin-right: -50vw;
-  background: #0B0E14;
-  border-top: 1px solid var(--border-subtle);
-  border-bottom: 1px solid var(--border-subtle);
-  padding: 0.85rem 0;
+  background: linear-gradient(180deg, rgba(13, 17, 24, 0.95) 0%, rgba(8, 10, 15, 0.98) 100%);
+  border-top: 1px solid rgba(255, 107, 53, 0.22);
+  border-bottom: 1px solid rgba(255, 107, 53, 0.22);
+  padding: 0.95rem 0;
   overflow: hidden;
   margin-top: 3.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 .ticker-track {
   display: flex;
+  align-items: center;
   width: max-content;
-  animation: marquee 30s linear infinite;
+  animation: marquee 35s linear infinite;
+  will-change: transform;
 }
 
 .ticker-track:hover {
@@ -1139,19 +1236,54 @@ h1, h2, h3, h4, h5, h6 {
 .ticker-item {
   display: inline-flex;
   align-items: center;
-  gap: 1.5rem;
-  padding: 0 1.5rem;
+  gap: 0.85rem;
+  padding: 0 1.6rem;
   font-family: var(--font-mono);
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 700;
   color: var(--text-secondary);
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
+  transition: all 0.25s ease;
+  white-space: nowrap;
 }
 
-.ticker-item span.dot {
-  color: var(--copper);
-  font-size: 1.2rem;
+.ticker-item:hover {
+  color: #FFFFFF;
+}
+
+.ticker-icon-box {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: rgba(16, 21, 30, 0.85);
+  border: 1px solid rgba(255, 107, 53, 0.3);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 0 12px rgba(255, 107, 53, 0.15), inset 0 1px 1px rgba(255, 255, 255, 0.08);
+  transition: all 0.3s var(--ease-out-expo);
+}
+
+.ticker-item:hover .ticker-icon-box {
+  border-color: var(--copper);
+  background: rgba(255, 107, 53, 0.2);
+  transform: translateY(-2px) scale(1.08);
+  box-shadow: 0 0 18px rgba(255, 107, 53, 0.45);
+}
+
+.ticker-dot {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 0.9rem;
+  opacity: 0.7;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.ticker-item:hover .ticker-dot {
+  opacity: 1;
+  transform: scale(1.3);
 }
 
 /* --------------------------------------------------------------------------
@@ -1734,12 +1866,12 @@ section {
   background: rgba(255, 255, 255, 0.05);
 }
 
-/* Active Stage Highlight in Accent Orange */
+/* Active Stage Highlight in Accent Orange with Micro-Underglow Capsule */
 .stage-pill.active {
   color: #FFFFFF;
   background: rgba(255, 107, 53, 0.16);
   border-color: rgba(255, 107, 53, 0.65);
-  box-shadow: 0 0 16px rgba(255, 107, 53, 0.25);
+  box-shadow: 0 0 16px rgba(255, 107, 53, 0.25), inset 0 -2px 0 var(--copper);
 }
 
 .stage-pill.active .pill-num {
@@ -1765,12 +1897,12 @@ section {
   box-shadow: 0 0 6px #10B981;
 }
 
-/* Integrated Progress Track & Glowing Dot inside the Stage Bar */
+/* Signature Pipeline Traveling Laser Conduit & Glowing Particle Head */
 .stage-bar-progress-track {
   position: relative;
   width: 100%;
   height: 2px;
-  background: rgba(255, 255, 255, 0.07);
+  background: rgba(255, 255, 255, 0.08);
   border-radius: 2px;
   margin-top: 10px;
   overflow: visible;
@@ -1783,7 +1915,7 @@ section {
   height: 100%;
   width: 0%;
   background: linear-gradient(90deg, var(--copper), var(--ai-cyan));
-  box-shadow: 0 0 10px var(--copper);
+  box-shadow: 0 0 10px var(--copper), 0 0 20px rgba(0, 240, 255, 0.4);
   border-radius: 2px;
   transition: width 0.08s linear;
 }
@@ -1797,7 +1929,7 @@ section {
   border-radius: 50%;
   background: #FFFFFF;
   border: 2px solid var(--copper);
-  box-shadow: 0 0 10px #FF6B35, 0 0 18px rgba(0, 240, 255, 0.8);
+  box-shadow: 0 0 8px #FFFFFF, 0 0 14px #FF6B35, 0 0 22px rgba(0, 240, 255, 0.85);
   transform: translateX(-50%);
   transition: left 0.08s linear;
 }
@@ -2740,10 +2872,12 @@ section {
 .tb-chip {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.55rem 1.05rem;
-  background: var(--bg-surface);
-  border: 1px solid var(--border-subtle);
+  gap: 0.55rem;
+  padding: 0.45rem 0.95rem 0.45rem 0.65rem;
+  background: rgba(14, 18, 26, 0.78);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--radius-full);
   font-family: var(--font-mono);
   font-size: 0.8rem;
@@ -2752,28 +2886,53 @@ section {
   white-space: nowrap;
   transition: all 0.25s var(--ease-out-expo);
   cursor: default;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
-.tb-chip .chip-tier {
-  font-size: 0.68rem;
-  color: var(--text-muted);
-  background: rgba(255, 255, 255, 0.05);
-  padding: 1px 6px;
-  border-radius: 4px;
-  margin-left: 0.25rem;
+.tb-chip-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  flex-shrink: 0;
+  transition: all 0.25s var(--ease-out-expo);
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.05);
 }
 
 .tb-chip:hover {
   border-color: var(--copper);
-  background: rgba(255, 107, 53, 0.12);
+  background: rgba(255, 107, 53, 0.15);
   color: #FFFFFF;
   transform: translateY(-2px);
-  box-shadow: 0 4px 18px var(--amber-glow);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45), 0 0 16px var(--amber-glow);
+}
+
+.tb-chip:hover .tb-chip-icon {
+  background: rgba(255, 107, 53, 0.25);
+  border-color: var(--copper);
+  transform: scale(1.12) rotate(-3deg);
+  box-shadow: 0 0 12px rgba(255, 107, 53, 0.5);
+}
+
+.tb-chip .chip-tier {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.06);
+  padding: 2px 7px;
+  border-radius: 4px;
+  margin-left: 0.2rem;
+  letter-spacing: 0.04em;
+  font-weight: 700;
+  transition: all 0.25s ease;
 }
 
 .tb-chip:hover .chip-tier {
   color: var(--copper-light);
-  background: rgba(255, 107, 53, 0.2);
+  background: rgba(255, 107, 53, 0.25);
 }
 
 /* Currently Exploring Mini Row */
@@ -3435,25 +3594,39 @@ section {
   font-weight: 600;
 }
 
-.laser-hairline-track {
-  position: relative;
+/* Architectural Frame Divider (Crisp engineering blueprint aesthetic) */
+.process-architect-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
   width: 100%;
-  height: 2px;
-  background: rgba(255, 255, 255, 0.06);
-  margin-bottom: 1rem;
-  overflow: visible;
+  margin-bottom: 1.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  color: var(--text-muted);
 }
 
-.laser-hairline-beam {
-  position: absolute;
-  top: -1px;
-  left: 0%;
-  width: 140px;
-  height: 4px;
-  background: linear-gradient(90deg, transparent, var(--copper), var(--ai-cyan), transparent);
-  box-shadow: 0 0 16px var(--copper), 0 0 32px var(--ai-cyan);
-  border-radius: 4px;
-  transition: left 0.1s linear;
+.process-architect-divider .divider-bracket {
+  color: var(--copper);
+  font-weight: 700;
+}
+
+.process-architect-divider .divider-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(255, 107, 53, 0.35), rgba(255, 255, 255, 0.06));
+}
+
+.process-architect-divider .divider-line:last-of-type {
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.06), rgba(0, 240, 255, 0.35));
+}
+
+.process-architect-divider .divider-label {
+  font-size: 0.68rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+  text-transform: uppercase;
 }
 
 .process-slides-viewport {
@@ -3618,15 +3791,84 @@ section {
   border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 
+.process-bottom-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-top: 1rem;
+  padding: 0.6rem 1.25rem;
+  background: rgba(10, 15, 29, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Circular HUD Radar Arc Gauge (Orbital telemetry, zero horizontal line repetition) */
+.process-radar-gauge {
+  position: relative;
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.process-radar-gauge .radar-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 46px;
+  height: 46px;
+  filter: drop-shadow(0 0 8px rgba(255, 107, 53, 0.45));
+}
+
+.radar-arc-circle {
+  transition: stroke-dashoffset 0.12s linear;
+}
+
+.radar-center-pulse {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(10, 15, 29, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 0 8px rgba(0, 240, 255, 0.2);
+}
+
+.radar-phase-text {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  letter-spacing: 0.04em;
+}
+
 .process-step-counter {
   font-family: var(--font-mono);
-  font-size: 1.1rem;
+  font-size: 0.95rem;
   font-weight: 800;
+  display: flex;
+  align-items: center;
+}
+
+.process-step-counter .phase-prefix {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--copper);
+  letter-spacing: 0.14em;
+  margin-right: 6px;
+  font-weight: 700;
 }
 
 .process-step-counter .curr-step {
   color: var(--copper);
-  font-size: 1.4rem;
+  font-size: 1.25rem;
 }
 
 .process-step-counter .sep {
@@ -3638,28 +3880,12 @@ section {
   color: var(--text-secondary);
 }
 
-.process-progress-track {
-  flex-grow: 1;
-  height: 3px;
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: 3px;
-  overflow: hidden;
-  max-width: 450px;
-}
-
-.process-progress-fill {
-  height: 100%;
-  width: 25%;
-  background: linear-gradient(90deg, var(--copper), var(--ai-cyan));
-  transition: width 0.1s linear;
-}
-
 .process-scroll-hint {
   display: flex;
   align-items: center;
   gap: 0.5rem;
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   color: var(--text-muted);
   letter-spacing: 0.08em;
 }
@@ -4136,13 +4362,149 @@ section {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-family: var(--font-display);
-  font-size: clamp(8rem, 20vw, 22rem);
-  font-weight: 900;
-  color: rgba(255, 255, 255, 0.018);
+  width: 100%;
+  max-width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   pointer-events: none;
   user-select: none;
+  z-index: 1;
+}
+
+/* Desktop & Laptop: Full horizontal uncropped watermark */
+.watermark-desktop {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 7.8vw, 8.8rem);
+  font-weight: 900;
+  letter-spacing: 0.06em;
   white-space: nowrap;
+  line-height: 1;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.038);
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.015);
+  filter: drop-shadow(0 0 40px rgba(0, 0, 0, 0.6));
+  transition: opacity 0.3s ease;
+}
+
+.watermark-rect {
+  display: none;
+}
+
+/* Smaller Devices (Tablets, Mobile): Full Architectural Rectangle Watermark */
+@media (max-width: 991px) {
+  .watermark-desktop {
+    display: none;
+  }
+
+  .watermark-rect {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0 1.25rem;
+  }
+
+  .wm-rect-frame {
+    position: relative;
+    width: 100%;
+    max-width: 380px;
+    padding: 1.75rem 1.25rem;
+    background: rgba(255, 255, 255, 0.008);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    border-radius: 8px;
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+  }
+
+  /* Architectural Cyber Corner Brackets */
+  .wm-corner {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-color: rgba(255, 107, 53, 0.35);
+    border-style: solid;
+    pointer-events: none;
+  }
+
+  .wm-corner.wm-tl {
+    top: -1px;
+    left: -1px;
+    border-width: 2px 0 0 2px;
+  }
+
+  .wm-corner.wm-tr {
+    top: -1px;
+    right: -1px;
+    border-width: 2px 2px 0 0;
+  }
+
+  .wm-corner.wm-bl {
+    bottom: -1px;
+    left: -1px;
+    border-width: 0 0 2px 2px;
+  }
+
+  .wm-corner.wm-br {
+    bottom: -1px;
+    right: -1px;
+    border-width: 0 2px 2px 0;
+  }
+
+  .wm-rect-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    color: rgba(255, 255, 255, 0.12);
+  }
+
+  .wm-rect-meta.top {
+    margin-bottom: 0.85rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.04);
+  }
+
+  .wm-rect-meta.btm {
+    margin-top: 0.85rem;
+    padding-top: 0.5rem;
+    border-top: 1px dashed rgba(255, 255, 255, 0.04);
+  }
+
+  .wm-meta-dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--copper);
+    opacity: 0.5;
+  }
+
+  .wm-rect-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+  }
+
+  .wm-rect-body .wm-row {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: clamp(2.8rem, 13vw, 4.2rem);
+    letter-spacing: 0.06em;
+    line-height: 0.92;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.038);
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.02);
+  }
+
+  .wm-accent-dot {
+    color: var(--copper);
+    opacity: 0.45;
+  }
 }
 
 .footer-top-grid {
@@ -4263,6 +4625,10 @@ section {
     align-items: center;
   }
   .floating-pill-nav {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
     display: flex;
     margin-left: auto;
     margin-right: 0.75rem;
@@ -4272,6 +4638,11 @@ section {
     box-shadow: none;
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
+  }
+  .site-header.scrolled .floating-pill-nav {
+    top: auto;
+    left: auto;
+    transform: none;
   }
   .floating-pill-nav .nav-links {
     gap: 0;
@@ -4320,6 +4691,12 @@ section {
 }
 
 @media (max-width: 768px) {
+  .brand-logo img {
+    height: 44px;
+  }
+  .site-header.scrolled .brand-logo img {
+    height: 38px;
+  }
   .btn-nav-cta {
     display: none;
   }
@@ -4338,11 +4715,17 @@ section {
     flex-direction: column;
     gap: 1.5rem;
     transform: translateX(100%);
-    transition: transform 0.4s var(--ease-out-expo);
+    visibility: hidden;
+    pointer-events: none;
+    opacity: 0;
+    transition: transform 0.4s var(--ease-out-expo), opacity 0.3s ease, visibility 0.4s;
     z-index: 899;
   }
   .mobile-nav-drawer.open {
     transform: translateX(0);
+    visibility: visible;
+    pointer-events: auto;
+    opacity: 1;
   }
   .mobile-nav-drawer .nav-link {
     font-size: 1.4rem;
@@ -4400,7 +4783,35 @@ section {
     height: auto !important;
   }
   .stage-slide-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.5rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
     overflow-y: visible !important;
+    overflow-x: hidden !important;
+  }
+  .stage-info-col,
+  .stage-visual-col,
+  .stage-visual-container,
+  .code-editor-chrome,
+  .editor-code,
+  .process-slide-grid,
+  .slide-content-col,
+  .slide-visual-col,
+  .slide-cyber-box,
+  .box-code {
+    min-width: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  .editor-code,
+  .box-code {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    white-space: pre !important;
   }
   .stage-pinned-footer {
     display: none !important;

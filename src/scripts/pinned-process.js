@@ -20,9 +20,9 @@ export function initPinnedProcess() {
     const slides = stage.querySelectorAll('.process-slide');
     const watermark = stage.querySelector('.process-watermark-num');
     const currStepText = stage.querySelector('.curr-step');
-    const progressFill = stage.querySelector('.process-progress-fill');
+    const radarArc = stage.querySelector('#radar-arc-circle');
+    const radarPhaseText = stage.querySelector('#radar-phase-text');
     const tabs = stage.querySelectorAll('.step-tab-btn');
-    const laserBeam = stage.querySelector('.laser-hairline-beam');
 
     if (!slides.length) return;
 
@@ -47,13 +47,12 @@ export function initPinnedProcess() {
         anticipatePin: 1,
         onUpdate: (self) => {
           const progress = self.progress;
-          // Fill progress bar
-          if (progressFill) {
-            progressFill.style.width = `${progress * 100}%`;
-          }
-          // Move laser hairline
-          if (laserBeam) {
-            laserBeam.style.left = `${progress * 90}%`;
+
+          // Drive high-tech circular radar arc gauge (circumference of r=19 is ~119.38)
+          if (radarArc) {
+            const circumference = 119.38;
+            const dashOffset = circumference * (1 - Math.min(1, Math.max(0.04, progress)));
+            radarArc.style.strokeDashoffset = dashOffset.toFixed(2);
           }
 
           // Active phase index (0, 1, 2, 3)
@@ -61,6 +60,10 @@ export function initPinnedProcess() {
             totalPhases - 1,
             Math.floor(progress * totalPhases)
           );
+
+          if (radarPhaseText) {
+            radarPhaseText.textContent = `P${activeIndex + 1}`;
+          }
 
           // Update watermark and step numbers
           const stepNumStr = String(activeIndex + 1).padStart(2, '0');
