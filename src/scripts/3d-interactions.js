@@ -82,7 +82,7 @@ function initStatCounters() {
   if (!statsWrap) return;
 
   const statItems = [
-    { selector: '.stat-card:nth-child(1) .stat-num', target: 30, suffix: '+', prefix: '' },
+    { selector: '.stat-card:nth-child(1) .stat-num', target: 40, suffix: '+', prefix: '' },
     { selector: '.stat-card:nth-child(2) .stat-num', target: 100, suffix: '%', prefix: '' },
     { selector: '.stat-card:nth-child(3) .stat-num', target: 20, suffix: 'ms', prefix: '<' }
   ];
