@@ -17,6 +17,7 @@ import { init3DInteractions } from './3d-interactions.js';
 import { initPinnedProcess } from './pinned-process.js';
 import { initStackedProjects } from './stacked-projects.js';
 import { initHeroVideo } from './hero-video.js';
+import { initFooter } from './footer.js';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -177,6 +178,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initAudioControls();
   initHeroVideo();
   initMobileMenu();
+  initFooter();
 
   // Run Preloader sequence
   initPreloader(() => {

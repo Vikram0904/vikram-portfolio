@@ -1567,54 +1567,82 @@ async def query_knowledge(topic: str) -> dict:
           <div class="section-eyebrow">Start a Conversation</div>
           <h2 class="section-title">Let's Build Something Exceptional</h2>
           <p class="section-subtitle">
-            Have a project in mind, need a custom WordPress plugin, or looking to integrate AI into your web application? Reach out below and let's get started.
+            Have a website project, need a custom WordPress solution, want to integrate your CRM, or planning a custom web application? Let's discuss your ideas and build something that works for your business.
           </p>
         </div>
 
         <div class="contact-grid">
           <div class="contact-info-col reveal-suspense">
-            <div>
-              <h3 style="font-family: var(--font-display); font-size: 1.5rem; color: var(--text-primary); margin-bottom: 0.75rem;">Direct Communication Channels</h3>
-              <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6;">
-                I am currently open for freelance projects, technical consulting, and contract engineering roles. Expect a response within 24 hours.
+            <div class="contact-info-sticky">
+              <div class="contact-status-chip">
+                <span class="contact-status-dot" aria-hidden="true"></span>
+                <span>Typically replies within 24 hours</span>
+              </div>
+
+              <h3 class="contact-info-heading">Direct Communication Channels</h3>
+              <p class="contact-info-copy">
+                I'm open to freelance projects, part-time opportunities, contract work, and technical collaborations. Whether it's web development, CRM integration, business automation, or custom application development, I'd love to hear about your project.
               </p>
 
               <div class="contact-direct-links">
-                <a href="mailto:vikramnsk4@gmail.com" class="contact-channel-card interactive-el">
-                  <div class="channel-icon-wrap">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                  </div>
-                  <div>
-                    <div class="channel-title">Email Directly</div>
-                    <div class="channel-value">vikramnsk4@gmail.com</div>
-                  </div>
-                </a>
+                <!-- Email Card with Copy Action -->
+                <div class="contact-channel-card contact-channel-card--split interactive-el">
+                  <a href="mailto:vikramnsk4@gmail.com" class="channel-card-main">
+                    <div class="channel-icon-wrap" aria-hidden="true">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    </div>
+                    <div class="channel-text-wrap">
+                      <div class="channel-title">Email Directly</div>
+                      <div class="channel-value">vikramnsk4@gmail.com</div>
+                    </div>
+                  </a>
+                  <button type="button" id="contact-copy-email" class="channel-copy-btn interactive-el" aria-label="Copy email address vikramnsk4@gmail.com">
+                    <svg class="icon-copy" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                    <svg class="icon-check" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span class="copy-btn-text">Copy</span>
+                  </button>
+                </div>
 
-                <a href="tel:+916369149082" class="contact-channel-card interactive-el">
-                  <div class="channel-icon-wrap">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <!-- Merged Phone / WhatsApp Card -->
+                <div class="contact-channel-card contact-channel-card--actions interactive-el">
+                  <div class="channel-card-top">
+                    <div class="channel-icon-wrap" aria-hidden="true">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    </div>
+                    <div class="channel-text-wrap">
+                      <div class="channel-title">Phone / WhatsApp</div>
+                      <div class="channel-value">+91 6369149082</div>
+                    </div>
                   </div>
-                  <div>
-                    <div class="channel-title">Phone / WhatsApp</div>
-                    <div class="channel-value">+91 6369149082</div>
+                  <div class="channel-action-group">
+                    <a href="tel:+916369149082" class="channel-action-btn interactive-el" aria-label="Call +91 6369149082">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                      <span>Call</span>
+                    </a>
+                    <a href="https://wa.me/916369149082" target="_blank" rel="noopener noreferrer" class="channel-action-btn channel-action-btn--wa interactive-el" aria-label="Message on WhatsApp +91 6369149082 (opens in new tab)">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" /><path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1" /></svg>
+                      <span>WhatsApp</span>
+                    </a>
                   </div>
-                </a>
+                </div>
 
-                <a href="https://linkedin.com/in/vikramsdev" target="_blank" rel="noopener noreferrer" class="contact-channel-card interactive-el">
-                  <div class="channel-icon-wrap">
+                <!-- LinkedIn Card -->
+                <a href="https://linkedin.com/in/vikramsdev" target="_blank" rel="noopener noreferrer" class="contact-channel-card interactive-el" aria-label="LinkedIn profile linkedin.com/in/vikramsdev (opens in new tab)">
+                  <div class="channel-icon-wrap" aria-hidden="true">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
                   </div>
-                  <div>
+                  <div class="channel-text-wrap">
                     <div class="channel-title">LinkedIn Profile</div>
                     <div class="channel-value">linkedin.com/in/vikramsdev</div>
                   </div>
                 </a>
 
+                <!-- Location Card -->
                 <div class="contact-channel-card">
-                  <div class="channel-icon-wrap" style="background: rgba(0, 240, 255, 0.15); color: var(--ai-cyan);">
+                  <div class="channel-icon-wrap channel-icon-wrap--location" aria-hidden="true">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
                   </div>
-                  <div>
+                  <div class="channel-text-wrap">
                     <div class="channel-title">Current Location</div>
                     <div class="channel-value">Karur, Tamil Nadu, India</div>
                   </div>
@@ -1625,67 +1653,180 @@ async def query_knowledge(topic: str) -> dict:
 
           <!-- Front-End Interactive Contact Form -->
           <div class="contact-form-card reveal-suspense">
-            <form id="contact-form">
-              <div class="form-group">
-                <label class="form-label">Select Project Scope</label>
-                <div class="project-type-pills">
-                  <span class="type-pill active" data-value="Custom WordPress Theme/Plugin">Custom WP Theme/Plugin</span>
-                  <span class="type-pill" data-value="Payment Gateway (Stripe/Square)">Payment Gateway</span>
-                  <span class="type-pill" data-value="AI / MCP Server Automation">AI / MCP Automation</span>
-                  <span class="type-pill" data-value="Speed &amp; Core Web Vitals">Speed Optimization</span>
-                  <span class="type-pill" data-value="Full-Stack Web App">Full-Stack App</span>
-                </div>
-                <input type="hidden" id="project_type_input" name="project_type" value="Custom WordPress Theme/Plugin" />
+            <form id="contact-form" novalidate>
+              <!-- Anti-spam honeypot and form load timing fields -->
+              <div class="contact-hp-field" aria-hidden="true">
+                <label for="contact_company_website">Company Website</label>
+                <input
+                  type="text"
+                  id="contact_company_website"
+                  name="company_website"
+                  tabindex="-1"
+                  autocomplete="off"
+                  aria-hidden="true"
+                />
+              </div>
+              <input type="hidden" id="contact_form_started_at" name="form_started_at" value="" />
 
-                <!-- Interactive Live Scope Telemetry HUD -->
-                <div class="scope-telemetry-hud" id="scope-telemetry-hud">
+              <div class="form-group">
+                <label class="form-label" id="scope-radiogroup-label">Select Project Scope</label>
+                <div class="project-type-pills" role="radiogroup" aria-labelledby="scope-radiogroup-label">
+                  <button type="button" class="type-pill active" role="radio" aria-checked="true" tabindex="0" data-value="WordPress Development">
+                    <svg class="pill-check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>WordPress Development</span>
+                  </button>
+
+                  <button type="button" class="type-pill" role="radio" aria-checked="false" tabindex="-1" data-value="Custom Web Application / CMS">
+                    <svg class="pill-check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Custom Web App / CMS</span>
+                  </button>
+
+                  <button type="button" class="type-pill" role="radio" aria-checked="false" tabindex="-1" data-value="CRM &amp; Salesforce Integration">
+                    <svg class="pill-check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>CRM &amp; Salesforce</span>
+                  </button>
+
+                  <button type="button" class="type-pill" role="radio" aria-checked="false" tabindex="-1" data-value="Business Process Automation">
+                    <svg class="pill-check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Business Automation</span>
+                  </button>
+
+                  <button type="button" class="type-pill" role="radio" aria-checked="false" tabindex="-1" data-value="Payment &amp; API Integration">
+                    <svg class="pill-check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Payment &amp; API Integration</span>
+                  </button>
+
+                  <button type="button" class="type-pill" role="radio" aria-checked="false" tabindex="-1" data-value="Other / General Inquiry">
+                    <svg class="pill-check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Other / General Inquiry</span>
+                  </button>
+                </div>
+
+                <input
+                  type="hidden"
+                  id="project_type_input"
+                  name="project_type"
+                  value="WordPress Development"
+                />
+
+                <!-- Dynamic Live Scope Telemetry HUD -->
+                <div class="scope-telemetry-hud" id="scope-telemetry-hud" aria-live="polite">
                   <div class="hud-stat-item">
-                    <span class="hud-stat-lbl">EST. TURNAROUND</span>
-                    <span class="hud-stat-val" id="hud-timeline">2 – 3 Weeks</span>
+                    <span class="hud-stat-lbl">PROJECT SCOPE</span>
+                    <span class="hud-stat-val" id="hud-scope">WordPress Development</span>
                   </div>
+
                   <div class="hud-stat-item">
-                    <span class="hud-stat-lbl">CORE ARCHITECTURE</span>
-                    <span class="hud-stat-val" id="hud-stack">PHP 8.2 OOP + Custom React Blocks</span>
+                    <span class="hud-stat-lbl">TECHNOLOGY</span>
+                    <div class="hud-chips" id="hud-tech"></div>
                   </div>
+
                   <div class="hud-stat-item">
-                    <span class="hud-stat-lbl">DELIVERY BENCHMARK</span>
-                    <span class="hud-stat-val" id="hud-guarantee">95+ PageSpeed • Zero Bloat</span>
+                    <span class="hud-stat-lbl">DEVELOPMENT APPROACH</span>
+                    <span class="hud-stat-val" id="hud-approach">Clean OOP code, fast and maintainable</span>
+                  </div>
+
+                  <div class="hud-stat-item hud-stat-item--extra" id="hud-extra-row" hidden>
+                    <span class="hud-stat-lbl" id="hud-extra-label">CMS OPTIONS</span>
+                    <div class="hud-chips" id="hud-extra-items"></div>
                   </div>
                 </div>
               </div>
 
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+              <!-- Name & Email Row -->
+              <div class="contact-form-row">
                 <div class="form-group">
-                  <label for="contact_name" class="form-label">Your Name *</label>
-                  <input type="text" id="contact_name" name="name" class="form-input" placeholder="e.g. Alex Morgan" required />
+                  <label for="contact_name" class="form-label">Your Name <span class="required-mark" aria-hidden="true">*</span></label>
+                  <input type="text" id="contact_name" name="name" class="form-input" placeholder="e.g. Alex Morgan" aria-describedby="contact_name_error" autocomplete="name" />
+                  <div class="form-error" id="contact_name_error" role="alert"></div>
                 </div>
 
                 <div class="form-group">
-                  <label for="contact_email" class="form-label">Your Email *</label>
-                  <input type="email" id="contact_email" name="email" class="form-input" placeholder="e.g. alex@company.com" required />
+                  <label for="contact_email" class="form-label">Your Email <span class="required-mark" aria-hidden="true">*</span></label>
+                  <input type="email" id="contact_email" name="email" class="form-input" placeholder="e.g. alex@company.com" aria-describedby="contact_email_error" autocomplete="email" />
+                  <div class="form-error" id="contact_email_error" role="alert"></div>
                 </div>
               </div>
 
+              <!-- Budget Free Input + Currency + Unsure Checkbox -->
               <div class="form-group">
-                <label for="contact_budget" class="form-label">Estimated Budget (USD)</label>
-                <select id="contact_budget" name="budget" class="form-select">
-                  <option value="$1,000 - $3,000">$1,000 – $3,000 (Sprint / Plugin)</option>
-                  <option value="$3,000 - $7,500" selected>$3,000 – $7,500 (Complete Platform)</option>
-                  <option value="$7,500 - $15,000+">$7,500 – $15,000+ (Enterprise / AI Systems)</option>
-                </select>
+                <label for="contact_budget_amount" class="form-label">Your Budget (optional)</label>
+                <div class="budget-input-row" id="budget-input-row">
+                  <div class="select-wrap budget-currency-wrap">
+                    <select id="contact_budget_currency" name="budget_currency" class="form-select" aria-label="Budget currency">
+                      <option value="INR">INR ₹</option>
+                      <option value="USD">USD $</option>
+                      <option value="EUR">EUR €</option>
+                      <option value="GBP">GBP £</option>
+                      <option value="AED">AED</option>
+                      <option value="AUD">AUD</option>
+                      <option value="CAD">CAD</option>
+                      <option value="SGD">SGD</option>
+                    </select>
+                  </div>
+                  <input
+                    type="text"
+                    id="contact_budget_amount"
+                    name="budget_amount"
+                    class="form-input budget-amount-input"
+                    inputmode="decimal"
+                    placeholder="e.g. 50,000"
+                    aria-describedby="budget-hint"
+                    autocomplete="off"
+                  />
+                </div>
+
+                <label class="budget-unsure-label interactive-el" for="contact_budget_unsure">
+                  <input type="checkbox" id="contact_budget_unsure" class="budget-unsure-input" />
+                  <span class="budget-checkbox-box" aria-hidden="true">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                  </span>
+                  <span class="budget-unsure-text">Not sure yet, advise me</span>
+                </label>
+
+                <p class="form-hint" id="budget-hint">A rough estimate is fine. It helps me suggest the right approach.</p>
               </div>
 
+              <!-- Optional Timeline Field -->
               <div class="form-group">
-                <label for="contact_message" class="form-label">Project Brief &amp; Goals *</label>
-                <textarea id="contact_message" name="message" rows="4" class="form-textarea" placeholder="Describe your project, timeline, and core requirements..." required></textarea>
+                <label for="contact_timeline" class="form-label">Timeline (optional)</label>
+                <div class="select-wrap">
+                  <select id="contact_timeline" name="timeline" class="form-select">
+                    <option value="Not sure" selected>Not sure</option>
+                    <option value="ASAP">ASAP</option>
+                    <option value="1-2 weeks">1-2 weeks</option>
+                    <option value="About 1 month">About 1 month</option>
+                    <option value="2-3 months">2-3 months</option>
+                    <option value="Flexible">Flexible</option>
+                  </select>
+                </div>
               </div>
 
-              <button type="submit" id="contact-submit-btn" class="btn-primary interactive-el btn-magnetic" style="width: 100%;">
-                <span>TRANSMIT PROJECT BRIEF</span>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              <!-- Project Brief Textarea + Auto-grow + Counter -->
+              <div class="form-group">
+                <label for="contact_message" class="form-label">Project Brief &amp; Goals <span class="required-mark" aria-hidden="true">*</span></label>
+                <textarea
+                  id="contact_message"
+                  name="message"
+                  rows="6"
+                  class="form-textarea"
+                  placeholder="Describe your project, goals, timeline expectations, and core requirements..."
+                  aria-describedby="contact_message_error contact_message_counter"
+                ></textarea>
+                <div class="textarea-meta-row">
+                  <div class="form-error" id="contact_message_error" role="alert"></div>
+                  <div class="char-counter" id="contact_message_counter" aria-live="off">0 / 2000</div>
+                </div>
+              </div>
+
+              <button type="submit" id="contact-submit-btn" class="btn-primary interactive-el btn-magnetic contact-submit-btn">
+                <span class="submit-btn-label">SEND PROJECT BRIEF</span>
+                <svg class="submit-btn-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
               </button>
 
-              <div id="contact-toast" style="display: none;"></div>
+              <p class="contact-privacy-note">No spam. Your details are only used to reply to this inquiry.</p>
+
+              <div id="contact-toast" class="contact-toast" role="status" aria-live="polite" hidden></div>
             </form>
           </div>
         </div>
@@ -1703,84 +1844,139 @@ async def query_knowledge(topic: str) -> dict:
     </div>
   </aside>
 
-  <!-- Editorial Footer -->
-  <footer class="site-footer">
-    <div class="footer-watermark" aria-hidden="true">
-      <!-- Desktop & Laptop: Full horizontal uncropped watermark -->
-      <span class="watermark-desktop">VIKRAM.DEV</span>
-
-      <!-- Smaller Devices (Mobile & Tablet): Full Architectural Rectangle Watermark -->
-      <div class="watermark-rect">
-        <div class="wm-rect-frame">
-          <span class="wm-corner wm-tl"></span>
-          <span class="wm-corner wm-tr"></span>
-          <span class="wm-corner wm-bl"></span>
-          <span class="wm-corner wm-br"></span>
-
-          <div class="wm-rect-meta top">
-            <span class="wm-meta-id">[ SYS.ARCHITECT // KARUR ]</span>
-            <span class="wm-meta-dot"></span>
+  <!-- SITE FOOTER -->
+  <footer class="site-footer" id="site-footer">
+    <div class="container site-footer-container">
+      <!-- ROW 1: Brand + Links Grid (12 cols) -->
+      <div class="site-footer-grid site-footer-reveal">
+        <!-- Brand Block (Cols 1-5) -->
+        <div class="site-footer-brand-col">
+          <div class="site-footer-profile-header">
+            <div class="site-footer-avatar-wrap">
+              <div class="site-footer-avatar-ring">
+                <picture>
+                  <source srcset="/assets/vikram-icon.webp" type="image/webp" />
+                  <img src="/assets/vikram-icon.png" width="80" height="80" alt="S Vikram" loading="lazy" class="site-footer-avatar-img" />
+                </picture>
+              </div>
+              <span class="site-footer-status-dot" aria-label="Available for work" title="Available for work"></span>
+            </div>
+            <div class="site-footer-identity">
+              <div class="site-footer-name">S Vikram</div>
+              <div class="site-footer-role">WordPress &amp; AI Developer &middot; Karur, India</div>
+            </div>
           </div>
 
-          <div class="wm-rect-body">
-            <div class="wm-row wm-first">VIKRAM</div>
-            <div class="wm-row wm-second"><span class="wm-accent-dot">.</span>DEV</div>
+          <p class="site-footer-bio">
+            I build custom WordPress themes, plugins, payment integrations and automation workflows for growing businesses.
+          </p>
+
+          <div class="site-footer-actions">
+            <a href="#contact" class="btn-primary site-footer-cta-btn interactive-el" aria-label="Start a project - scroll to contact section">
+              <span>Start a project</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+            <button type="button" class="site-footer-copy-btn interactive-el" id="site-footer-copy-email" aria-label="Copy email address vikramnsk4@gmail.com to clipboard">
+              <span class="copy-icon-wrap">
+                <svg class="copy-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                <svg class="check-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              <span class="copy-label">Copy email</span>
+            </button>
           </div>
 
-          <div class="wm-rect-meta btm">
-            <span class="wm-meta-spec">WORDPRESS &amp; AI SYSTEMS</span>
-            <span class="wm-meta-tag">EST. 2026</span>
+          <div class="site-footer-social-icons">
+            <a href="mailto:vikramnsk4@gmail.com" class="site-footer-icon-btn interactive-el" aria-label="Send email to vikramnsk4@gmail.com" title="Email: vikramnsk4@gmail.com">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </a>
+            <a href="tel:+916369149082" class="site-footer-icon-btn interactive-el" aria-label="Call or WhatsApp +91 6369149082" title="Call/WhatsApp: +91 6369149082">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </a>
+            <a href="https://linkedin.com/in/vikramsdev" target="_blank" rel="noopener noreferrer" class="site-footer-icon-btn interactive-el" aria-label="Connect on LinkedIn (opens in new tab)" title="LinkedIn: /in/vikramsdev">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
           </div>
         </div>
+
+        <!-- Navigation (Cols 6-8): 2-Column Inner Grid (4 + 3 links) -->
+        <div class="site-footer-nav-col">
+          <div class="site-footer-col-title">Navigation</div>
+          <nav aria-label="Footer">
+            <ul class="site-footer-nav-grid">
+              <li><a href="#about" class="site-footer-link interactive-el"><span>About</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></li>
+              <li><a href="#skills" class="site-footer-link interactive-el"><span>Skills</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></li>
+              <li><a href="#experience" class="site-footer-link interactive-el"><span>Experience</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></li>
+              <li><a href="#projects" class="site-footer-link interactive-el"><span>Work</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></li>
+              <li><a href="#process" class="site-footer-link interactive-el"><span>Process</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></li>
+              <li><a href="#credentials" class="site-footer-link interactive-el"><span>Credentials</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></li>
+              <li><a href="#contact" class="site-footer-link interactive-el"><span>Contact</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <!-- Contact (Cols 9-12): ONE Combined Surface Card -->
+        <div class="site-footer-contact-col">
+          <div class="site-footer-col-title">Contact &amp; Telemetry</div>
+          <div class="site-footer-contact-card">
+            <!-- 1. Status Line -->
+            <div class="site-footer-card-status">
+              <span class="pulsar-dot-green"></span>
+              <span class="status-card-text">Available for freelance &amp; contract work</span>
+            </div>
+
+            <div class="site-footer-card-divider"></div>
+
+            <!-- 2. Three Contact Rows with Icons -->
+            <div class="site-footer-contact-rows">
+              <a href="mailto:vikramnsk4@gmail.com" class="site-footer-contact-item interactive-el" aria-label="Send email to vikramnsk4@gmail.com">
+                <span class="contact-item-icon">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </span>
+                <span class="contact-item-val">vikramnsk4@gmail.com</span>
+              </a>
+
+              <a href="tel:+916369149082" class="site-footer-contact-item interactive-el" aria-label="Call or WhatsApp +91 6369149082">
+                <span class="contact-item-icon">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                </span>
+                <span class="contact-item-val">+91 6369149082</span>
+              </a>
+
+              <a href="https://linkedin.com/in/vikramsdev" target="_blank" rel="noopener noreferrer" class="site-footer-contact-item interactive-el" aria-label="LinkedIn profile (opens in new tab)">
+                <span class="contact-item-icon">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                </span>
+                <span class="contact-item-val">/in/vikramsdev</span>
+              </a>
+            </div>
+
+            <div class="site-footer-card-divider"></div>
+
+            <!-- 3. Live Clock Line -->
+            <div class="site-footer-card-clock">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--copper)" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <span id="karur-clock">Loading local time...</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ROW 2: Bottom Bar -->
+      <div class="site-footer-bottom-bar site-footer-reveal">
+        <div class="site-footer-copyright">
+          &copy; <span id="site-footer-year">2026</span> S Vikram (vikram.dev). All rights reserved.
+        </div>
+
+        <a href="#hero" class="btn-back-to-top interactive-el" aria-label="Back to top of page">
+          <span>BACK TO TOP</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+        </a>
       </div>
     </div>
 
-    <div class="container" style="position: relative; z-index: 2;">
-      <div class="footer-top-grid">
-        <div class="footer-brand">
-          <img src="/assets/logo.svg" alt="vikram.dev logo" style="height: 48px; width: auto;" />
-          <p>
-            AI-Focused WordPress Developer crafting bespoke themes, object-oriented plugins, high-concurrency payment systems, and intelligent automated workflows.
-          </p>
-        </div>
-
-        <div>
-          <div class="footer-col-title">Navigation</div>
-          <ul class="footer-links-list">
-            <li><a href="#about" class="interactive-el">About Story</a></li>
-            <li><a href="#skills" class="interactive-el">Skills &amp; Tech Radar</a></li>
-            <li><a href="#experience" class="interactive-el">Experience @ Vybog</a></li>
-            <li><a href="#projects" class="interactive-el">Featured Case Studies</a></li>
-            <li><a href="#process" class="interactive-el">Engineering Workflow</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <div class="footer-col-title">Connect &amp; Social</div>
-          <ul class="footer-links-list">
-            <li><a href="mailto:vikramnsk4@gmail.com" class="interactive-el">Email: vikramnsk4@gmail.com</a></li>
-            <li><a href="tel:+916369149082" class="interactive-el">Call: +91 6369149082</a></li>
-            <li><a href="https://linkedin.com/in/vikramsdev" target="_blank" rel="noopener noreferrer" class="interactive-el">LinkedIn: /in/vikramsdev</a></li>
-            <li><a href="#contact" class="interactive-el">Project Estimator</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="footer-bottom-bar">
-        <div class="footer-copyright">
-          © 2026 S Vikram (vikram.dev). All rights reserved. Designed &amp; Engineered with Precision.
-        </div>
-
-        <div class="footer-live-clock">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          <span id="karur-clock">Loading local time...</span>
-        </div>
-
-        <a href="#hero" class="btn-back-to-top interactive-el">
-          <span>BACK TO TOP</span>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
-        </a>
-      </div>
+    <!-- WATERMARK STRIP (Below bottom bar, not behind text) -->
+    <div class="site-footer-watermark-strip" aria-hidden="true">
+      <span class="watermark-text">VIKRAM.DEV</span>
     </div>
   </footer>
 

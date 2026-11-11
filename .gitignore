@@ -26,3 +26,9 @@ dist-ssr
 # Temporary test artifacts
 scratch/test-dark-composite.jpg
 scratch/*.png
+
+# Environment & Netlify local state
+.env
+.env.*
+!.env.example
+.netlify/
