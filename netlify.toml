@@ -3,6 +3,10 @@
   publish = "dist"
   functions = "netlify/functions"
 
+[build.environment]
+  # CONTACT_* hold intentionally public site values (vikramnsk4@gmail.com / display name); BREVO_API_KEY remains scanned
+  SECRETS_SCAN_OMIT_KEYS = "CONTACT_TO_EMAIL,CONTACT_FROM_EMAIL,CONTACT_FROM_NAME"
+
 [functions]
   node_bundler = "esbuild"
 
