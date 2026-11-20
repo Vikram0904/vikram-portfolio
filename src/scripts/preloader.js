@@ -301,13 +301,14 @@ export function initPreloader(onComplete) {
   const originalVikram = 'VIKRAM';
   const originalDev = 'DEV';
   const scrambleChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789<>/*#_•';
+  const scrambleObj = { p: 0 };
 
-  tl.to({ p: 0 }, {
+  tl.to(scrambleObj, {
     p: 1,
     duration: PRELOADER_CONFIG.scrambleDuration,
     ease: 'none',
     onUpdate: function() {
-      const progress = this.targets()[0].p;
+      const progress = scrambleObj.p;
       if (wordmarkVikram) {
         const revealedV = Math.floor(progress * originalVikram.length);
         wordmarkVikram.textContent = originalVikram.split('').map((char, idx) => {
@@ -329,8 +330,8 @@ export function initPreloader(onComplete) {
     }
   }, PRELOADER_CONFIG.scrambleStart);
 
-  // 3. 0.70s - 1.00s: Copper dot pops and pulses
-  if (wordmarkDot && !isMobile) {
+  // 3. Copper dot pops and pulses
+  if (wordmarkDot) {
     tl.fromTo(wordmarkDot,
       { scale: 0, opacity: 0 },
       { scale: 1.35, opacity: 1, duration: 0.18, ease: 'back.out(2)' },
@@ -341,21 +342,23 @@ export function initPreloader(onComplete) {
     );
   }
 
-  // 4. 1.00s - 2.20s: CINEMATIC PARTING & PORTRAIT EMERGENCE
-  // Compute horizontal parting distance
-  const partingDistance = isMobile
-    ? Math.max(28, window.innerWidth * 0.08)
-    : Math.min(220, Math.max(90, window.innerWidth * 0.14));
+  // 4. CINEMATIC PARTING & PORTRAIT EMERGENCE
+  // Function to get current responsive parting distance dynamically
+  function getPartingDistance() {
+    return window.innerWidth <= 600
+      ? Math.max(28, window.innerWidth * 0.08)
+      : Math.min(220, Math.max(90, window.innerWidth * 0.14));
+  }
 
   // (a) Parting: VIKRAM moves left, DEV moves right
   tl.to(wordmarkVikram, {
-    x: -partingDistance,
+    x: () => -getPartingDistance(),
     duration: PRELOADER_CONFIG.partingDuration,
     ease: 'preloaderSnappy'
   }, PRELOADER_CONFIG.partingStart);
 
   tl.to(wordmarkDev, {
-    x: partingDistance,
+    x: () => getPartingDistance(),
     duration: PRELOADER_CONFIG.partingDuration,
     ease: 'preloaderSnappy'
   }, PRELOADER_CONFIG.partingStart);
@@ -466,6 +469,12 @@ export function initPreloader(onComplete) {
           startReducedMotion();
           return;
         }
+
+        // Reset wordmarks and dot to initial state before playing timeline
+        gsap.set(wordmarkVikram, { x: 0, opacity: 0, clearProps: 'transform' });
+        gsap.set(wordmarkDev, { x: 0, opacity: 0, clearProps: 'transform' });
+        if (wordmarkDot) gsap.set(wordmarkDot, { scale: 0, opacity: 0 });
+        if (tagline) gsap.set(tagline, { opacity: 0, y: 16 });
 
         // Initial state: wordmark begins centered vertically (y: 0 relative to top 50%)
         gsap.set(wordmarkWrap, { y: 0 });
