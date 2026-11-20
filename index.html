@@ -5,25 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <!-- Primary Meta Tags -->
-  <title>S Vikram — AI-Focused WordPress Developer &amp; Systems Architect | vikram.dev</title>
-  <meta name="title" content="S Vikram — AI-Focused WordPress Developer & Systems Architect | vikram.dev" />
-  <meta name="description" content="Award-winning freelance portfolio of S Vikram. Expert in bespoke WordPress theme & plugin development, PHP/MySQL, Stripe/Square payments, and LLM/MCP server automation." />
-  <meta name="keywords" content="WordPress Developer, AI Developer, MCP Server, Freelance WordPress Developer, Custom WordPress Plugins, PHP 8, React, Stripe API, Karur India, S Vikram" />
+  <title>S Vikram — WordPress Developer &amp; Systems Architect</title>
+  <meta name="title" content="S Vikram — WordPress Developer &amp; Systems Architect" />
+  <meta name="description" content="Custom WordPress developer specializing in bespoke themes, plugins, Stripe &amp; Square payment systems, CRM integrations, and automated LLM workflows in Karur, IN." />
   <meta name="author" content="S Vikram" />
   <meta name="theme-color" content="#08090C" />
+  <link rel="canonical" href="https://vikram.dev/" />
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://vikram.dev/" />
-  <meta property="og:title" content="S Vikram — AI-Focused WordPress Developer | vikram.dev" />
+  <meta property="og:title" content="S Vikram — WordPress Developer &amp; Systems Architect" />
   <meta property="og:description" content="Custom WordPress themes, plugins, high-throughput payment architectures, and AI/MCP automated workflows delivered with precision." />
-  <meta property="og:image" content="/assets/hero-portrait.jpg" />
+  <meta property="og:image" content="https://vikram.dev/assets/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image" />
-  <meta property="twitter:title" content="S Vikram — AI-Focused WordPress Developer | vikram.dev" />
+  <meta property="twitter:url" content="https://vikram.dev/" />
+  <meta property="twitter:title" content="S Vikram — WordPress Developer &amp; Systems Architect" />
   <meta property="twitter:description" content="Custom WordPress themes, plugins, payment gateways, and LLM/MCP workflows." />
-  <meta property="twitter:image" content="/assets/hero-portrait.jpg" />
+  <meta property="twitter:image" content="https://vikram.dev/assets/og-image.jpg" />
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -33,48 +36,307 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400..800;1,400..800&family=Jost:ital,wght@0,100..900;1,100..900&family=Plus+Jakarta+Sans:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet" />
 
-  <!-- Structured Data JSON-LD -->
+  <!-- Structured Data JSON-LD (Schema.org Graph: Person & WebSite) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "S Vikram",
-    "url": "https://vikram.dev",
-    "jobTitle": "AI-Focused WordPress Developer",
-    "worksFor": {
-      "@type": "Organization",
-      "name": "Vybog Pvt Ltd"
-    },
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Karur",
-      "addressRegion": "Tamil Nadu",
-      "addressCountry": "India"
-    },
-    "email": "vikramnsk4@gmail.com",
-    "telephone": "+916369149082",
-    "sameAs": [
-      "https://linkedin.com/in/vikramsdev"
-    ],
-    "knowsAbout": [
-      "WordPress Development",
-      "PHP",
-      "Custom Plugin Development",
-      "Stripe API",
-      "Square API",
-      "Model Context Protocol (MCP)",
-      "LLM Integrations",
-      "MySQL",
-      "JavaScript",
-      "React.js"
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://vikram.dev/#website",
+        "url": "https://vikram.dev/",
+        "name": "S Vikram — Portfolio",
+        "description": "Portfolio of S Vikram, Custom WordPress Developer & Systems Architect"
+      },
+      {
+        "@type": "Person",
+        "@id": "https://vikram.dev/#person",
+        "name": "S Vikram",
+        "url": "https://vikram.dev/",
+        "jobTitle": "WordPress Developer",
+        "description": "Specialized WordPress developer and systems engineer building custom plugins, high-performance themes, and automated business workflows.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Karur",
+          "addressRegion": "Tamil Nadu",
+          "addressCountry": "IN"
+        },
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Vybog Pvt Ltd"
+        },
+        "sameAs": [
+          "https://linkedin.com/in/vikramsdev"
+        ],
+        "knowsAbout": [
+          "WordPress",
+          "PHP",
+          "Stripe",
+          "Square",
+          "Salesforce integrations",
+          "Business automation",
+          "REST APIs",
+          "React",
+          "MCP"
+        ],
+        "alumniOf": [
+          {
+            "@type": "CollegeOrUniversity",
+            "name": "Bharathidasan University",
+            "description": "Government Arts & Science College, affiliated with Bharathidasan University"
+          },
+          {
+            "@type": "Organization",
+            "name": "Besant Technologies"
+          }
+        ],
+        "hasCredential": [
+          {
+            "@type": "EducationalOccupationalCredential",
+            "name": "Java Full Stack Training",
+            "credentialCategory": "certificate",
+            "recognizedBy": {
+              "@type": "Organization",
+              "name": "Besant Technologies"
+            }
+          }
+        ]
+      }
     ]
   }
   </script>
 
+  <!-- Preload Cinematic Portrait for Preloader (1800w WebP) -->
+  <link rel="preload" as="image" href="/assets/vikram-avatar-1800w.webp" type="image/webp" fetchpriority="high" />
+
+  <!-- Critical Inline Preloader CSS (Frame 0 First-Paint Protection) -->
+  <style>
+    /* Prevent white canvas flash on root */
+    html {
+      background-color: #08090C !important;
+    }
+
+    /* Preloader Layout Variables (Poster Composition)
+       --hair-top-ratio: Measured from 4K cutout: topmost opaque pixel at y=0 (apex of hair).
+       --wordmark-size: min(10.5vw, 20vh) gives ~74vw line width on desktop, capped at 300px on ultra-wide.
+       --portrait-height: Fills entire remaining viewport under tagline plus bottom-bleed.
+    */
+    :root, .preloader {
+      --hair-top-ratio: 0.0;
+      --wordmark-top-margin: clamp(24px, 5.5vh, 60px);
+      --wordmark-size: min(10.5vw, 20vh);
+      --wordmark-gap: clamp(10px, 1.5vw, 32px);
+      --dot-size: clamp(10px, 1.3vw, 26px);
+      --tagline-size: clamp(11px, 1.15vw, 22px);
+      --tagline-margin: clamp(8px, 1.4vh, 18px);
+      --tagline-spacing: clamp(0.24em, 0.4vw, 0.42em);
+      --gap: clamp(12px, 2vh, 26px);
+      --portrait-bleed: clamp(20px, 6vh, 80px);
+      --wordmark-block-height: calc(var(--wordmark-size) * 0.92 + var(--tagline-margin) + var(--tagline-size) * 1.5);
+      --portrait-height: calc(100vh - var(--wordmark-top-margin) - var(--wordmark-block-height) - var(--gap) + var(--portrait-bleed));
+      --wordmark-final-y: 0px;
+    }
+
+    @media (min-width: 2560px) {
+      :root, .preloader {
+        --wordmark-size: 300px;
+      }
+    }
+
+    @media (min-width: 768px) and (max-width: 1023px) {
+      :root, .preloader {
+        --wordmark-size: 11.2vw;
+      }
+    }
+
+    @media (max-width: 600px) {
+      :root, .preloader {
+        --wordmark-top-margin: clamp(20px, 5vh, 40px);
+        --wordmark-size: clamp(48px, 24vw, 110px);
+        --tagline-size: 0.68rem;
+        --tagline-margin: 0.6rem;
+        --gap: clamp(10px, 1.8vh, 18px);
+        --portrait-bleed: clamp(16px, 4vh, 40px);
+        --portrait-height: clamp(340px, 58vh, 520px);
+      }
+    }
+
+    @media (max-height: 700px) {
+      :root, .preloader {
+        --wordmark-top-margin: clamp(16px, 3.5vh, 28px);
+        --wordmark-size: min(10.5vw, 15vh);
+        --tagline-margin: 0.35rem;
+        --gap: clamp(8px, 1.5vh, 14px);
+        --portrait-height: max(55vh, calc(100vh - var(--wordmark-top-margin) - var(--wordmark-block-height) - var(--gap) + var(--portrait-bleed)));
+      }
+    }
+
+    /* Preloader container covers entire screen from Frame 0 */
+    .preloader {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: #08090C;
+      z-index: 999999;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      user-select: none;
+      -webkit-user-select: none;
+      visibility: visible;
+    }
+
+    /* Screen-reader-only text: hidden visually from Frame 0, never display:none */
+    .preloader .sr-only {
+      position: absolute !important;
+      width: 1px !important;
+      height: 1px !important;
+      overflow: hidden !important;
+      clip-path: inset(50%) !important;
+      clip: rect(0, 0, 0, 0) !important;
+      white-space: nowrap !important;
+      margin: -1px !important;
+      padding: 0 !important;
+      border: 0 !important;
+    }
+
+    /* Initial hidden states on first paint (plain CSS, zero JS dependence) */
+    .preloader-portrait-wrap {
+      position: absolute;
+      bottom: calc(-1 * var(--portrait-bleed));
+      left: 50%;
+      height: var(--portrait-height);
+      width: auto;
+      max-width: 95vw;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      pointer-events: none;
+      z-index: 3;
+    }
+
+    .preloader:not(.is-playing) .preloader-portrait-wrap,
+    .preloader-portrait-wrap[style*="opacity:0"] {
+      opacity: 0 !important;
+      transform: translate3d(-50%, 100%, 0) !important;
+    }
+
+    .preloader-wordmark-wrap {
+      position: absolute;
+      top: var(--wordmark-top-margin);
+      left: 50%;
+      transform: translate3d(-50%, var(--wordmark-final-y), 0);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      width: 100%;
+      text-align: center;
+      z-index: 4;
+      pointer-events: none;
+    }
+
+    .preloader:not(.is-playing) .wordmark-vikram,
+    .wordmark-vikram[style*="opacity:0"] {
+      opacity: 0 !important;
+      transform: translate3d(-120vw, 0, 0) !important;
+    }
+
+    .preloader:not(.is-playing) .wordmark-dev,
+    .wordmark-dev[style*="opacity:0"] {
+      opacity: 0 !important;
+      transform: translate3d(120vw, 0, 0) !important;
+    }
+
+    .preloader:not(.is-playing) .wordmark-dot,
+    .wordmark-dot[style*="opacity:0"] {
+      opacity: 0 !important;
+      transform: scale(0) !important;
+    }
+
+    .preloader:not(.is-playing) .preloader-tagline,
+    .preloader-tagline[style*="opacity:0"] {
+      opacity: 0 !important;
+    }
+
+    .preloader:not(.is-playing) .preloader-bottom-controls,
+    .preloader-bottom-controls[style*="opacity:0"] {
+      opacity: 0 !important;
+    }
+
+    /* Scroll lock and hide page content behind preloader while active */
+    html.preloader-locked,
+    body.preloader-locked {
+      overflow: hidden !important;
+    }
+    body.preloader-locked > *:not(.preloader) {
+      visibility: hidden !important;
+    }
+  </style>
+  <noscript>
+    <style>
+      .preloader { display: none !important; }
+      html, body { overflow: auto !important; }
+      body > *:not(.preloader) { visibility: visible !important; }
+    </style>
+  </noscript>
+
   <!-- Master Stylesheet -->
   <link rel="stylesheet" href="/src/styles/index.css" />
 </head>
-<body>
+<body class="preloader-locked">
+
+  <!-- Full-Screen Cinematic Preloader (First element in <body> for immediate first-paint coverage) -->
+  <aside class="preloader" id="preloader" role="status" aria-label="Loading vikram.dev portfolio">
+    <span class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);clip:rect(0,0,0,0);white-space:nowrap;margin:-1px;padding:0;border:0;">Loading portfolio</span>
+
+    <!-- Ambient Cinematic Background Glow & Noise Grid -->
+    <div class="preloader-bg" aria-hidden="true">
+      <div class="preloader-glow"></div>
+      <div class="preloader-grid"></div>
+    </div>
+
+    <!-- Bottom Controls (Counter & SKIP button; Top corners intentionally removed) -->
+    <div class="preloader-bottom-controls" style="opacity:0;">
+      <div class="preloader-counter-wrap">
+        <span class="preloader-count">00</span>
+        <span class="preloader-pct">%</span>
+      </div>
+      <div class="preloader-skip-wrap">
+        <button type="button" class="preloader-skip-btn" id="preloader-skip-btn" aria-label="Skip intro animation" tabindex="0">SKIP</button>
+      </div>
+    </div>
+    <div class="preloader-progress-line" aria-hidden="true">
+      <div class="preloader-progress-fill" id="preloader-progress-fill"></div>
+    </div>
+
+    <!-- Central Stage: Wordmark, Tagline & Cutout Portrait -->
+    <div class="preloader-stage" aria-hidden="true">
+      <!-- Huge Wordmark & Tagline: Positioned cleanly ABOVE the head -->
+      <div class="preloader-wordmark-wrap" id="preloader-wordmark-wrap">
+        <div class="preloader-wordmark">
+          <span class="wordmark-part wordmark-vikram" style="opacity:0;transform:translate3d(-120vw,0,0);">VIKRAM</span>
+          <span class="wordmark-dot" aria-hidden="true" style="opacity:0;transform:scale(0);"></span>
+          <span class="wordmark-part wordmark-dev" style="opacity:0;transform:translate3d(120vw,0,0);">DEV</span>
+        </div>
+        <div class="preloader-tagline" id="preloader-tagline" style="opacity:0;">
+          WORDPRESS DEVELOPER · AUTOMATION · AI
+        </div>
+      </div>
+
+      <!-- Cutout Portrait with bottom gradient mask: Bottom-anchored and bottom-bleeding -->
+      <div class="preloader-portrait-wrap" id="preloader-portrait-wrap" style="opacity:0;transform:translate3d(-50%,100%,0);">
+        <picture class="preloader-portrait-picture">
+          <source srcset="/assets/vikram-avatar-1200w.webp 1200w, /assets/vikram-avatar-1800w.webp 1800w" sizes="(max-width: 600px) 80vw, 55vw" type="image/webp" />
+          <source srcset="/assets/vikram-avatar-1200w.png 1200w, /assets/vikram-avatar-1800w.png 1800w" sizes="(max-width: 600px) 80vw, 55vw" type="image/png" />
+          <img src="/assets/vikram-avatar-1800w.webp" alt="" width="1800" height="1830" fetchpriority="high" class="preloader-portrait-img" id="preloader-portrait-img" />
+        </picture>
+      </div>
+    </div>
+  </aside>
 
   <!-- Ambient Film Grain -->
   <div class="noise-overlay"></div>
@@ -85,33 +347,6 @@
     <div class="cursor-ring"></div>
     <div class="cursor-label">EXPLORE</div>
   </div>
-
-  <!-- Branded Preloader -->
-  <aside class="preloader" aria-label="Loading vikram.dev portfolio">
-    <div class="preloader-shutter-top"></div>
-    <div class="preloader-shutter-bottom"></div>
-    
-    <div class="preloader-content">
-      <svg class="preloader-logo-svg" viewBox="0 0 64 64" fill="none">
-        <circle cx="32" cy="32" r="26" stroke="#252D3D" stroke-width="2"/>
-        <circle cx="32" cy="32" r="26" stroke="#FF6B35" stroke-width="2.5" class="preloader-path" stroke-linecap="round"/>
-        <path d="M19 24 L27 40 L35 24" stroke="#FF6B35" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="preloader-path"/>
-        <path d="M33 24 L41 24 C46.5 24 49 27.5 49 32 C49 36.5 46.5 40 41 40 L33 40" stroke="#FF6B35" stroke-width="3" stroke-linecap="round" class="preloader-path"/>
-        <circle cx="43" cy="22" r="2.5" fill="#00F0FF"/>
-      </svg>
-
-      <div class="preloader-progress-wrap">
-        <span class="preloader-counter">00</span>
-        <span class="preloader-pct">%</span>
-      </div>
-
-      <div class="preloader-bar-track">
-        <div class="preloader-bar-fill"></div>
-      </div>
-
-      <span class="preloader-status">INITIALIZING SYSTEMS // VIKRAM.DEV</span>
-    </div>
-  </aside>
 
   <!-- Site Navigation Header -->
   <header class="site-header" id="site-header">
@@ -527,6 +762,31 @@
 
               <!-- HeyGen AI Video Container (Fades in when activated) -->
               <div class="about-video-container" id="about-video-container" aria-hidden="true">
+                <!-- Loading Placeholder (Shown while video stream connects/buffers) -->
+                <div class="about-video-placeholder" id="about-video-placeholder" aria-hidden="true">
+                  <picture class="placeholder-poster-pic">
+                    <source srcset="/assets/heygen-poster.webp" type="image/webp" />
+                    <img src="/assets/heygen-poster.jpg" alt="" class="placeholder-poster-img" />
+                  </picture>
+                  <div class="placeholder-overlay">
+                    <div class="placeholder-scanner"></div>
+                    <div class="placeholder-loader-content">
+                      <div class="placeholder-spinner-wrap">
+                        <div class="placeholder-spinner-ring"></div>
+                        <div class="placeholder-spinner-dot"></div>
+                      </div>
+                      <div class="placeholder-status-pill">
+                        <span class="pulsar-dot-live"></span>
+                        <span class="placeholder-status-text">INITIALIZING DIGITAL TWIN...</span>
+                      </div>
+                      <div class="placeholder-progress-track">
+                        <div class="placeholder-progress-shimmer"></div>
+                      </div>
+                      <p class="placeholder-subtext">Connecting AI Video Stream</p>
+                    </div>
+                  </div>
+                </div>
+
                 <div class="about-video-frame-wrap" id="about-video-frame-wrap"></div>
                 <button class="about-video-close-btn" id="about-video-close-btn" type="button" title="Return to Photo" aria-label="Return to Photo">
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
@@ -1454,43 +1714,159 @@ async def query_knowledge(topic: str) -> dict:
     </section>
 
     <!-- SECTION 7: EDUCATION & CERTIFICATIONS -->
-    <section id="education" class="education-section">
+    <section id="education" class="education-section" aria-labelledby="education-title">
       <div class="container">
         <div class="section-header reveal-suspense">
-          <div class="section-eyebrow">Academic &amp; Training</div>
-          <h2 class="section-title">Education &amp; Certifications</h2>
+          <div class="section-eyebrow" data-anim="scramble">Academic &amp; Continuous Growth</div>
+          <h2 class="section-title" id="education-title" data-anim="lines">Education &amp; Credentials</h2>
+          <p class="section-subtitle">Formal computer science foundations paired with specialized full-stack engineering.</p>
         </div>
 
-        <div class="edu-grid">
-          <div class="edu-card reveal-suspense">
-            <div class="edu-icon-wrap">
-              <div class="edu-halo-ring"></div>
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+        <div id="education-root" class="education-root">
+          <!-- Fallback semantic timeline for No-JS / pre-hydration -->
+          <div class="education-timeline-container" id="education-timeline-container">
+            <div class="education-rail-track" aria-hidden="true">
+              <div class="education-rail-line" id="education-rail-line"></div>
             </div>
-            <div>
-              <div class="edu-stamp"><span class="stamp-dot"></span> DEGREE ACCREDITED</div>
-              <h3 class="edu-title">B.Sc Computer Science</h3>
-              <div class="edu-institution">Government Arts &amp; Science College</div>
-              <div class="edu-period">Bharathidasan University • 2017 – 2020</div>
-              <p style="font-size: 0.88rem; color: var(--text-secondary); margin-top: 0.5rem;">
-                Core foundations in computer algorithms, data structures, relational database management systems (RDBMS), and software engineering principles.
-              </p>
-            </div>
-          </div>
 
-          <div class="edu-card reveal-suspense">
-            <div class="edu-icon-wrap">
-              <div class="edu-halo-ring"></div>
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            </div>
-            <div>
-              <div class="edu-stamp"><span class="stamp-dot"></span> CERTIFIED ENTERPRISE DEVELOPER</div>
-              <h3 class="edu-title">Java Full Stack Training</h3>
-              <div class="edu-institution">Besant Technologies</div>
-              <div class="edu-period">Professional Certification • 2023 – 2024</div>
-              <p style="font-size: 0.88rem; color: var(--text-secondary); margin-top: 0.5rem;">
-                Rigorous full-stack software development training spanning object-oriented Java, Spring foundations, RESTful microservices, and modern frontend frameworks.
-              </p>
+            <ol class="education-cards-grid" role="list">
+              <li class="education-item" id="edu-item-bsc">
+                <div class="edu-timeline-node" aria-hidden="true">
+                  <span class="edu-node-glow"></span>
+                  <span class="edu-node-pulse"></span>
+                  <span class="edu-node-dot"></span>
+                  <span class="edu-node-year" data-anim="scramble">2017 – 2020</span>
+                </div>
+
+                <article class="edu-card spotlight-card reveal-suspense" data-edu-id="bsc">
+                  <span class="edu-ghost-year" aria-hidden="true">2020</span>
+                  <div class="edu-card-top">
+                    <div class="edu-icon-wrap" aria-hidden="true">
+                      <div class="edu-halo-ring"></div>
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                        <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                      </svg>
+                    </div>
+                    <div class="edu-meta-badges">
+                      <span class="edu-type-chip">BACHELOR'S DEGREE</span>
+                      <span class="edu-duration-chip">3 years</span>
+                    </div>
+                  </div>
+
+                  <div class="edu-card-heading">
+                    <h3 class="edu-card-title" data-anim="lines">B.Sc Computer Science</h3>
+                    <div class="edu-institution-row">
+                      <span class="edu-institution">Government Arts &amp; Science College</span>
+                      <span class="edu-sep" aria-hidden="true">•</span>
+                      <span class="edu-affiliation">Bharathidasan University</span>
+                    </div>
+                    <div class="edu-time-range">
+                      <time datetime="2017" class="edu-time">2017</time>
+                      <span class="edu-time-sep" aria-hidden="true">–</span>
+                      <time datetime="2020" class="edu-time">2020</time>
+                    </div>
+                  </div>
+
+                  <p class="edu-description" data-anim="words">
+                    Core foundations in algorithms, data structures, relational databases (RDBMS) and software engineering.
+                  </p>
+
+                  <div class="edu-relevance-box" data-anim-stagger>
+                    <span class="edu-relevance-label">WHY IT MATTERS TO YOU</span>
+                    <p class="edu-relevance-text">
+                      Solid database and logic fundamentals behind the custom plugins and queries I write.
+                    </p>
+                  </div>
+
+                  <div class="edu-skills-wrap" data-anim-stagger aria-label="Core competencies">
+                    <span class="edu-skill-chip">Data Structures</span>
+                    <span class="edu-skill-chip">Algorithms</span>
+                    <span class="edu-skill-chip">RDBMS</span>
+                    <span class="edu-skill-chip">Software Engineering</span>
+                  </div>
+                </article>
+              </li>
+
+              <li class="education-item" id="edu-item-java">
+                <div class="edu-timeline-node" aria-hidden="true">
+                  <span class="edu-node-glow"></span>
+                  <span class="edu-node-pulse"></span>
+                  <span class="edu-node-dot"></span>
+                  <span class="edu-node-year" data-anim="scramble">2023 – 2024</span>
+                </div>
+
+                <article class="edu-card spotlight-card reveal-suspense" data-edu-id="java">
+                  <span class="edu-ghost-year" aria-hidden="true">2024</span>
+                  <div class="edu-card-top">
+                    <div class="edu-icon-wrap" aria-hidden="true">
+                      <div class="edu-halo-ring"></div>
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="12" cy="8" r="7"/>
+                        <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>
+                      </svg>
+                    </div>
+                    <div class="edu-meta-badges">
+                      <span class="edu-type-chip">TRAINING CERTIFICATE</span>
+                      <span class="edu-duration-chip">1 year</span>
+                    </div>
+                  </div>
+
+                  <div class="edu-card-heading">
+                    <h3 class="edu-card-title" data-anim="lines">Java Full Stack Training</h3>
+                    <div class="edu-institution-row">
+                      <span class="edu-institution">Besant Technologies</span>
+                      <span class="edu-sep" aria-hidden="true">•</span>
+                      <span class="edu-affiliation">Professional training program</span>
+                    </div>
+                    <div class="edu-time-range">
+                      <time datetime="2023" class="edu-time">2023</time>
+                      <span class="edu-time-sep" aria-hidden="true">–</span>
+                      <time datetime="2024" class="edu-time">2024</time>
+                    </div>
+                  </div>
+
+                  <p class="edu-description" data-anim="words">
+                    Hands-on full-stack training covering object-oriented Java, Spring fundamentals, REST services and modern frontend frameworks.
+                  </p>
+
+                  <div class="edu-relevance-box" data-anim-stagger>
+                    <span class="edu-relevance-label">WHY IT MATTERS TO YOU</span>
+                    <p class="edu-relevance-text">
+                      Backend and API skills that carry into the integrations and custom web apps I build.
+                    </p>
+                  </div>
+
+                  <div class="edu-skills-wrap" data-anim-stagger aria-label="Core competencies">
+                    <span class="edu-skill-chip">Java</span>
+                    <span class="edu-skill-chip">Spring</span>
+                    <span class="edu-skill-chip">REST APIs</span>
+                    <span class="edu-skill-chip">Frontend Frameworks</span>
+                  </div>
+                </article>
+              </li>
+            </ol>
+
+            <div class="education-ongoing-wrap">
+              <article class="edu-card edu-card--ongoing spotlight-card reveal-suspense" data-edu-id="ongoing-learning">
+                <div class="edu-ongoing-inner">
+                  <div class="edu-ongoing-header">
+                    <div class="edu-ongoing-meta">
+                      <span class="pulsar-dot-copper" aria-hidden="true"></span>
+                      <span class="edu-type-chip">ONGOING</span>
+                    </div>
+                    <h3 class="edu-ongoing-title">Currently Learning &amp; Exploring</h3>
+                    <p class="edu-ongoing-tagline">I keep building skills alongside client work.</p>
+                  </div>
+                  <div class="edu-ongoing-chips" data-anim-stagger aria-label="Currently exploring technologies">
+                    <span class="edu-chip-ongoing">MCP Servers</span>
+                    <span class="edu-chip-ongoing">LLM Tool Workflows</span>
+                    <span class="edu-chip-ongoing">Custom Gutenberg Blocks</span>
+                    <span class="edu-chip-ongoing">Headless WordPress</span>
+                    <span class="edu-chip-ongoing">Next.js &amp; Go (custom CMS)</span>
+                  </div>
+                </div>
+              </article>
             </div>
           </div>
         </div>
@@ -1501,60 +1877,124 @@ async def query_knowledge(topic: str) -> dict:
     <section id="testimonials" class="testimonials-section">
       <div class="container">
         <div class="section-header reveal-suspense">
-          <div class="section-eyebrow">Client Endorsements</div>
-          <h2 class="section-title">Client Trust &amp; Testimonials</h2>
+          <div class="section-header-top">
+            <div class="section-header-titles">
+              <div class="section-eyebrow" data-anim="scramble">Client Endorsements</div>
+              <h2 class="section-title" data-anim="lines">Trusted by Agencies &amp; Growing Businesses</h2>
+              <p class="section-subtitle">Feedback from the people I've built custom WordPress solutions for.</p>
+            </div>
+            <div class="testimonials-rating-pill" id="testimonials-rating-pill" aria-label="5.0 out of 5 stars based on 4 client reviews">
+              <span class="rating-stars" aria-hidden="true">★★★★★</span>
+              <span class="rating-text" id="testimonials-rating-text">5.0 · 4 client reviews</span>
+            </div>
+          </div>
         </div>
 
-        <div class="testimonials-grid">
-          <div class="testimonial-card reveal-suspense">
-            <div class="testimonial-top-row">
-              <div class="testimonial-stars" aria-label="5 stars rating">★★★★★</div>
-              <span class="verified-client-badge"><span class="pulsar-dot-green"></span> VERIFIED CLIENT</span>
-            </div>
-            <p class="testimonial-quote">
-              "Vikram delivered a custom Square payment plugin that completely streamlined our annual guild membership renewals. His code was clean, well-documented, and executed in record time."
-            </p>
-            <div class="testimonial-author">
-              <div class="author-avatar-placeholder">MK</div>
-              <div>
-                <div class="author-name">Eleanor Vance</div>
-                <div class="author-role">Director, Machine Knitters Guild</div>
+        <div id="testimonials-root" class="testimonials-root">
+          <!-- Fallback simple stacked list for No-JS / pre-hydration -->
+          <div class="testimonials-fallback">
+            <article class="testimonial-fallback-card">
+              <div class="spotlight-top-row">
+                <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+                <div class="client-review-badge">
+                  <span class="pulsar-dot-green" aria-hidden="true"></span>
+                  <span>CLIENT REVIEW</span>
+                </div>
               </div>
-            </div>
-          </div>
+              <blockquote class="spotlight-quote">
+                "Vikram built a custom Square payment plugin that streamlined membership renewals for our client. His code was clean and well documented, and he delivered quickly."
+              </blockquote>
+              <div class="spotlight-chips">
+                <span class="chip-project">CUSTOM SQUARE PAYMENT PLUGIN</span>
+                <span class="chip-result">✓ Simpler annual membership renewals</span>
+              </div>
+              <div class="spotlight-author-row">
+                <div class="testimonial-avatar-ring avatar-spotlight" aria-hidden="true">
+                  <div class="testimonial-avatar-inner"><span>JH</span></div>
+                </div>
+                <div class="spotlight-author-info">
+                  <div class="spotlight-author-name">Joannie Herzer</div>
+                  <div class="spotlight-author-meta">Sr. Project Manager · 360 Web Designs</div>
+                </div>
+              </div>
+            </article>
 
-          <div class="testimonial-card reveal-suspense">
-            <div class="testimonial-top-row">
-              <div class="testimonial-stars" aria-label="5 stars rating">★★★★★</div>
-              <span class="verified-client-badge"><span class="pulsar-dot-green"></span> VERIFIED CLIENT</span>
-            </div>
-            <p class="testimonial-quote">
-              "Our agency portfolio went from a sluggish 4-second loading mess to an instant 18ms AJAX filtering engine. Vikram's understanding of WordPress internals and Transients caching is top-tier."
-            </p>
-            <div class="testimonial-author">
-              <div class="author-avatar-placeholder">36</div>
-              <div>
-                <div class="author-name">Marcus Chen</div>
-                <div class="author-role">Creative Director, 360 Web Designs</div>
+            <article class="testimonial-fallback-card">
+              <div class="spotlight-top-row">
+                <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+                <div class="client-review-badge">
+                  <span class="pulsar-dot-green" aria-hidden="true"></span>
+                  <span>CLIENT REVIEW</span>
+                </div>
               </div>
-            </div>
-          </div>
+              <blockquote class="spotlight-quote">
+                "Our portfolio site went from a sluggish multi-second load to near-instant filtering. Vikram really understands WordPress internals and caching."
+              </blockquote>
+              <div class="spotlight-chips">
+                <span class="chip-project">PERFORMANCE &amp; AJAX FILTERING</span>
+              </div>
+              <div class="spotlight-author-row">
+                <div class="testimonial-avatar-ring avatar-spotlight" aria-hidden="true">
+                  <div class="testimonial-avatar-inner"><span>MC</span></div>
+                </div>
+                <div class="spotlight-author-info">
+                  <div class="spotlight-author-name">Marcus Chen</div>
+                  <div class="spotlight-author-meta">Creative Director · 360 Web Designs</div>
+                </div>
+              </div>
+            </article>
 
-          <div class="testimonial-card reveal-suspense">
-            <div class="testimonial-top-row">
-              <div class="testimonial-stars" aria-label="5 stars rating">★★★★★</div>
-              <span class="verified-client-badge"><span class="pulsar-dot-green"></span> VERIFIED CLIENT</span>
-            </div>
-            <p class="testimonial-quote">
-              "The customized Vedic LMS calculator Vikram built generates thousands of natal PDF reports flawlessly every month. He understands both complex algorithmic logic and intuitive UX."
-            </p>
-            <div class="testimonial-author">
-              <div class="author-avatar-placeholder">AI</div>
-              <div>
-                <div class="author-name">Ananya Sharma</div>
-                <div class="author-role">Founder, Aastral Insights</div>
+            <article class="testimonial-fallback-card">
+              <div class="spotlight-top-row">
+                <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+                <div class="client-review-badge">
+                  <span class="pulsar-dot-green" aria-hidden="true"></span>
+                  <span>CLIENT REVIEW</span>
+                </div>
               </div>
-            </div>
+              <blockquote class="spotlight-quote">
+                "The custom Vedic LMS calculator Vikram built generates thousands of natal PDF reports flawlessly every month. He understands both the complex logic and the user experience."
+              </blockquote>
+              <div class="spotlight-chips">
+                <span class="chip-project">VEDIC LMS CALCULATOR</span>
+                <span class="chip-result">✓ Thousands of PDF reports generated monthly</span>
+              </div>
+              <div class="spotlight-author-row">
+                <div class="testimonial-avatar-ring avatar-spotlight" aria-hidden="true">
+                  <div class="testimonial-avatar-inner"><span>AS</span></div>
+                </div>
+                <div class="spotlight-author-info">
+                  <div class="spotlight-author-name">Ananya Sharma</div>
+                  <div class="spotlight-author-meta">Founder · Aastral Insights</div>
+                </div>
+              </div>
+            </article>
+
+            <article class="testimonial-fallback-card">
+              <div class="spotlight-top-row">
+                <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+                <div class="client-review-badge">
+                  <span class="pulsar-dot-green" aria-hidden="true"></span>
+                  <span>CLIENT REVIEW</span>
+                </div>
+              </div>
+              <blockquote class="spotlight-quote">
+                "Vikram engineered our custom MomWgn dispatch portal and Stripe payment workflows with flawless reliability. His solution replaced costly third-party SaaS tools and handles our daily ride bookings with ease."
+              </blockquote>
+              <div class="spotlight-chips">
+                <span class="chip-project">MOMWGN RIDE OS</span>
+                <span class="chip-result">✓ 1,200+ monthly rides handled with zero payment failures</span>
+              </div>
+              <div class="spotlight-author-row">
+                <div class="testimonial-avatar-ring avatar-spotlight" aria-hidden="true">
+                  <div class="testimonial-avatar-inner"><span>TT</span></div>
+                </div>
+                <div class="spotlight-author-info">
+                  <div class="spotlight-author-name">Tawnya Toller</div>
+                  <div class="spotlight-author-meta">Creative Director · Digital Lagoon</div>
+                </div>
+              </div>
+            </article>
           </div>
         </div>
       </div>

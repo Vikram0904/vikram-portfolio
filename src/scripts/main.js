@@ -1,3 +1,4 @@
+import { initTextAnimations } from './text-animations.js';
 /**
  * VIKRAM.DEV — Master Application Orchestrator
  * Integrates Lenis Smooth Scroll, GSAP ScrollTrigger, Three.js WebGL & Interactive UI Modules
@@ -17,6 +18,8 @@ import { init3DInteractions } from './3d-interactions.js';
 import { initPinnedProcess } from './pinned-process.js';
 import { initStackedProjects } from './stacked-projects.js';
 import { initHeroVideo } from './hero-video.js';
+import { initEducation } from './education.js';
+import { initTestimonials } from './testimonials.js';
 import { initFooter } from './footer.js';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -177,6 +180,9 @@ document.addEventListener('DOMContentLoaded', () => {
   initContactForm();
   initAudioControls();
   initHeroVideo();
+  initEducation();
+  initTestimonials();
+  initTextAnimations();
   initMobileMenu();
   initFooter();
 

@@ -24,8 +24,7 @@ dist-ssr
 *.sw?
 
 # Temporary test artifacts
-scratch/test-dark-composite.jpg
-scratch/*.png
+scratch/
 
 # Environment & Netlify local state
 .env
