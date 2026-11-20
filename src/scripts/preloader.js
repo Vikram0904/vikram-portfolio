@@ -1,53 +1,56 @@
 /**
- * VIKRAM.DEV — Full-Screen Cinematic Preloader
+ * VIKRAM.DEV — Full-Screen Cinematic Preloader (Parting Gateway Architecture)
  *
- * TIMING & COMPOSITION ARCHITECTURE:
- * - 0-300ms:     Background atmosphere & soft copper glow fade in
- * - 200-1000ms:  "VIKRAM" and "DEV" slide in from sides and meet in center
- * - 900-1200ms:  Copper dot pops cleanly between the wordmarks
- * - 1100-2200ms: Wordmark moves up while portrait rises from bottom (both land together)
- * - 2200-2700ms: Short hold on the finished poster composition (tagline visible, counter = 100)
- * - 2700ms:      Exit begins (lift away over ~700ms); hero reveal starts concurrently as exit begins
- * - Counter is strictly driven by the animation progress (100 reached at 2200ms if page is ready,
- *   or held at 99 if page is still downloading, then flips to 100 and exits within 300ms).
+ * TIMING & COMPOSITION ARCHITECTURE (Total 6.0s Cinematic Experience):
+ * - 0-450ms:     Background atmosphere & soft copper glow fade in, bottom controls visible
+ * - 350-1400ms:  Wordmark ("VIKRAM • DEV") decrypts/scrambles into sharp focus at screen center (~1.05s)
+ * - 1250-1800ms: Copper dot pulses with high-tech radial flare (~550ms)
+ * - 1700-4300ms: Cinematic Parting & WebGL Particle Mosaic Emergence (~2.60s):
+ *                - Wordmark halves "VIKRAM" (left) and "DEV" (right) part sideways like an anamorphic gate
+ *                - Thousands of glowing dots & dust specks float in the air and connect into Vikram's portrait
+ *                - Wordmark elevates smoothly to upper cinema poster position (above hair)
+ *                - Tagline decrypts & fades in under the wordmark
+ * - 4300-5250ms: 950ms pristine hold on the completed composition (counter = 100%)
+ * - 5250-6050ms: Exit begins (lift away over ~800ms); concurrently launches Hero 3D WebGL reveals
  */
 
 // ============================================================================
-// SINGLE SOURCE OF TRUTH: MASTER TIMINGS CONFIGURATION
+// SINGLE SOURCE OF TRUTH: MASTER TIMINGS CONFIGURATION (6.0s TOTAL RUNTIME)
 // ============================================================================
 export const PRELOADER_CONFIG = {
-  // Step 1: 0ms - 300ms: Background & glow fade in
-  glowDuration: 0.30,           // Duration (s) for atmosphere glow & bottom controls fade in
+  // Step 1: 0ms - 450ms: Background & glow fade in
+  glowDuration: 0.45,           // Duration (s) for atmosphere glow & bottom controls fade in
 
-  // Step 2: 200ms - 1000ms: "VIKRAM" and "DEV" slide in from sides and meet in center
-  wordmarkSlideStart: 0.20,     // Timeline offset (s) when wordmarks begin sliding in
-  wordmarkSlideDuration: 0.80,  // Duration (s) for slide entrance (lands at 1.00s)
+  // Step 2: 350ms - 1400ms: Center scramble & convergence
+  scrambleStart: 0.35,          // Timeline offset (s) when wordmark scrambles into focus
+  scrambleDuration: 1.05,       // Duration (s) for scramble completion
 
-  // Step 3: 900ms - 1200ms: Copper dot pops
-  dotPopStart: 0.90,            // Timeline offset (s) when dot starts scaling up
-  dotPopDuration: 0.30,         // Duration (s) for pop & settle (completes at 1.20s)
+  // Step 3: 1250ms - 1800ms: Copper dot pop & pulse
+  dotPopStart: 1.25,            // Timeline offset (s) when dot pulses
+  dotPopDuration: 0.45,         // Duration (s) for dot settle
 
-  // Step 4: 1100ms - 2200ms: Wordmark moves up while portrait rises from bottom together
-  compositionMoveStart: 1.10,   // Timeline offset (s) when upward movement starts
-  compositionMoveDuration: 1.10,// Duration (s) for both elements to land (completes at 2.20s)
+  // Step 4: 1700ms - 4300ms: Cinematic parting & portrait particle emergence
+  partingStart: 1.70,           // Timeline offset (s) when wordmark parts and dots assemble portrait
+  partingDuration: 2.60,        // Duration (s) for full dot flight & particle assembly
 
-  // Step 5: 2200ms - 2700ms: Short hold on the finished composition (tagline visible)
-  holdDuration: 0.50,           // Hold duration (s) on completed poster frame before exit (500ms)
+  // Step 5: 4300ms - 5250ms: Pristine hold on finished poster
+  holdDuration: 0.95,           // Hold duration (s) before exit begins (950ms)
 
-  // Step 6: 2700ms: Exit begins (lift away over about 700ms)
-  exitStart: 2.70,              // Timeline timestamp (s) when upward lift exit begins
-  exitDuration: 0.70,           // Duration (s) for preloader upward lift-away exit (700ms)
+  // Step 6: 5250ms: Exit begins (lift away over ~800ms -> ends at 6.05s)
+  exitStart: 5.25,              // Timeline timestamp (s) when exit begins
+  exitDuration: 0.80,           // Duration (s) for preloader lift-away exit
 
   // Key Milestones & Thresholds
-  compositionCompleteTime: 2.20,// Timeline timestamp (s) when composition reaches 100%
-  postReadinessExitDelay: 300,  // Max delay (ms) to exit after late page load completes
-  failsafeTimeout: 7000,        // Hard failsafe timeout (7s) for slow connections
+  compositionCompleteTime: 4.30,// Timeline timestamp (s) when composition reaches 100%
+  postReadinessExitDelay: 600,  // Max delay (ms) to exit after late page load completes
+  failsafeTimeout: 10000,       // Hard failsafe timeout (10s) for slow connections
   fontTimeout: 800,             // Maximum wait (ms) for document.fonts.ready before starting
   reducedMotionDuration: 600    // Duration (ms) for prefers-reduced-motion fade
 };
 
 import { gsap } from 'gsap';
 import { CustomEase } from 'gsap/CustomEase';
+import { ParticleMosaic } from './particle-mosaic.js';
 
 // Register GSAP CustomEase plugin for snappy entrance curves
 gsap.registerPlugin(CustomEase);
@@ -74,8 +77,19 @@ export function initPreloader(onComplete) {
   const tagline = document.getElementById('preloader-tagline');
   const portraitWrap = document.getElementById('preloader-portrait-wrap');
   const portraitImg = document.getElementById('preloader-portrait-img');
+  const particleCanvas = document.getElementById('preloader-particle-canvas');
   const glow = preloader.querySelector('.preloader-glow');
   const bottomControls = preloader.querySelector('.preloader-bottom-controls');
+
+  let particleMosaic = null;
+  if (particleCanvas && portraitWrap) {
+    particleMosaic = new ParticleMosaic({
+      canvas: particleCanvas,
+      anchorEl: portraitWrap,
+      imgSrc: '/assets/vikram-avatar-1200w.webp'
+    });
+    particleMosaic.init();
+  }
 
   // Lock body & html scrolling during intro; hide behind-the-scenes content
   document.documentElement.classList.add('preloader-locked');
@@ -110,14 +124,19 @@ export function initPreloader(onComplete) {
 
   /**
    * Calculates the vertical offset required to position the wordmark
-   * precisely in the vertical center of the screen during its entrance slide.
+   * in the upper poster position (cleanly above the hair).
+   * Since default CSS position is centered (top: 50%, -50%),
+   * moving to upper poster position is an upward offset.
    */
-  function getWordmarkCenterOffset() {
+  function getWordmarkPosterOffset() {
     if (!wordmarkWrap) return 0;
-    const wrapRect = wordmarkWrap.getBoundingClientRect();
-    const screenCenterY = window.innerHeight / 2;
-    const currentCenterY = wrapRect.top + wrapRect.height / 2;
-    return screenCenterY - currentCenterY;
+    // Target top: var(--wordmark-top-margin, clamp(24px, 5.5vh, 60px))
+    // Current top center: window.innerHeight / 2
+    // Difference between target top position and center:
+    const targetTop = Math.max(24, window.innerHeight * 0.055);
+    const wrapHeight = wordmarkWrap.offsetHeight || 120;
+    const currentTop = (window.innerHeight - wrapHeight) / 2;
+    return -(currentTop - targetTop);
   }
 
   /**
@@ -146,6 +165,7 @@ export function initPreloader(onComplete) {
     }
 
     if (quick || isReducedMotion) {
+      if (particleMosaic) particleMosaic.destroy();
       gsap.to(preloader, {
         opacity: 0,
         duration: PRELOADER_CONFIG.reducedMotionDuration / 1000,
@@ -164,6 +184,7 @@ export function initPreloader(onComplete) {
       duration: PRELOADER_CONFIG.exitDuration,
       ease: 'power4.inOut',
       onComplete: () => {
+        if (particleMosaic) particleMosaic.destroy();
         unlockScroll();
         if (preloader.parentNode) preloader.parentNode.removeChild(preloader);
       }
@@ -250,34 +271,69 @@ export function initPreloader(onComplete) {
     }, 0);
   }
 
-  // 2. 0.20s - 1.00s: "VIKRAM" from left, "DEV" from right slide in and meet in the center
-  tl.fromTo(wordmarkVikram, 
-    { x: '-120vw', opacity: 0 },
+  // 2. 0.20s - 0.80s: Center convergence & decrypt into sharp focus
+  // Wordmark begins centered at (top: 50%, left: 50%)
+  tl.fromTo(wordmarkVikram,
+    { opacity: 0, filter: 'blur(10px)', scale: 0.96 },
     {
-      x: 0,
       opacity: 1,
-      duration: PRELOADER_CONFIG.wordmarkSlideDuration,
-      ease: 'preloaderSnappy'
+      filter: 'blur(0px)',
+      scale: 1,
+      duration: PRELOADER_CONFIG.scrambleDuration,
+      ease: 'power2.out'
     },
-    PRELOADER_CONFIG.wordmarkSlideStart
+    PRELOADER_CONFIG.scrambleStart
   );
 
-  tl.fromTo(wordmarkDev, 
-    { x: '120vw', opacity: 0 },
+  tl.fromTo(wordmarkDev,
+    { opacity: 0, filter: 'blur(10px)', scale: 0.96 },
     {
-      x: 0,
       opacity: 1,
-      duration: PRELOADER_CONFIG.wordmarkSlideDuration,
-      ease: 'preloaderSnappy'
+      filter: 'blur(0px)',
+      scale: 1,
+      duration: PRELOADER_CONFIG.scrambleDuration,
+      ease: 'power2.out'
     },
-    PRELOADER_CONFIG.wordmarkSlideStart
+    PRELOADER_CONFIG.scrambleStart
   );
 
-  // 3. 0.90s - 1.20s: Dot pops when they meet
+  // Scramble character decrypt effect
+  const originalVikram = 'VIKRAM';
+  const originalDev = 'DEV';
+  const scrambleChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789<>/*#_•';
+
+  tl.to({ p: 0 }, {
+    p: 1,
+    duration: PRELOADER_CONFIG.scrambleDuration,
+    ease: 'none',
+    onUpdate: function() {
+      const progress = this.targets()[0].p;
+      if (wordmarkVikram) {
+        const revealedV = Math.floor(progress * originalVikram.length);
+        wordmarkVikram.textContent = originalVikram.split('').map((char, idx) => {
+          if (idx < revealedV) return char;
+          return scrambleChars[Math.floor(Math.random() * scrambleChars.length)];
+        }).join('');
+      }
+      if (wordmarkDev) {
+        const revealedD = Math.floor(progress * originalDev.length);
+        wordmarkDev.textContent = originalDev.split('').map((char, idx) => {
+          if (idx < revealedD) return char;
+          return scrambleChars[Math.floor(Math.random() * scrambleChars.length)];
+        }).join('');
+      }
+    },
+    onComplete: function() {
+      if (wordmarkVikram) wordmarkVikram.textContent = originalVikram;
+      if (wordmarkDev) wordmarkDev.textContent = originalDev;
+    }
+  }, PRELOADER_CONFIG.scrambleStart);
+
+  // 3. 0.70s - 1.00s: Copper dot pops and pulses
   if (wordmarkDot && !isMobile) {
     tl.fromTo(wordmarkDot,
       { scale: 0, opacity: 0 },
-      { scale: 1.25, opacity: 1, duration: 0.18, ease: 'back.out(2)' },
+      { scale: 1.35, opacity: 1, duration: 0.18, ease: 'back.out(2)' },
       PRELOADER_CONFIG.dotPopStart
     ).to(wordmarkDot,
       { scale: 1, duration: 0.12, ease: 'power2.out' },
@@ -285,42 +341,55 @@ export function initPreloader(onComplete) {
     );
   }
 
-  // 4. 1.10s - 2.20s: Wordmark moves UP and portrait rises from bottom TOGETHER.
-  // Both start simultaneously at 1.10s and land together at 2.20s using snappier easing.
-  tl.to(wordmarkWrap, {
-    y: 0,
-    duration: PRELOADER_CONFIG.compositionMoveDuration,
-    ease: 'preloaderSnappy'
-  }, PRELOADER_CONFIG.compositionMoveStart);
+  // 4. 1.00s - 2.20s: CINEMATIC PARTING & PORTRAIT EMERGENCE
+  // Compute horizontal parting distance
+  const partingDistance = isMobile
+    ? Math.max(28, window.innerWidth * 0.08)
+    : Math.min(220, Math.max(90, window.innerWidth * 0.14));
 
+  // (a) Parting: VIKRAM moves left, DEV moves right
+  tl.to(wordmarkVikram, {
+    x: -partingDistance,
+    duration: PRELOADER_CONFIG.partingDuration,
+    ease: 'preloaderSnappy'
+  }, PRELOADER_CONFIG.partingStart);
+
+  tl.to(wordmarkDev, {
+    x: partingDistance,
+    duration: PRELOADER_CONFIG.partingDuration,
+    ease: 'preloaderSnappy'
+  }, PRELOADER_CONFIG.partingStart);
+
+  // (b) Wordmark wrap glides smoothly to the upper poster position (above the hair)
+  tl.to(wordmarkWrap, {
+    y: () => getWordmarkPosterOffset(),
+    duration: PRELOADER_CONFIG.partingDuration,
+    ease: 'preloaderSnappy'
+  }, PRELOADER_CONFIG.partingStart);
+
+  // (c) Tagline fades in and glides into position
   if (tagline) {
     tl.fromTo(tagline,
-      { opacity: 0, y: 12 },
-      { opacity: 1, y: 0, duration: 0.45, ease: 'power2.out' },
-      PRELOADER_CONFIG.compositionMoveStart + 0.15
+      { opacity: 0, y: 16 },
+      { opacity: 1, y: 0, duration: 1.0, ease: 'power2.out' },
+      PRELOADER_CONFIG.partingStart + 0.60
     );
   }
 
-  if (portraitWrap) {
-    tl.fromTo(portraitWrap,
-      { x: 0, xPercent: -50, yPercent: 100, y: 0, opacity: 0 },
-      {
-        x: 0,
-        xPercent: -50,
-        yPercent: 0,
-        y: 0,
-        opacity: 1,
-        duration: PRELOADER_CONFIG.compositionMoveDuration,
-        ease: 'preloaderSnappy'
-      },
-      PRELOADER_CONFIG.compositionMoveStart
-    );
+  // (d) Portrait emerges via particle mosaic gathering
+  tl.call(() => {
+    if (particleMosaic) {
+      particleMosaic.play();
+    }
+  }, null, PRELOADER_CONFIG.partingStart);
 
+  if (portraitWrap) {
     tl.to(glow, {
-      opacity: 0.38,
-      duration: PRELOADER_CONFIG.compositionMoveDuration,
+      opacity: 0.42,
+      scale: 1.15,
+      duration: PRELOADER_CONFIG.partingDuration,
       ease: 'power2.out'
-    }, PRELOADER_CONFIG.compositionMoveStart);
+    }, PRELOADER_CONFIG.partingStart);
   }
 
   // --- SYNCHRONIZED ANIMATION COUNTER LOOP ---
@@ -398,9 +467,8 @@ export function initPreloader(onComplete) {
           return;
         }
 
-        // Set initial vertical center position for wordmark meeting
-        const startCenterOffset = getWordmarkCenterOffset();
-        gsap.set(wordmarkWrap, { y: startCenterOffset });
+        // Initial state: wordmark begins centered vertically (y: 0 relative to top 50%)
+        gsap.set(wordmarkWrap, { y: 0 });
 
         // Timeline starts counting from this exact moment
         animationStartTime = performance.now();

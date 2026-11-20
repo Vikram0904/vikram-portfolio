@@ -215,24 +215,33 @@
       align-items: flex-end;
       justify-content: center;
       pointer-events: none;
-      z-index: 3;
+      z-index: 2;
     }
 
     .preloader:not(.is-playing) .preloader-portrait-wrap,
     .preloader-portrait-wrap[style*="opacity:0"] {
       opacity: 0 !important;
-      transform: translate3d(-50%, 100%, 0) !important;
+      transform: translate3d(-50%, 0, 0) !important;
+    }
+
+    .preloader-particle-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 3;
     }
 
     .preloader-wordmark-wrap {
       position: absolute;
-      top: var(--wordmark-top-margin);
+      top: 50%;
       left: 50%;
-      transform: translate3d(-50%, var(--wordmark-final-y), 0);
+      transform: translate3d(-50%, -50%, 0);
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-start;
+      justify-content: center;
       width: 100%;
       text-align: center;
       z-index: 4;
@@ -242,13 +251,13 @@
     .preloader:not(.is-playing) .wordmark-vikram,
     .wordmark-vikram[style*="opacity:0"] {
       opacity: 0 !important;
-      transform: translate3d(-120vw, 0, 0) !important;
+      transform: translate3d(0, 0, 0) !important;
     }
 
     .preloader:not(.is-playing) .wordmark-dev,
     .wordmark-dev[style*="opacity:0"] {
       opacity: 0 !important;
-      transform: translate3d(120vw, 0, 0) !important;
+      transform: translate3d(0, 0, 0) !important;
     }
 
     .preloader:not(.is-playing) .wordmark-dot,
@@ -315,26 +324,29 @@
 
     <!-- Central Stage: Wordmark, Tagline & Cutout Portrait -->
     <div class="preloader-stage" aria-hidden="true">
-      <!-- Huge Wordmark & Tagline: Positioned cleanly ABOVE the head -->
+      <!-- Huge Wordmark & Tagline: Cinematic Parting & Reveal -->
       <div class="preloader-wordmark-wrap" id="preloader-wordmark-wrap">
         <div class="preloader-wordmark">
-          <span class="wordmark-part wordmark-vikram" style="opacity:0;transform:translate3d(-120vw,0,0);">VIKRAM</span>
+          <span class="wordmark-part wordmark-vikram" style="opacity:0;">VIKRAM</span>
           <span class="wordmark-dot" aria-hidden="true" style="opacity:0;transform:scale(0);"></span>
-          <span class="wordmark-part wordmark-dev" style="opacity:0;transform:translate3d(120vw,0,0);">DEV</span>
+          <span class="wordmark-part wordmark-dev" style="opacity:0;">DEV</span>
         </div>
         <div class="preloader-tagline" id="preloader-tagline" style="opacity:0;">
           WORDPRESS DEVELOPER · AUTOMATION · AI
         </div>
       </div>
 
-      <!-- Cutout Portrait with bottom gradient mask: Bottom-anchored and bottom-bleeding -->
-      <div class="preloader-portrait-wrap" id="preloader-portrait-wrap" style="opacity:0;transform:translate3d(-50%,100%,0);">
+      <!-- Cutout Portrait with bottom gradient mask & WebGL particle canvas -->
+      <div class="preloader-portrait-wrap" id="preloader-portrait-wrap" style="opacity:0;transform:translate3d(-50%,0,0);">
         <picture class="preloader-portrait-picture">
           <source srcset="/assets/vikram-avatar-1200w.webp 1200w, /assets/vikram-avatar-1800w.webp 1800w" sizes="(max-width: 600px) 80vw, 55vw" type="image/webp" />
           <source srcset="/assets/vikram-avatar-1200w.png 1200w, /assets/vikram-avatar-1800w.png 1800w" sizes="(max-width: 600px) 80vw, 55vw" type="image/png" />
           <img src="/assets/vikram-avatar-1800w.webp" alt="" width="1800" height="1830" fetchpriority="high" class="preloader-portrait-img" id="preloader-portrait-img" />
         </picture>
       </div>
+
+      <!-- WebGL Particle Mosaic Canvas: Dots fly and assemble the image -->
+      <canvas id="preloader-particle-canvas" class="preloader-particle-canvas" aria-hidden="true"></canvas>
     </div>
   </aside>
 
