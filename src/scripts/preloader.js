@@ -36,9 +36,9 @@ export const PRELOADER_CONFIG = {
   // Step 5: 4300ms - 5250ms: Pristine hold on finished poster
   holdDuration: 0.95,           // Hold duration (s) before exit begins (950ms)
 
-  // Step 6: 5250ms: Exit begins (Space Rift & Shadow Relief parting over ~950ms)
+  // Step 6: 5250ms: Exit begins (Cinematic Cosmic Particle Dismantle & Dissolve Exit ~1.60s)
   exitStart: 5.25,              // Timeline timestamp (s) when exit begins
-  exitDuration: 0.95,           // Duration (s) for center-outward parting & shadow relief
+  exitDuration: 1.60,           // Duration (s) for cosmic particle dismantle and background dissolve
 
   // Key Milestones & Thresholds
   compositionCompleteTime: 4.30,// Timeline timestamp (s) when composition reaches 100%
@@ -81,9 +81,6 @@ export function initPreloader(onComplete) {
   const glow = preloader.querySelector('.preloader-glow');
   const bottomControls = preloader.querySelector('.preloader-bottom-controls');
   const stage = preloader.querySelector('.preloader-stage');
-  const shutterLeft = document.getElementById('preloader-shutter-left');
-  const shutterRight = document.getElementById('preloader-shutter-right');
-  const riftFlare = document.getElementById('preloader-rift-flare');
 
   let particleMosaic = null;
   if (particleCanvas && portraitWrap) {
@@ -121,7 +118,7 @@ export function initPreloader(onComplete) {
 
   function unlockScroll() {
     document.documentElement.classList.remove('preloader-locked');
-    document.body.classList.remove('preloader-locked');
+    document.body.classList.remove('preloader-locked', 'preloader-revealing');
     document.documentElement.style.overflow = '';
     document.body.style.overflow = '';
   }
@@ -144,8 +141,10 @@ export function initPreloader(onComplete) {
   }
 
   /**
-   * Exit sequence: lifts the preloader upward (0 to -100%)
-   * and triggers the hero reveal concurrently as the exit starts.
+   * Exit sequence:
+   * Dismantles Vikram's particle portrait into space (AigentX + Superbien cosmic scatter),
+   * softly dissolves the wordmark and preloader background,
+   * revealing the portfolio website underneath seamlessly.
    */
   function executeExit(quick = false) {
     if (isExiting) return;
@@ -155,6 +154,9 @@ export function initPreloader(onComplete) {
       clearTimeout(postReadyTimeout);
       postReadyTimeout = null;
     }
+
+    // Immediately unveil underlying page elements so they render beneath the preloader overlay
+    document.body.classList.add('preloader-revealing');
 
     // Accessibility state
     preloader.setAttribute('aria-hidden', 'true');
@@ -182,7 +184,7 @@ export function initPreloader(onComplete) {
       return;
     }
 
-    // Full Cinematic Space Rift & Center-Outward Shadow Relief Exit
+    // Cinematic AigentX & Superbien Cosmic Particle Scatter & Dissolve Exit
     const exitTl = gsap.timeline({
       onComplete: () => {
         if (particleMosaic) particleMosaic.destroy();
@@ -191,64 +193,67 @@ export function initPreloader(onComplete) {
       }
     });
 
-    // 1. Instantly activate shutters & prepare space rift
-    if (shutterLeft && shutterRight) {
-      gsap.set([shutterLeft, shutterRight], { display: 'block', xPercent: 0 });
-    }
-
-    // 2. Fade out bottom counter, skip button, and ambient background glow
+    // 1. Gently fade out the bottom counter and skip button
     if (bottomControls) {
-      exitTl.to(bottomControls, { opacity: 0, duration: 0.25, ease: 'power2.in' }, 0);
+      exitTl.to(bottomControls, { opacity: 0, duration: 0.25, ease: 'power2.out' }, 0);
     }
-    if (glow) {
-      exitTl.to(glow, { opacity: 0, duration: 0.35, ease: 'power2.in' }, 0);
-    }
-
-    // 3. Central Energy Rift Flare: vertical light beam ignites in center
-    if (riftFlare) {
-      exitTl.fromTo(riftFlare,
-        { scaleY: 0, opacity: 0, width: 2 },
-        { scaleY: 1, opacity: 1, width: 6, duration: 0.22, ease: 'power3.out' },
-        0.05
-      );
+    const progressLine = preloader.querySelector('.preloader-progress-line');
+    if (progressLine) {
+      exitTl.to(progressLine, { opacity: 0, duration: 0.25, ease: 'power2.out' }, 0);
     }
 
-    // 4. Center-Outward Parting / Shadow Relief:
-    // Left shutter slides left (-100%), Right shutter slides right (100%)
-    if (shutterLeft && shutterRight) {
-      exitTl.to(shutterLeft, {
-        xPercent: -100,
-        duration: PRELOADER_CONFIG.exitDuration,
-        ease: 'power4.inOut'
-      }, 0.20);
-
-      exitTl.to(shutterRight, {
-        xPercent: 100,
-        duration: PRELOADER_CONFIG.exitDuration,
-        ease: 'power4.inOut'
-      }, 0.20);
-    }
-
-    // 5. Stage contents (portrait & wordmark) scale subtly into deep space while parting
-    if (stage) {
-      exitTl.to(stage, {
-        scale: 1.08,
+    // 2. Wordmark and tagline gently drift, scale, and dissolve
+    if (wordmarkWrap) {
+      exitTl.to(wordmarkWrap, {
+        y: '-=30',
+        scale: 1.05,
         opacity: 0,
-        filter: 'blur(12px)',
-        duration: PRELOADER_CONFIG.exitDuration * 0.75,
-        ease: 'power3.in'
-      }, 0.20);
-    }
-
-    // 6. Flare blooms outward horizontally then vanishes as the universe opens
-    if (riftFlare) {
-      exitTl.to(riftFlare, {
-        width: '120vw',
-        opacity: 0,
-        duration: PRELOADER_CONFIG.exitDuration * 0.7,
+        filter: 'blur(10px)',
+        duration: 0.65,
         ease: 'power2.out'
-      }, 0.25);
+      }, 0.05);
     }
+
+    // 3. Atmosphere glow dissipates
+    if (glow) {
+      exitTl.to(glow, {
+        opacity: 0,
+        scale: 1.25,
+        duration: 0.60,
+        ease: 'power2.out'
+      }, 0.05);
+    }
+
+    // 4. TRIGGER COSMIC PARTICLE DISMANTLE:
+    // Assembled portrait dots violently dismantle and blast outward across the entire screen
+    if (particleMosaic) {
+      particleMosaic.dismantle(1.4);
+    }
+
+    // 5. Dissolve the solid black background veil into the portfolio website underneath
+    // By animating backgroundColor to transparent, the website emerges
+    // WHILE KEEPING THE PARTICLE CANVAS FULLY VISIBLE SCATTERING OVER THE LIVE WEBSITE!
+    exitTl.to(preloader, {
+      backgroundColor: 'rgba(8, 9, 12, 0)',
+      duration: 0.75,
+      ease: 'power2.inOut'
+    }, 0.15);
+
+    const preloaderBg = preloader.querySelector('.preloader-bg');
+    if (preloaderBg) {
+      exitTl.to(preloaderBg, {
+        opacity: 0,
+        duration: 0.60,
+        ease: 'power2.out'
+      }, 0.15);
+    }
+
+    // 6. Clean removal after particles have completed their outward flight into deep space
+    exitTl.to(preloader, {
+      opacity: 0,
+      duration: 0.25,
+      ease: 'power2.out'
+    }, 1.35);
   }
 
   // --- PREPARE ASSET READINESS PROMISES ---

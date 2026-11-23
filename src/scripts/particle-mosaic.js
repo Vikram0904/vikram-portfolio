@@ -13,6 +13,8 @@
  * - Interactive pointer response (cursor gently parts adjacent particles).
  */
 
+import { gsap } from 'gsap';
+
 export class ParticleMosaic {
   constructor(options = {}) {
     this.canvas = options.canvas;
@@ -29,6 +31,7 @@ export class ParticleMosaic {
     this.particleCount = 0;
     this.cellPitch = 5.0;
     this.settleTime = 1.8;
+    this.scatterProgress = 0.0;
     this.imgData = null;
     this.rafId = null;
     this.mouse = { x: -9999, y: -9999, tx: -9999, ty: -9999 };
@@ -71,6 +74,7 @@ export class ParticleMosaic {
     uniform float uDpr;
     uniform float uTime;     // elapsed seconds
     uniform float uReveal;   // seconds since play start
+    uniform float uScatter;  // 0 = assembled portrait, 1 = cosmic dismantle explosion
     uniform vec2 uMouse;     // mouse in CSS px
 
     out float vBright;
@@ -102,24 +106,47 @@ export class ParticleMosaic {
       float fly    = dust ? 0.0 : clamp((uReveal - delay) / dur, 0.0, 1.0);
       float e      = inOut(fly);
 
+      // --- COSMIC DISMANTLE & SCATTER (Aigent + Superbien style disassembly) ---
+      // Stagger each dot's dismantle departure using its unique phase and position
+      float scatterDelay = phase * 0.25 + (1.0 - aHome.y) * 0.20;
+      float sProgress = clamp((uScatter - scatterDelay) / 0.55, 0.0, 1.0);
+      float sCurve = sProgress * sProgress * (3.0 - 2.0 * sProgress); // smoothstep curve
+
+      // Radial blast direction outward from image center + curl swirl
+      vec2 center = uRect.xy + vec2(0.5, 0.45) * uRect.zw;
+      vec2 radDir = home - center;
+      float distFromCenter = length(radDir);
+      vec2 normDir = distFromCenter > 0.001 ? normalize(radDir) : vec2(0.0, 1.0);
+      vec2 tangent = vec2(-normDir.y, normDir.x) * (phase - 0.5) * 2.0;
+
+      // Blast distance expands far into outer space across entire screen
+      float blastDist = 320.0 + 850.0 * (1.0 - depth * 0.5);
+      float swirl = (phase - 0.5) * 360.0;
+      vec2 scatterOffset = (normDir * blastDist + tangent * swirl) * sCurve;
+
+      // Base assembled coordinate
       vec2 pos = mix(air, home, e);
 
-      // Organic curved flight trajectory
+      // Organic flight trajectory
       vec2 d = home - air;
       pos += vec2(-d.y, d.x) * 0.22 * sin(3.14159 * e) * (phase - 0.5);
+
+      // Apply dismantle displacement
+      pos += scatterOffset;
 
       // Interactive cursor parting
       vec2 m = pos - uMouse;
       float ml = length(m);
       pos += (ml > 0.001 ? m / ml : vec2(0.0)) * smoothstep(90.0, 0.0, ml) * 18.0 * e;
 
-      float land  = smoothstep(0.6, 1.0, e);
+      float land  = smoothstep(0.6, 1.0, e) * (1.0 - sProgress);
       float speck = mix(2.6, 1.2, depth);
       float tile  = uCell * (0.35 + 0.65 * bright);
-      float size  = mix(speck, tile, land);
+      float size  = mix(speck, tile, land) * (1.0 + sCurve * 1.0); // radiant flare during burst
 
       float dustA = dust ? mix(0.5, 0.15, smoothstep(1.5, 3.0, uReveal)) : 1.0;
-      vAlpha  = appear * mix(0.35 + 0.65 * (1.0 - depth), 1.0, land) * dustA;
+      float scatterFade = 1.0 - smoothstep(0.65, 1.0, sProgress);
+      vAlpha  = appear * mix(0.35 + 0.65 * (1.0 - depth), 1.0, land) * dustA * scatterFade;
       vBright = bright;
       vLand   = land;
       vPhase  = phase;
@@ -187,6 +214,7 @@ export class ParticleMosaic {
       dpr: gl.getUniformLocation(this.program, 'uDpr'),
       time: gl.getUniformLocation(this.program, 'uTime'),
       reveal: gl.getUniformLocation(this.program, 'uReveal'),
+      scatter: gl.getUniformLocation(this.program, 'uScatter'),
       mouse: gl.getUniformLocation(this.program, 'uMouse')
     };
 
@@ -422,20 +450,33 @@ export class ParticleMosaic {
     gl.uniform1f(this.uniforms.dpr, dpr);
     gl.uniform1f(this.uniforms.time, elapsedReveal);
     gl.uniform1f(this.uniforms.reveal, elapsedReveal);
+    gl.uniform1f(this.uniforms.scatter, this.scatterProgress);
     gl.uniform2f(this.uniforms.mouse, this.mouse.x, this.mouse.y);
 
     gl.bindVertexArray(this.vao);
     gl.drawArrays(gl.POINTS, 0, this.particleCount);
 
-    // Crossfade anchor element as particles solidify into completed portrait
-    if (elapsedReveal >= this.settleTime) {
-      if (this.anchorEl && this.anchorEl.style.opacity !== '1') {
-        const fadeProgress = Math.min(1, (elapsedReveal - this.settleTime) / 0.4);
-        this.anchorEl.style.opacity = fadeProgress.toFixed(2);
-      }
+    // Keep anchor element at 0 opacity so the dots remain purely WebGL particles
+    // and can dismantle/scatter smoothly into space without a static image behind them
+    if (this.anchorEl && this.anchorEl.style.opacity !== '0') {
+      this.anchorEl.style.opacity = '0';
     }
 
     this.rafId = requestAnimationFrame(this.render);
+  }
+
+  /**
+   * Cosmic dismantle: Particles scatter radially outward and dissolve into space (AigentX + Superbien style)
+   */
+  dismantle(duration = 1.4) {
+    if (this.anchorEl) {
+      this.anchorEl.style.opacity = '0';
+    }
+    return gsap.to(this, {
+      scatterProgress: 1.0,
+      duration: duration,
+      ease: 'power2.inOut'
+    });
   }
 
   destroy() {

@@ -315,7 +315,7 @@ h1, h2, h3, h4, h5, h6 {
   inset: 0;
   width: 100vw;
   height: 100vh;
-  background: var(--bg-darkest, #08090C);
+  background-color: var(--bg-darkest, #08090C);
   z-index: 999999;
   overflow: hidden;
   display: flex;
@@ -331,7 +331,7 @@ body.preloader-locked {
   overflow: hidden !important;
 }
 
-body.preloader-locked > *:not(.preloader) {
+body.preloader-locked:not(.preloader-revealing) > *:not(.preloader) {
   visibility: hidden !important;
 }
 
@@ -629,48 +629,10 @@ body.preloader-locked > *:not(.preloader) {
 }
 
 /* ============================================================================
-   Cinematic Space Rift & Center-Outward Shadow Relief Exit
+   Cinematic Cosmic Particle Dismantle & Dissolve Exit
    ============================================================================ */
-.preloader-shutter-left,
-.preloader-shutter-right {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 50vw;
-  background-color: #08090C;
-  z-index: 15;
-  pointer-events: none;
-  display: none; /* activated during exit sequence */
-  will-change: transform;
-}
-
-.preloader-shutter-left {
-  left: 0;
-  transform-origin: left center;
-  box-shadow: inset -24px 0 60px rgba(0, 0, 0, 0.95), 40px 0 100px rgba(0, 0, 0, 0.9);
-  border-right: 1px solid rgba(255, 107, 53, 0.25);
-}
-
-.preloader-shutter-right {
-  right: 0;
-  transform-origin: right center;
-  box-shadow: inset 24px 0 60px rgba(0, 0, 0, 0.95), -40px 0 100px rgba(0, 0, 0, 0.9);
-  border-left: 1px solid rgba(255, 107, 53, 0.25);
-}
-
-.preloader-rift-flare {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  width: 2px;
-  transform: translateX(-50%) scaleY(0);
-  background: linear-gradient(180deg, transparent 0%, #FFFFFF 25%, var(--copper, #FF6B35) 50%, #FFFFFF 75%, transparent 100%);
-  box-shadow: 0 0 25px 4px var(--copper, #FF6B35), 0 0 50px 8px rgba(255, 255, 255, 0.8);
-  z-index: 20;
-  pointer-events: none;
-  opacity: 0;
-  will-change: transform, opacity, width;
+.preloader {
+  will-change: opacity, filter;
 }
 
 /* Responsive: Ultra-wide (>= 2560px) */
