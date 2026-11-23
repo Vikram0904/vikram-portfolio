@@ -36,9 +36,9 @@ export const PRELOADER_CONFIG = {
   // Step 5: 4300ms - 5250ms: Pristine hold on finished poster
   holdDuration: 0.95,           // Hold duration (s) before exit begins (950ms)
 
-  // Step 6: 5250ms: Exit begins (lift away over ~800ms -> ends at 6.05s)
+  // Step 6: 5250ms: Exit begins (Space Rift & Shadow Relief parting over ~950ms)
   exitStart: 5.25,              // Timeline timestamp (s) when exit begins
-  exitDuration: 0.80,           // Duration (s) for preloader lift-away exit
+  exitDuration: 0.95,           // Duration (s) for center-outward parting & shadow relief
 
   // Key Milestones & Thresholds
   compositionCompleteTime: 4.30,// Timeline timestamp (s) when composition reaches 100%
@@ -80,6 +80,10 @@ export function initPreloader(onComplete) {
   const particleCanvas = document.getElementById('preloader-particle-canvas');
   const glow = preloader.querySelector('.preloader-glow');
   const bottomControls = preloader.querySelector('.preloader-bottom-controls');
+  const stage = preloader.querySelector('.preloader-stage');
+  const shutterLeft = document.getElementById('preloader-shutter-left');
+  const shutterRight = document.getElementById('preloader-shutter-right');
+  const riftFlare = document.getElementById('preloader-rift-flare');
 
   let particleMosaic = null;
   if (particleCanvas && portraitWrap) {
@@ -178,17 +182,73 @@ export function initPreloader(onComplete) {
       return;
     }
 
-    // Full cinematic upward lift-away exit (700ms)
-    gsap.to(preloader, {
-      yPercent: -100,
-      duration: PRELOADER_CONFIG.exitDuration,
-      ease: 'power4.inOut',
+    // Full Cinematic Space Rift & Center-Outward Shadow Relief Exit
+    const exitTl = gsap.timeline({
       onComplete: () => {
         if (particleMosaic) particleMosaic.destroy();
         unlockScroll();
         if (preloader.parentNode) preloader.parentNode.removeChild(preloader);
       }
     });
+
+    // 1. Instantly activate shutters & prepare space rift
+    if (shutterLeft && shutterRight) {
+      gsap.set([shutterLeft, shutterRight], { display: 'block', xPercent: 0 });
+    }
+
+    // 2. Fade out bottom counter, skip button, and ambient background glow
+    if (bottomControls) {
+      exitTl.to(bottomControls, { opacity: 0, duration: 0.25, ease: 'power2.in' }, 0);
+    }
+    if (glow) {
+      exitTl.to(glow, { opacity: 0, duration: 0.35, ease: 'power2.in' }, 0);
+    }
+
+    // 3. Central Energy Rift Flare: vertical light beam ignites in center
+    if (riftFlare) {
+      exitTl.fromTo(riftFlare,
+        { scaleY: 0, opacity: 0, width: 2 },
+        { scaleY: 1, opacity: 1, width: 6, duration: 0.22, ease: 'power3.out' },
+        0.05
+      );
+    }
+
+    // 4. Center-Outward Parting / Shadow Relief:
+    // Left shutter slides left (-100%), Right shutter slides right (100%)
+    if (shutterLeft && shutterRight) {
+      exitTl.to(shutterLeft, {
+        xPercent: -100,
+        duration: PRELOADER_CONFIG.exitDuration,
+        ease: 'power4.inOut'
+      }, 0.20);
+
+      exitTl.to(shutterRight, {
+        xPercent: 100,
+        duration: PRELOADER_CONFIG.exitDuration,
+        ease: 'power4.inOut'
+      }, 0.20);
+    }
+
+    // 5. Stage contents (portrait & wordmark) scale subtly into deep space while parting
+    if (stage) {
+      exitTl.to(stage, {
+        scale: 1.08,
+        opacity: 0,
+        filter: 'blur(12px)',
+        duration: PRELOADER_CONFIG.exitDuration * 0.75,
+        ease: 'power3.in'
+      }, 0.20);
+    }
+
+    // 6. Flare blooms outward horizontally then vanishes as the universe opens
+    if (riftFlare) {
+      exitTl.to(riftFlare, {
+        width: '120vw',
+        opacity: 0,
+        duration: PRELOADER_CONFIG.exitDuration * 0.7,
+        ease: 'power2.out'
+      }, 0.25);
+    }
   }
 
   // --- PREPARE ASSET READINESS PROMISES ---
