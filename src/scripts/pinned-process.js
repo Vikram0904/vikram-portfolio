@@ -41,10 +41,12 @@ export function initPinnedProcess() {
       scrollTrigger: {
         trigger: section,
         start: 'top top',
-        end: `+=${totalPhases * 60}%`,
+        end: () => `+=${(totalPhases - 1) * window.innerHeight}`,
         pin: stage,
+        pinSpacing: true,
         scrub: 0.8,
         anticipatePin: 1,
+        invalidateOnRefresh: true,
         onUpdate: (self) => {
           const progress = self.progress;
 
@@ -135,10 +137,14 @@ export function initPinnedProcess() {
         if (!st) return;
         const targetProgress = index / (totalPhases - 1);
         const targetScroll = st.start + targetProgress * (st.end - st.start);
-        window.scrollTo({
-          top: targetScroll,
-          behavior: 'smooth'
-        });
+        if (window.lenis) {
+          window.lenis.scrollTo(targetScroll);
+        } else {
+          window.scrollTo({
+            top: targetScroll,
+            behavior: 'smooth'
+          });
+        }
       });
     });
 

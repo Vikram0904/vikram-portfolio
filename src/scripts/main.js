@@ -16,7 +16,7 @@ import { initCaseStudies } from './case-studies.js';
 import { initContactForm } from './contact.js';
 import { init3DInteractions } from './3d-interactions.js';
 import { initPinnedProcess } from './pinned-process.js';
-import { initStackedProjects } from './stacked-projects.js';
+import { initHorizontalProjects } from './horizontal-projects.js';
 import { initHeroVideo } from './hero-video.js';
 import { initEducation } from './education.js';
 import { initTestimonials } from './testimonials.js';
@@ -34,6 +34,7 @@ function initSmoothScroll() {
   });
 
   lenis.on('scroll', ScrollTrigger.update);
+  window.lenis = lenis;
 
   gsap.ticker.add((time) => {
     lenis.raf(time * 1000);
@@ -48,7 +49,11 @@ function initSmoothScroll() {
         const targetEl = document.querySelector(targetId);
         if (targetEl) {
           e.preventDefault();
-          lenis.scrollTo(targetEl, { offset: -60 });
+          // Full-screen pinned sections (#projects, #process, #testimonials) pin at exact top (offset: 0)
+          // Normal sections use offset: -60 to account for the sticky header
+          const isPinned = targetId === '#projects' || targetId === '#process' || targetId === '#testimonials';
+          const offset = isPinned ? 0 : -60;
+          lenis.scrollTo(targetEl, { offset });
 
           // Close mobile menu if open
           const mobileDrawer = document.querySelector('.mobile-nav-drawer');
@@ -181,7 +186,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initAudioControls();
   initHeroVideo();
   initEducation();
-  initTestimonials();
   initTextAnimations();
   initMobileMenu();
   initFooter();
@@ -193,8 +197,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const lenis = initSmoothScroll();
     initScrollAnimations();
     init3DInteractions();
-    initPinnedProcess();
-    initStackedProjects();
+    initHorizontalProjects(); // Section 5 (Projects - pinned horizontal)
+    initPinnedProcess();       // Section 6 (Process - pinned methodology)
+    initTestimonials();        // Section 8 (Testimonials - 3D cylindrical drum)
     initBackToTop(lenis);
     setTimeout(() => ScrollTrigger.refresh(), 200);
 

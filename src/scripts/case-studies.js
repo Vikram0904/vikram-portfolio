@@ -4,54 +4,16 @@
 import { caseStudiesData } from './case-studies-data.js';
 
 export function initCaseStudies() {
-  const container = document.getElementById('projects-grid-container');
   const modalOverlay = document.getElementById('case-modal-overlay');
   const modalContent = document.getElementById('case-modal-content');
   const modalCloseBtn = document.getElementById('case-modal-close');
 
-  if (!container) return;
-
-  // Render Project Cards
-  container.innerHTML = caseStudiesData.map((project) => `
-    <article class="project-card" data-project-id="${project.id}">
-      <div class="project-preview-wrap" data-cursor="view">
-        <img src="${project.image}" alt="${project.title} - ${project.tagline}" class="project-preview-img" loading="lazy" />
-        <div class="project-preview-overlay"></div>
-        <span class="project-tag-pill">${project.category}</span>
-      </div>
-
-      <div class="project-body">
-        <div class="project-number">${project.number}</div>
-        <h3 class="project-title">${project.title}</h3>
-        <p class="project-synopsis">${project.synopsis}</p>
-
-        <div class="project-architecture-breakdown">
-          <div class="arch-row">
-            <span class="arch-lbl">CHALLENGE:</span>
-            <span class="arch-val">${project.problem.substring(0, 85)}...</span>
-          </div>
-          <div class="arch-row">
-            <span class="arch-lbl">SOLUTION:</span>
-            <span class="arch-val">${project.solution.substring(0, 85)}...</span>
-          </div>
-        </div>
-
-        <div class="project-tech-tags">
-          ${project.techStack.slice(0, 4).map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
-        </div>
-
-        <button class="btn-open-case interactive-el" data-open-project="${project.id}">
-          <span>EXPLORE DEEP DIVE &amp; CODE</span>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </button>
-      </div>
-    </article>
-  `).join('');
+  if (!modalOverlay || !modalContent) return;
 
   // Open Modal Handler
   function openModal(projectId) {
     const project = caseStudiesData.find(p => p.id === projectId);
-    if (!project || !modalOverlay || !modalContent) return;
+    if (!project) return;
 
     modalContent.innerHTML = `
       <div style="margin-bottom: 2rem;">
@@ -119,8 +81,8 @@ export function initCaseStudies() {
     return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
   }
 
-  // Event Listeners for Opening
-  container.addEventListener('click', (e) => {
+  // Event Listeners for Opening Modal across the entire document
+  document.addEventListener('click', (e) => {
     const trigger = e.target.closest('[data-open-project]');
     if (trigger) {
       const id = trigger.getAttribute('data-open-project');

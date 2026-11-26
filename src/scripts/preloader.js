@@ -43,7 +43,7 @@ export const PRELOADER_CONFIG = {
   // Key Milestones & Thresholds
   compositionCompleteTime: 4.30,// Timeline timestamp (s) when composition reaches 100%
   postReadinessExitDelay: 600,  // Max delay (ms) to exit after late page load completes
-  failsafeTimeout: 10000,       // Hard failsafe timeout (10s) for slow connections
+  failsafeTimeout: 6500,        // Hard failsafe timeout (6.5s) ensuring Netlify deployments never hang
   fontTimeout: 800,             // Maximum wait (ms) for document.fonts.ready before starting
   reducedMotionDuration: 600    // Duration (ms) for prefers-reduced-motion fade
 };
@@ -111,6 +111,13 @@ export function initPreloader(onComplete) {
       isWindowLoaded = true;
     }, { once: true });
   }
+
+  // NETLIFY RELIABILITY FIX:
+  // Never hold at 99% waiting indefinitely for heavy non-critical background assets.
+  // After 4.2 seconds from page start, force readiness so preloader exits smoothly and on time!
+  setTimeout(() => {
+    isWindowLoaded = true;
+  }, 4200);
 
   function isPageReady() {
     return isWindowLoaded || document.readyState === 'complete';
@@ -275,23 +282,40 @@ export function initPreloader(onComplete) {
     }
   });
 
-  // (b) Portrait image decode (with catch so it never blocks)
+  // (b) Portrait image decode (with safety timeout so slow networks/Netlify never block)
   const imagePromise = new Promise((resolve) => {
+    let resolved = false;
+    const timer = setTimeout(() => {
+      if (!resolved) { resolved = true; resolve(); }
+    }, PRELOADER_CONFIG.fontTimeout);
+
     if (!portraitImg) {
-      resolve();
+      if (!resolved) { resolved = true; clearTimeout(timer); resolve(); }
       return;
     }
     if (portraitImg.complete && portraitImg.naturalWidth > 0) {
       if (portraitImg.decode) {
-        portraitImg.decode().then(resolve).catch(resolve);
+        portraitImg.decode().then(() => {
+          if (!resolved) { resolved = true; clearTimeout(timer); resolve(); }
+        }).catch(() => {
+          if (!resolved) { resolved = true; clearTimeout(timer); resolve(); }
+        });
       } else {
-        resolve();
+        if (!resolved) { resolved = true; clearTimeout(timer); resolve(); }
       }
     } else if (portraitImg.decode) {
-      portraitImg.decode().then(resolve).catch(resolve);
+      portraitImg.decode().then(() => {
+        if (!resolved) { resolved = true; clearTimeout(timer); resolve(); }
+      }).catch(() => {
+        if (!resolved) { resolved = true; clearTimeout(timer); resolve(); }
+      });
     } else {
-      portraitImg.addEventListener('load', () => resolve(), { once: true });
-      portraitImg.addEventListener('error', () => resolve(), { once: true });
+      portraitImg.addEventListener('load', () => {
+        if (!resolved) { resolved = true; clearTimeout(timer); resolve(); }
+      }, { once: true });
+      portraitImg.addEventListener('error', () => {
+        if (!resolved) { resolved = true; clearTimeout(timer); resolve(); }
+      }, { once: true });
     }
   });
 

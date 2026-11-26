@@ -244,6 +244,9 @@ export class ParticleMosaic {
       if (this.isDestroyed) return;
       this.imgData = img;
       this.buildParticles();
+      if (this.isPlaying && this.particleCount > 0 && this.anchorEl) {
+        this.anchorEl.style.opacity = '0';
+      }
       if (typeof this.onReady === 'function') this.onReady();
     }).catch((err) => {
       console.warn('[ParticleMosaic] Image load error:', err);
@@ -380,8 +383,13 @@ export class ParticleMosaic {
     this.isPlaying = true;
     this.startTime = performance.now() / 1000;
     if (this.anchorEl) {
-      // Hide static img while particles fly
-      this.anchorEl.style.opacity = '0';
+      // Only hide static img if particles are already built and ready to render
+      if (this.particleCount > 0) {
+        this.anchorEl.style.opacity = '0';
+      } else {
+        // Fallback: keep static portrait crisp and visible until particles are ready
+        this.anchorEl.style.opacity = '1';
+      }
     }
     if (!this.rafId) {
       this.rafId = requestAnimationFrame(this.render);
@@ -409,6 +417,9 @@ export class ParticleMosaic {
 
     const gl = this.gl;
     if (!gl || !this.particleCount || this.startTime === null) {
+      if (this.anchorEl && this.anchorEl.style.opacity === '0') {
+        this.anchorEl.style.opacity = '1';
+      }
       this.rafId = requestAnimationFrame(this.render);
       return;
     }

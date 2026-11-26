@@ -295,6 +295,23 @@
 
   <!-- Master Stylesheet -->
   <link rel="stylesheet" href="/src/styles/index.css" />
+  <!-- Netlify Deployment Resilience Failsafe: Guarantees page unlock under extreme network latency -->
+  <script>
+    setTimeout(function() {
+      var p = document.getElementById('preloader');
+      if (document.body && document.body.classList.contains('preloader-locked')) {
+        document.body.classList.remove('preloader-locked');
+        document.documentElement.classList.remove('preloader-locked');
+        document.body.style.overflow = '';
+        document.documentElement.style.overflow = '';
+        if (p) {
+          p.style.opacity = '0';
+          p.style.pointerEvents = 'none';
+          setTimeout(function() { if (p && p.parentNode) p.parentNode.removeChild(p); }, 400);
+        }
+      }
+    }, 6800);
+  </script>
 </head>
 <body class="preloader-locked">
 
@@ -1474,19 +1491,73 @@
       </div>
     </section>
 
-    <!-- SECTION 5: FEATURED PROJECTS (CASE STUDIES) -->
-    <section id="projects" class="projects-section">
-      <div class="container">
-        <div class="section-header reveal-suspense">
-          <div class="section-eyebrow">Selected Case Studies</div>
-          <h2 class="section-title">Engineering Solutions with Proven Impact</h2>
-          <p class="section-subtitle">
-            Real client projects demonstrating custom plugin development, secure payment integrations, and algorithmic calculations. Click any card to inspect code and architecture.
-          </p>
-        </div>
+    <!-- SECTION 5: FEATURED PROJECTS (HORIZONTAL PINNED SHOWCASE) -->
+    <section id="projects" class="projects-section" aria-label="Featured Projects Showcase">
+      <div class="projects-pinned-stage">
+        <!-- Ambient Glowing Copper Embers Canvas (Image 2 Signature Atmosphere) -->
+        <canvas id="projects-embers-canvas" class="projects-embers-canvas" aria-hidden="true"></canvas>
+        <div class="projects-ambient-glow" aria-hidden="true"></div>
 
-        <div id="projects-grid-container" class="projects-grid">
-          <!-- Dynamically populated via case-studies.js -->
+        <div class="projects-stage-inner">
+          <!-- Stage Top Header (Image 2 Style) -->
+          <div class="projects-header-wrap">
+            <div class="section-eyebrow projects-eyebrow">
+              <span class="eyebrow-pulsar"></span>
+              <span>FEATURED WORKS</span>
+            </div>
+            <h2 class="section-title projects-hero-title">PROJECTS<span class="title-dot">.</span></h2>
+            <div class="projects-pill-tag">
+              <span>Engineering Solutions with Proven Architectural Impact</span>
+            </div>
+          </div>
+
+          <!-- Horizontal Stage Viewport (Shows EXACTLY ONE project at a time in center focus) -->
+          <div class="projects-viewport" id="projects-viewport">
+            <div class="projects-track" id="projects-track">
+              <!-- Dynamically populated via horizontal-projects.js -->
+            </div>
+          </div>
+
+          <!-- Bottom HUD Controls & Segmented Stepper -->
+          <div class="projects-hud">
+            <div class="projects-hud-counter">
+              <span class="curr-proj-num">01</span>
+              <span class="total-proj-num">/ 04</span>
+            </div>
+
+            <!-- Interactive 4-Phase Segmented Stepper -->
+            <div class="projects-hud-segments" id="projects-hud-segments" role="tablist" aria-label="Project Timeline Navigation">
+              <button class="proj-segment-pill is-active" data-index="0" role="tab" aria-selected="true">
+                <span class="seg-fill"></span>
+                <span class="seg-code">01</span>
+                <span class="seg-name">MKG GUILD</span>
+              </button>
+              <button class="proj-segment-pill" data-index="1" role="tab" aria-selected="false">
+                <span class="seg-fill"></span>
+                <span class="seg-code">02</span>
+                <span class="seg-name">360 WEB</span>
+              </button>
+              <button class="proj-segment-pill" data-index="2" role="tab" aria-selected="false">
+                <span class="seg-fill"></span>
+                <span class="seg-code">03</span>
+                <span class="seg-name">MOMWGN</span>
+              </button>
+              <button class="proj-segment-pill" data-index="3" role="tab" aria-selected="false">
+                <span class="seg-fill"></span>
+                <span class="seg-code">04</span>
+                <span class="seg-name">AASTRAL</span>
+              </button>
+            </div>
+
+            <div class="projects-hud-nav">
+              <button class="proj-nav-btn proj-nav-prev" id="proj-btn-prev" aria-label="Previous Project">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+              </button>
+              <button class="proj-nav-btn proj-nav-next" id="proj-btn-next" aria-label="Next Project">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -1885,128 +1956,52 @@ async def query_knowledge(topic: str) -> dict:
       </div>
     </section>
 
-    <!-- SECTION 8: TESTIMONIALS & TRUST HUB -->
-    <section id="testimonials" class="testimonials-section">
-      <div class="container">
-        <div class="section-header reveal-suspense">
-          <div class="section-header-top">
-            <div class="section-header-titles">
-              <div class="section-eyebrow" data-anim="scramble">Client Endorsements</div>
-              <h2 class="section-title" data-anim="lines">Trusted by Agencies &amp; Growing Businesses</h2>
-              <p class="section-subtitle">Feedback from the people I've built custom WordPress solutions for.</p>
+    <!-- SECTION 8: TESTIMONIALS & TRUST HUB (4-POINT 3D CYLINDRICAL DRUM SHOWCASE) -->
+    <section id="testimonials" class="testimonials-section" aria-label="Client Endorsements &amp; Verified Reviews">
+      <div class="testimonials-pinned-stage">
+        <!-- Ambient Radial Glow Backlight -->
+        <div class="testimonials-ambient-glow" aria-hidden="true"></div>
+
+        <div class="container testimonials-stage-inner">
+          <div class="testimonials-showcase-grid">
+            <!-- LEFT COLUMN: Heading & 4-Point Milestone Stepper -->
+            <div class="testimonials-stepper-col">
+              <div class="section-eyebrow">
+                <span class="eyebrow-pulsar"></span>
+                <span>CLIENT ENDORSEMENTS</span>
+              </div>
+              <h2 class="section-title testimonials-hero-title">
+                Proven Results for Real Businesses<span class="title-dot">.</span>
+              </h2>
+              <p class="testimonials-hero-subtext">
+                Direct feedback from agency founders, project managers, and product leads who trusted Vikram with critical WordPress architectures.
+              </p>
+
+              <!-- 4-Point Interactive Accordion List -->
+              <ol class="testimonials-drum-nav" id="testimonials-drum-nav" role="tablist" aria-label="Client Reviews">
+                <!-- Populated dynamically via testimonials.js -->
+              </ol>
+
+              <!-- Bottom Trust & Rating Pill -->
+              <div class="testimonials-rating-badge" id="testimonials-rating-pill" aria-label="5.0 out of 5 stars based on 4 verified client reviews">
+                <div class="rating-stars-row">
+                  <span class="rating-stars" aria-hidden="true">★★★★★</span>
+                  <span class="rating-val" id="testimonials-rating-text">5.0 · 4 Client Reviews</span>
+                </div>
+                <div class="rating-meta">100% On-Time Delivery · Zero Architecture Failures</div>
+              </div>
             </div>
-            <div class="testimonials-rating-pill" id="testimonials-rating-pill" aria-label="5.0 out of 5 stars based on 4 client reviews">
-              <span class="rating-stars" aria-hidden="true">★★★★★</span>
-              <span class="rating-text" id="testimonials-rating-text">5.0 · 4 client reviews</span>
+
+            <!-- RIGHT COLUMN: 3D Cylindrical Drum Stage -->
+            <div class="testimonials-drum-viewport" id="testimonials-drum-viewport">
+              <div class="testimonials-drum-track" id="testimonials-drum-track">
+                <!-- 4 3D Drum Cards dynamically rendered via testimonials.js -->
+              </div>
+
+              <!-- Atmospheric Edge Gradients -->
+              <div class="drum-fade-edge top" aria-hidden="true"></div>
+              <div class="drum-fade-edge bottom" aria-hidden="true"></div>
             </div>
-          </div>
-        </div>
-
-        <div id="testimonials-root" class="testimonials-root">
-          <!-- Fallback simple stacked list for No-JS / pre-hydration -->
-          <div class="testimonials-fallback">
-            <article class="testimonial-fallback-card">
-              <div class="spotlight-top-row">
-                <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
-                <div class="client-review-badge">
-                  <span class="pulsar-dot-green" aria-hidden="true"></span>
-                  <span>CLIENT REVIEW</span>
-                </div>
-              </div>
-              <blockquote class="spotlight-quote">
-                "Vikram built a custom Square payment plugin that streamlined membership renewals for our client. His code was clean and well documented, and he delivered quickly."
-              </blockquote>
-              <div class="spotlight-chips">
-                <span class="chip-project">CUSTOM SQUARE PAYMENT PLUGIN</span>
-                <span class="chip-result">✓ Simpler annual membership renewals</span>
-              </div>
-              <div class="spotlight-author-row">
-                <div class="testimonial-avatar-ring avatar-spotlight" aria-hidden="true">
-                  <div class="testimonial-avatar-inner"><span>JH</span></div>
-                </div>
-                <div class="spotlight-author-info">
-                  <div class="spotlight-author-name">Joannie Herzer</div>
-                  <div class="spotlight-author-meta">Sr. Project Manager · 360 Web Designs</div>
-                </div>
-              </div>
-            </article>
-
-            <article class="testimonial-fallback-card">
-              <div class="spotlight-top-row">
-                <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
-                <div class="client-review-badge">
-                  <span class="pulsar-dot-green" aria-hidden="true"></span>
-                  <span>CLIENT REVIEW</span>
-                </div>
-              </div>
-              <blockquote class="spotlight-quote">
-                "Our portfolio site went from a sluggish multi-second load to near-instant filtering. Vikram really understands WordPress internals and caching."
-              </blockquote>
-              <div class="spotlight-chips">
-                <span class="chip-project">PERFORMANCE &amp; AJAX FILTERING</span>
-              </div>
-              <div class="spotlight-author-row">
-                <div class="testimonial-avatar-ring avatar-spotlight" aria-hidden="true">
-                  <div class="testimonial-avatar-inner"><span>MC</span></div>
-                </div>
-                <div class="spotlight-author-info">
-                  <div class="spotlight-author-name">Marcus Chen</div>
-                  <div class="spotlight-author-meta">Creative Director · 360 Web Designs</div>
-                </div>
-              </div>
-            </article>
-
-            <article class="testimonial-fallback-card">
-              <div class="spotlight-top-row">
-                <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
-                <div class="client-review-badge">
-                  <span class="pulsar-dot-green" aria-hidden="true"></span>
-                  <span>CLIENT REVIEW</span>
-                </div>
-              </div>
-              <blockquote class="spotlight-quote">
-                "The custom Vedic LMS calculator Vikram built generates thousands of natal PDF reports flawlessly every month. He understands both the complex logic and the user experience."
-              </blockquote>
-              <div class="spotlight-chips">
-                <span class="chip-project">VEDIC LMS CALCULATOR</span>
-                <span class="chip-result">✓ Thousands of PDF reports generated monthly</span>
-              </div>
-              <div class="spotlight-author-row">
-                <div class="testimonial-avatar-ring avatar-spotlight" aria-hidden="true">
-                  <div class="testimonial-avatar-inner"><span>AS</span></div>
-                </div>
-                <div class="spotlight-author-info">
-                  <div class="spotlight-author-name">Ananya Sharma</div>
-                  <div class="spotlight-author-meta">Founder · Aastral Insights</div>
-                </div>
-              </div>
-            </article>
-
-            <article class="testimonial-fallback-card">
-              <div class="spotlight-top-row">
-                <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
-                <div class="client-review-badge">
-                  <span class="pulsar-dot-green" aria-hidden="true"></span>
-                  <span>CLIENT REVIEW</span>
-                </div>
-              </div>
-              <blockquote class="spotlight-quote">
-                "Vikram engineered our custom MomWgn dispatch portal and Stripe payment workflows with flawless reliability. His solution replaced costly third-party SaaS tools and handles our daily ride bookings with ease."
-              </blockquote>
-              <div class="spotlight-chips">
-                <span class="chip-project">MOMWGN RIDE OS</span>
-                <span class="chip-result">✓ 1,200+ monthly rides handled with zero payment failures</span>
-              </div>
-              <div class="spotlight-author-row">
-                <div class="testimonial-avatar-ring avatar-spotlight" aria-hidden="true">
-                  <div class="testimonial-avatar-inner"><span>TT</span></div>
-                </div>
-                <div class="spotlight-author-info">
-                  <div class="spotlight-author-name">Tawnya Toller</div>
-                  <div class="spotlight-author-meta">Creative Director · Digital Lagoon</div>
-                </div>
-              </div>
-            </article>
           </div>
         </div>
       </div>
