@@ -1,0 +1,521 @@
+/* ==========================================================================
+   ENTERPRISE INTEGRATIONS & WORKFLOW AUTOMATION ARCHITECTURE SECTION
+   Pixel-Perfect Bus Conductor Network (Matches AigentX Reference Architecture)
+   ========================================================================== */
+
+.integrations-section {
+  position: relative;
+  padding: 100px 0 120px;
+  background-color: var(--bg-darkest, #060709);
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.integrations-header-block {
+  text-align: center;
+  max-width: 820px;
+  margin: 0 auto 50px;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+  filter: none !important;
+}
+
+.integrations-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  color: var(--copper, #FF6B35);
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.integrations-title {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.15;
+  margin-bottom: 1.2rem;
+  letter-spacing: -0.02em;
+}
+
+.integrations-subtitle {
+  font-size: 1.05rem;
+  color: var(--text-secondary, #9DA5B4);
+  line-height: 1.6;
+}
+
+/* ─── Outer Diagram Canvas Container ───────────────────────────────────── */
+.integrations-diagram-wrap {
+  position: relative;
+  background: rgba(11, 14, 21, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 107, 53, 0.22);
+  border-radius: 20px;
+  padding: 36px 28px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.75), inset 0 0 40px rgba(255, 107, 53, 0.03);
+}
+
+/* Subtle background tech grid */
+.integrations-grid-bg {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 32px 32px;
+  pointer-events: none;
+  border-radius: 20px;
+}
+
+/* ─── Header Bars inside Diagram (Sources & Actions) ───────────────────── */
+.diagram-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: var(--text-muted, #7B849B);
+  text-transform: uppercase;
+}
+
+.diagram-bar-title {
+  color: #FFFFFF;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.diagram-bar-count {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--copper, #FF6B35);
+  font-weight: 600;
+}
+
+.live-signal-dot {
+  width: 6px;
+  height: 6px;
+  background: #00F0FF;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #00F0FF;
+  animation: liveSignalPulse 1.8s infinite ease-in-out;
+}
+
+@keyframes liveSignalPulse {
+  0%, 100% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.4); opacity: 1; filter: drop-shadow(0 0 4px #00F0FF); }
+}
+
+/* ─── Cards Grid Rows (6 Columns Guaranteed Visible) ───────────────────── */
+.integrations-cards-row {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 14px;
+  position: relative;
+  z-index: 5;
+}
+
+.integration-card {
+  position: relative;
+  background: rgba(16, 21, 31, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 16px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+  cursor: pointer;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+}
+
+.integration-card:hover {
+  transform: translateY(-4px);
+  background: rgba(22, 29, 44, 0.98);
+  border-color: var(--copper, #FF6B35);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(255, 107, 53, 0.3);
+}
+
+.integration-action-card:hover {
+  border-color: #00F0FF;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 240, 255, 0.3);
+}
+
+.integration-card-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  transition: all 0.3s ease;
+}
+
+.integration-card:hover .integration-card-icon {
+  background: rgba(255, 107, 53, 0.18);
+  color: var(--copper, #FF6B35);
+  transform: scale(1.08);
+}
+
+.integration-action-card:hover .integration-card-icon {
+  background: rgba(0, 240, 255, 0.18);
+  color: #00F0FF;
+}
+
+.integration-card-name {
+  font-family: var(--font-heading, sans-serif);
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.2;
+}
+
+.integration-card-role {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.62rem;
+  color: var(--text-muted, #7B849B);
+  line-height: 1.2;
+}
+
+/* ─── Circuit Bus Network (Pixel-Perfect Alignment with Cards) ─────────── */
+.circuit-bus-network {
+  position: relative;
+  width: 100%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.bus-stems-row {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 14px;
+  width: 100%;
+  height: 28px;
+}
+
+.bus-stem {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+}
+
+.stem-line {
+  width: 1.5px;
+  height: 100%;
+  background: rgba(255, 107, 53, 0.35);
+  transition: all 0.3s ease;
+}
+
+.lower-bus .stem-line {
+  background: rgba(0, 240, 255, 0.32);
+}
+
+.bus-stem.is-active .stem-line {
+  background: #FF6B35;
+  box-shadow: 0 0 10px #FF6B35;
+  width: 2.5px;
+}
+
+.lower-bus .bus-stem.is-active .stem-line {
+  background: #00F0FF;
+  box-shadow: 0 0 10px #00F0FF;
+  width: 2.5px;
+}
+
+/* Horizontal Bus Rail spanning from Col 1 center to Col 6 center */
+.bus-horizontal-rail {
+  position: relative;
+  height: 2px;
+  margin: 0 calc(100% / 12);
+  background: rgba(255, 107, 53, 0.35);
+  box-shadow: 0 0 8px rgba(255, 107, 53, 0.2);
+  overflow: hidden;
+}
+
+.lower-bus .bus-horizontal-rail {
+  background: rgba(0, 240, 255, 0.32);
+  box-shadow: 0 0 8px rgba(0, 240, 255, 0.2);
+}
+
+/* Traveling pulse across rail */
+.rail-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 140px;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, #FF6B35, #FFFFFF, #FF6B35, transparent);
+  filter: drop-shadow(0 0 8px #FF6B35);
+  animation: railScanPulse 3.5s linear infinite;
+}
+
+.lower-bus .rail-glow {
+  background: linear-gradient(90deg, transparent, #00F0FF, #FFFFFF, #00F0FF, transparent);
+  filter: drop-shadow(0 0 8px #00F0FF);
+  animation: railScanPulse 3.5s linear infinite reverse;
+}
+
+@keyframes railScanPulse {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(850%); }
+}
+
+/* Center vertical trunks to/from Core */
+.bus-trunk-down,
+.bus-trunk-up {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  height: 32px;
+}
+
+.trunk-line {
+  width: 2px;
+  height: 100%;
+  background: #FF6B35;
+  box-shadow: 0 0 10px rgba(255, 107, 53, 0.6);
+  position: relative;
+  overflow: hidden;
+}
+
+.lower-bus .trunk-line {
+  background: #00F0FF;
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.6);
+}
+
+.trunk-pulse {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 18px;
+  background: #FFFFFF;
+  box-shadow: 0 0 12px #FFFFFF;
+  animation: trunkLaserFlow 1.8s ease-in-out infinite;
+}
+
+@keyframes trunkLaserFlow {
+  0% { transform: translateY(-100%); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateY(200%); opacity: 0; }
+}
+
+/* ─── Central Processor Node with + Crosshair Reticles ─────────────────── */
+.integrations-core-row {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.integration-core-box {
+  position: relative;
+  background: #090C13 !important;
+  border: 1px solid rgba(0, 240, 255, 0.6) !important;
+  border-radius: 8px;
+  padding: 16px 36px;
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  cursor: pointer;
+  opacity: 1 !important;
+  visibility: visible !important;
+  box-shadow: 0 0 35px rgba(0, 240, 255, 0.22), inset 0 0 20px rgba(0, 240, 255, 0.1);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.integration-core-box:hover {
+  transform: scale(1.04);
+  border-color: #00F0FF !important;
+  box-shadow: 0 0 50px rgba(0, 240, 255, 0.4), inset 0 0 30px rgba(0, 240, 255, 0.2);
+}
+
+.integration-core-box.is-processing {
+  border-color: #FF6B35 !important;
+  box-shadow: 0 0 45px rgba(255, 107, 53, 0.45), inset 0 0 25px rgba(255, 107, 53, 0.2);
+}
+
+.integration-core-box.is-firing {
+  animation: coreFiringShockwave 0.8s ease-out;
+}
+
+@keyframes coreFiringShockwave {
+  0% { transform: scale(1); box-shadow: 0 0 0px #00F0FF; }
+  50% { transform: scale(1.08); box-shadow: 0 0 80px #00F0FF, 0 0 40px #FF6B35; }
+  100% { transform: scale(1); }
+}
+
+/* 4 Corner Crosshairs (+ reticles matching reference image) */
+.reticle-corner {
+  position: absolute;
+  color: rgba(0, 240, 255, 0.9);
+  font-family: var(--font-mono, monospace);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+  pointer-events: none;
+}
+.reticle-tl { top: -8px; left: -8px; }
+.reticle-tr { top: -8px; right: -8px; }
+.reticle-bl { bottom: -8px; left: -8px; }
+.reticle-br { bottom: -8px; right: -8px; }
+
+.core-indicator-dot {
+  width: 9px;
+  height: 9px;
+  background: #00F0FF;
+  border-radius: 2px;
+  box-shadow: 0 0 10px #00F0FF;
+  animation: coreDotBlink 1.5s infinite ease-in-out;
+}
+
+@keyframes coreDotBlink {
+  0%, 100% { opacity: 0.7; transform: scale(0.9); }
+  50% { opacity: 1; transform: scale(1.2); filter: drop-shadow(0 0 6px #00F0FF); }
+}
+
+.core-label-title {
+  font-family: var(--font-heading, sans-serif);
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  letter-spacing: 0.04em;
+}
+
+.core-label-tag {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.65rem;
+  color: #00F0FF;
+  letter-spacing: 0.08em;
+}
+
+/* ─── Bottom Live Telemetry Status Ticker & Interactive Test Trigger ────── */
+.integrations-telemetry-bar {
+  margin-top: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 20px;
+  background: rgba(14, 18, 27, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.74rem;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.telemetry-status-text {
+  color: var(--text-secondary, #9DA5B4);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pulse-dot-green {
+  width: 7px;
+  height: 7px;
+  background: #10B981;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #10B981;
+}
+
+.status-highlight {
+  color: var(--copper, #FF6B35);
+  font-weight: 700;
+}
+
+.status-speed {
+  color: #00F0FF;
+  font-weight: 700;
+}
+
+.status-firing {
+  color: #F59E0B;
+  font-weight: 700;
+}
+
+.status-success {
+  color: #10B981;
+  font-weight: 700;
+}
+
+.integration-test-btn {
+  background: rgba(255, 107, 53, 0.12);
+  border: 1px solid var(--copper, #FF6B35);
+  color: var(--copper, #FF6B35);
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.25s ease;
+}
+
+.integration-test-btn:hover {
+  background: var(--copper, #FF6B35);
+  color: #FFFFFF;
+  box-shadow: 0 0 16px rgba(255, 107, 53, 0.5);
+  transform: translateY(-1px);
+}
+
+/* ─── Responsive Media Queries ─────────────────────────────────────────── */
+@media (max-width: 1199px) {
+  .integrations-cards-row {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  .circuit-bus-network {
+    display: none; /* On smaller screens, switch to clean card grid without squished bus lines */
+  }
+  .integrations-core-row {
+    padding: 24px 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .integrations-section {
+    padding: 70px 0 90px;
+  }
+  .integrations-diagram-wrap {
+    padding: 24px 16px;
+  }
+  .integrations-cards-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .integration-core-box {
+    padding: 12px 20px;
+    width: 100%;
+    justify-content: center;
+  }
+  .integrations-telemetry-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

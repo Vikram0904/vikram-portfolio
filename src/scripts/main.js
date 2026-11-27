@@ -1,4 +1,4 @@
-import { initTextAnimations } from './text-animations.js';
+import { initTextAnimations, magneticButton, heroMouseReact } from './text-animations.js';
 /**
  * VIKRAM.DEV — Master Application Orchestrator
  * Integrates Lenis Smooth Scroll, GSAP ScrollTrigger, Three.js WebGL & Interactive UI Modules
@@ -20,6 +20,8 @@ import { initHorizontalProjects } from './horizontal-projects.js';
 import { initHeroVideo } from './hero-video.js';
 import { initEducation } from './education.js';
 import { initTestimonials } from './testimonials.js';
+import { initIntegrations } from './integrations.js';
+import { initSectionNavigator } from './section-navigator.js';
 import { initFooter } from './footer.js';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -186,7 +188,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initAudioControls();
   initHeroVideo();
   initEducation();
-  initTextAnimations();
   initMobileMenu();
   initFooter();
 
@@ -199,18 +200,20 @@ document.addEventListener('DOMContentLoaded', () => {
     init3DInteractions();
     initHorizontalProjects(); // Section 5 (Projects - pinned horizontal)
     initPinnedProcess();       // Section 6 (Process - pinned methodology)
-    initTestimonials();        // Section 8 (Testimonials - 3D cylindrical drum)
+    initTestimonials();
+    initIntegrations();
+    initSectionNavigator();
+    initTextAnimations();
+    magneticButton('.interactive-el, .btn-primary, .btn-secondary, .about-video-trigger, .nav-item, .project-nav-btn');
+    heroMouseReact('.hero-title');        // Section 8 (Testimonials - 3D cylindrical drum)
     initBackToTop(lenis);
     setTimeout(() => ScrollTrigger.refresh(), 200);
 
-    // Initial Hero reveal animation
-    gsap.from('.hero-badge-wrap, .hero-title, .hero-description, .hero-cta-group, .hero-meta-strip', {
-      opacity: 0,
-      y: 40,
-      duration: 1,
-      stagger: 0.12,
-      ease: 'power3.out'
-    });
+    // Initial Hero reveal animation (guaranteed full visibility)
+    gsap.fromTo('.hero-badge-wrap, .hero-title, .hero-description, .hero-cta-group, .hero-meta-strip', 
+      { opacity: 0, y: 40, autoAlpha: 0 },
+      { opacity: 1, y: 0, autoAlpha: 1, duration: 1, stagger: 0.12, ease: 'power3.out' }
+    );
 
     gsap.from('.hero-cyber-card', {
       opacity: 0,

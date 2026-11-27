@@ -3,6 +3,9 @@
    Awwwards / FWA-Caliber Portfolio for S Vikram (AI & WordPress Developer)
    ========================================================================== */
 
+@import './section-navigator.css';
+@import './integrations.css';
+
 :root {
   /* Color Palette — Molten Copper, Obsidian Void & Cyber Cyan */
   --bg-darkest: #060709;
@@ -8094,4 +8097,40 @@ section {
   .hud-sub {
     font-size: 0.65rem;
   }
+}
+
+/* ==========================================================================
+   LATEST TEXT ANIMATION SYSTEM (SplitText, Masks, Kinetic Words & Scramble)
+   ========================================================================== */
+
+.ta-line-mask {
+  overflow: hidden !important;
+  display: block !important;
+}
+
+.ta-line {
+  display: block !important;
+  will-change: transform, opacity;
+}
+
+.ta-word {
+  display: inline-block !important;
+  will-change: transform, opacity;
+}
+
+.ta-char {
+  display: inline-block !important;
+  will-change: transform, opacity, filter;
+}
+
+/* Scrub Word Fill Transition */
+.ta-scrub-word {
+  display: inline-block;
+  opacity: 0.2;
+  transition: opacity 0.3s ease, color 0.3s ease;
+}
+
+.ta-scrub-word.is-revealed {
+  opacity: 1;
+  color: #FFFFFF;
 }

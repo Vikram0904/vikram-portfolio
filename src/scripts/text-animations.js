@@ -31,7 +31,7 @@ const triggers = [];
 
 // ─── MAIN INIT ──────────────────────────────────────────────────────
 export function initTextAnimations() {
-  const allEls = document.querySelectorAll('[data-anim]');
+  const allEls = document.querySelectorAll('[data-anim]:not(#hero [data-anim])');
   if (!allEls.length) return;
 
   // Immediately hide all animated elements to prevent FOUC
